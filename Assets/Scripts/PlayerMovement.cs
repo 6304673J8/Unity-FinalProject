@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //testttt
     //public enum Character { NONE, SUSANA, AI }; //Enumerador de personajes
     public enum Direction { NONE, UP, DOWN, LEFT, RIGHT }; //Enumerador de direcciones
 
