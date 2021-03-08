@@ -7,6 +7,8 @@ TagManager:
   - Susana
   - Enemy
   - Wall
+  - Item
+  - Breakable
   layers:
   - Default
   - TransparentFX
