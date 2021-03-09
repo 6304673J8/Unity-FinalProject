@@ -11,13 +11,12 @@ public class SusanaController : MonoBehaviour
     private Tilemap collisionTilemap;
 
     private PlayerInput controller;
+
     //Movimiento Susana
     public float mSpeed = 5.0f; //Velocidad de movimiento de Susana
     public Transform movePivot;
+    public int hp;
     Vector2 movement;
-
-    //Colisionado con objetos
-    public LayerMask obstacle;
 
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider;
@@ -62,6 +61,14 @@ public class SusanaController : MonoBehaviour
         return true;
     }
 
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+        if (hp <= 0)
+        {
+            //Se muere
+        }
+    }
     // Update is called once per frame
     /*void Update()
     {

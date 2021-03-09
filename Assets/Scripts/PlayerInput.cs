@@ -19,6 +19,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             ""id"": ""0989f67f-8947-4487-bdbc-969ec1149cea"",
             ""actions"": [
                 {
+                    ""name"": ""Lunge"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fe83857-fbf0-43b3-b54f-b41cf6c05cf5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": ""Press""
+                },
+                {
                     ""name"": ""Walking"",
                     ""type"": ""PassThrough"",
                     ""id"": ""54b0a47a-78c6-481e-a1ce-212fdd7b016b"",
@@ -82,6 +90,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Walking"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7321198-f524-4c25-9436-8a0086553968"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lunge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -90,6 +109,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
 }");
         // Floor
         m_Floor = asset.FindActionMap("Floor", throwIfNotFound: true);
+        m_Floor_Lunge = m_Floor.FindAction("Lunge", throwIfNotFound: true);
         m_Floor_Walking = m_Floor.FindAction("Walking", throwIfNotFound: true);
     }
 
@@ -140,11 +160,13 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     // Floor
     private readonly InputActionMap m_Floor;
     private IFloorActions m_FloorActionsCallbackInterface;
+    private readonly InputAction m_Floor_Lunge;
     private readonly InputAction m_Floor_Walking;
     public struct FloorActions
     {
         private @PlayerInput m_Wrapper;
         public FloorActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Lunge => m_Wrapper.m_Floor_Lunge;
         public InputAction @Walking => m_Wrapper.m_Floor_Walking;
         public InputActionMap Get() { return m_Wrapper.m_Floor; }
         public void Enable() { Get().Enable(); }
@@ -155,6 +177,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_FloorActionsCallbackInterface != null)
             {
+                @Lunge.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnLunge;
+                @Lunge.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnLunge;
+                @Lunge.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnLunge;
                 @Walking.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnWalking;
                 @Walking.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnWalking;
                 @Walking.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnWalking;
@@ -162,6 +187,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             m_Wrapper.m_FloorActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @Lunge.started += instance.OnLunge;
+                @Lunge.performed += instance.OnLunge;
+                @Lunge.canceled += instance.OnLunge;
                 @Walking.started += instance.OnWalking;
                 @Walking.performed += instance.OnWalking;
                 @Walking.canceled += instance.OnWalking;
@@ -171,6 +199,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     public FloorActions @Floor => new FloorActions(this);
     public interface IFloorActions
     {
+        void OnLunge(InputAction.CallbackContext context);
         void OnWalking(InputAction.CallbackContext context);
     }
 }
