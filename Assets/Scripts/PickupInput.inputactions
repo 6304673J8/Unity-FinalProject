@@ -1,0 +1,33 @@
+{
+    "name": "PickupInput",
+    "maps": [
+        {
+            "name": "Floor",
+            "id": "2fb68856-9dc7-4a63-a0d7-37e931662a05",
+            "actions": [
+                {
+                    "name": "Pickup",
+                    "type": "Button",
+                    "id": "6a5ed95e-a3fe-4750-9a60-27cb03b53726",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ce873be4-9d62-47d1-8f26-4f555e24f21c",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pickup",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
