@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2109804911503582316, guid: f728a9e3a710e504c86e2f2ae39d365a, type: 3}
   moveSpeed: 2
-  range: 15
+  range: 5
   hp: 100
   damage: 40
   attackDelay: 1
