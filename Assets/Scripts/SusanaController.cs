@@ -9,9 +9,12 @@ public class SusanaController : MonoBehaviour
     private Tilemap floorTilemap;
     [SerializeField]
     private Tilemap collisionTilemap;
+    [SerializeField]
+    private Tilemap breakableTilemap;
 
     private PlayerInput controller;
 
+    private enum States { NONE, ATTACK, DEFENSE };
     //Movimiento Susana
     public float mSpeed = 5.0f; //Velocidad de movimiento de Susana
     public Transform movePivot;
@@ -38,9 +41,22 @@ public class SusanaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controller.Floor.Walking.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
+        //controller.Floor.Lunge.performed += ctx => ;
         movePivot.parent = null;
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Vector3 hitPosition = Vector3.zero;
+        Vector3Int gridPosition = breakableTilemap.WorldToCell(transform.position);
+
+        if (breakableTilemap != null && breakableTilemap == collision.gameObject)
+        {
+            Debug.Log("ok");
+            breakableTilemap.SetTile(gridPosition, null);
+        }
     }
 
     private void Move(Vector2 dir)

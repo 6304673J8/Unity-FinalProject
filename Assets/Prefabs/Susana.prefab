@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2109804911503582317}
   - component: {fileID: 2109804911503582306}
   - component: {fileID: 2109804911503582307}
-  - component: {fileID: 6299360656597892995}
+  - component: {fileID: 7663931183085479129}
   m_Layer: 0
   m_Name: Susana
   m_TagString: Susana
@@ -132,7 +132,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6299360656597892995
+--- !u!114 &7663931183085479129
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,10 +147,8 @@ MonoBehaviour:
   floorTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
   mSpeed: 5
-  movePivot: {fileID: 5518576781351040933}
-  obstacle:
-    serializedVersion: 2
-    m_Bits: 0
+  movePivot: {fileID: 0}
+  hp: 0
 --- !u!1 &4877203436083515699
 GameObject:
   m_ObjectHideFlags: 0
