@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6652136071742272268}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.32, y: 0.32, z: 1}
+  m_LocalScale: {x: 0.04379169, y: 0.04379169, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,18 +97,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1331687, y: 0.13317871}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
+    oldSize: {x: 15.625, y: 15.625}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 16.247967, y: 15.715158}
   m_EdgeRadius: 0
 --- !u!50 &6652136071742272271
 Rigidbody2D:
@@ -145,5 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2109804911503582316, guid: f728a9e3a710e504c86e2f2ae39d365a, type: 3}
   moveSpeed: 2
+  range: 0
   hp: 100
   damage: 40
+  attackDelay: 0
