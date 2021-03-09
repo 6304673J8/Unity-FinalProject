@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public int hp;
     public int damage;
     private float lastAttackTime;
-    public float attackDelay;
+    public float attackDelay = 1;
     private Rigidbody2D enemyrb;
     private Vector2 movement;
     // Start is called before the first frame update 
@@ -31,9 +31,14 @@ public class Enemy : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         if(distanceToPlayer < range)
         {
-            player.SendMessage("TakeDamage", damage);
-            //Guardamos la última vez que hemos atacado para el delay
-            lastAttackTime = Time.time;
+            if(Time.time > lastAttackTime + attackDelay)
+            {
+                player.SendMessage("TakeDamage", damage);
+                      lastAttackTime = Time.time;
+            }
+           
+          
+          
         }
     }
 

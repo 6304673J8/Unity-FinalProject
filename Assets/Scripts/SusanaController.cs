@@ -64,9 +64,10 @@ public class SusanaController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
+        Debug.Log("AU");
         if (hp <= 0)
         {
-            //Se muere
+            Destroy(gameObject);
         }
     }
     // Update is called once per frame
