@@ -93,6 +93,13 @@ public class SusanaController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
         }
+        else if (other.tag == "Enemy")
+        {
+            Debug.Log("AAAAAAAAAAAAA");
+            other.gameObject.SetActive(false);
+
+            //other.gameObject.transform.position += this.transform.position;
+        }
     }
     private void Move(Vector2 dir)
     {
