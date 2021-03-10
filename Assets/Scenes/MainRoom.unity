@@ -2588,6 +2588,18 @@ PrefabInstance:
       propertyPath: floorItemsGameObject
       value: 
       objectReference: {fileID: 1001443099}
+    - target: {fileID: 1730747764, guid: f728a9e3a710e504c86e2f2ae39d365a, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730747764, guid: f728a9e3a710e504c86e2f2ae39d365a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 6f582112-c314-41a6-b5ad-6bbb66291c99
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730747764, guid: f728a9e3a710e504c86e2f2ae39d365a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Floor/Defense[/Keyboard/leftCtrl]
+      objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582316, guid: f728a9e3a710e504c86e2f2ae39d365a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2972,6 +2984,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58427b404a16b9f46bd292bde858460d, type: 3}
+--- !u!1 &1171254697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2109804911503582318, guid: f728a9e3a710e504c86e2f2ae39d365a,
+    type: 3}
+  m_PrefabInstance: {fileID: 838194287}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1171254704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171254697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a19a565995da498974c8eab0415a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  susana: {fileID: 155014352}
 --- !u!1 &1187629218
 GameObject:
   m_ObjectHideFlags: 0
@@ -5361,7 +5392,6 @@ GameObject:
   - component: {fileID: 1324138432}
   - component: {fileID: 1324138428}
   - component: {fileID: 1324138431}
-  - component: {fileID: 1324138433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5468,20 +5498,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   susana: {fileID: 155014352}
   offset: {x: 0, y: 0, z: -3}
---- !u!114 &1324138433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324138427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca415c8f6ff82ba46ad1c36c36a0e370, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  targetZoom: 0
 --- !u!1 &1339875155
 GameObject:
   m_ObjectHideFlags: 0

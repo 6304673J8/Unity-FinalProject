@@ -31,10 +31,11 @@ public class Stairs : MonoBehaviour
 
     private void StairsOnFloor()
     {
-        if (transform.position == new Vector3(-9.5f, -1.5f, 0))
+        //if (transform.position == new Vector3(-9.5f, -1.5f, 0))
+        if (Vector3.Distance(transform.position, new Vector3(-9.5f, -1.5f, 0))< 0.1f)
         {
             transform.position = new Vector3(-4.5f, 18.5f, 0);
-        } else if (transform.position == new Vector3(-4.5f, 18.5f, 0))
+        } else if (Vector3.Distance(transform.position, new Vector3(-4.5f, 18.5f, 0)) < 0.1f)
         {
             transform.position = new Vector3(-9.5f, -1.5f, 0);
         }
