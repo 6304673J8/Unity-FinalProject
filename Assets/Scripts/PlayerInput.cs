@@ -35,6 +35,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""interactions"": ""Press(behavior=2)""
                 },
                 {
+                    ""name"": ""Defense"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f582112-c314-41a6-b5ad-6bbb66291c99"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold(duration=5,pressPoint=0.5)""
+                },
+                {
                     ""name"": ""Shoot"",
                     ""type"": ""PassThrough"",
                     ""id"": ""6ff890fc-6561-4857-bbb9-bc61d03b8af0"",
@@ -139,6 +147,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Lunge"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c080034-18a2-44ab-91c7-605bfa963f5a"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Defense"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -149,6 +168,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Floor = asset.FindActionMap("Floor", throwIfNotFound: true);
         m_Floor_Lunge = m_Floor.FindAction("Lunge", throwIfNotFound: true);
         m_Floor_Move = m_Floor.FindAction("Move", throwIfNotFound: true);
+        m_Floor_Defense = m_Floor.FindAction("Defense", throwIfNotFound: true);
         m_Floor_Shoot = m_Floor.FindAction("Shoot", throwIfNotFound: true);
         m_Floor_MousePosition = m_Floor.FindAction("MousePosition", throwIfNotFound: true);
     }
@@ -202,6 +222,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private IFloorActions m_FloorActionsCallbackInterface;
     private readonly InputAction m_Floor_Lunge;
     private readonly InputAction m_Floor_Move;
+    private readonly InputAction m_Floor_Defense;
     private readonly InputAction m_Floor_Shoot;
     private readonly InputAction m_Floor_MousePosition;
     public struct FloorActions
@@ -210,6 +231,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public FloorActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Lunge => m_Wrapper.m_Floor_Lunge;
         public InputAction @Move => m_Wrapper.m_Floor_Move;
+        public InputAction @Defense => m_Wrapper.m_Floor_Defense;
         public InputAction @Shoot => m_Wrapper.m_Floor_Shoot;
         public InputAction @MousePosition => m_Wrapper.m_Floor_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Floor; }
@@ -227,6 +249,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
+                @Defense.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnDefense;
+                @Defense.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnDefense;
+                @Defense.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnDefense;
                 @Shoot.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
@@ -243,6 +268,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Defense.started += instance.OnDefense;
+                @Defense.performed += instance.OnDefense;
+                @Defense.canceled += instance.OnDefense;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
@@ -257,6 +285,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     {
         void OnLunge(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
+        void OnDefense(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
     }

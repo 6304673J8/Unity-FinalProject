@@ -11,13 +11,17 @@ public class SusanaController : MonoBehaviour
     [SerializeField]
     private Tilemap collisionTilemap;
 
-    private bool m_Pressed;
     private PlayerInput controller;
 
     private enum States { NONE, ATTACK, DEFENSE };
     //Movimiento Susana
     public Transform movePivot;
+
+    //HP SUSANA
+    public HealthBar healthBar;
     public int hp;
+    private int originalHp;
+
     private bool facingRight = true;
 
     private Rigidbody2D rb;
@@ -43,12 +47,17 @@ public class SusanaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        originalHp = hp;
+        healthBar.SetMaxHealth(originalHp);
+
         controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
         controller.Floor.Lunge.performed += ctx => Lunge();
+        controller.Floor.Defense.started += ctx => Defense();
+        controller.Floor.Defense.canceled += ctx => Defense();
+
 
         //controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
     }
-
     //First Attempt
     /*void OnCollisionEnter2D(Collision2D collision)
     {
@@ -73,9 +82,7 @@ public class SusanaController : MonoBehaviour
 
         } else if (facingRight == true && movement.x < 0)
         {
-
             Flip();
-
         }
     }
 
@@ -93,6 +100,19 @@ public class SusanaController : MonoBehaviour
         {
             transform.position += (Vector3)dir;
         }
+    }
+
+    private void Defense()
+    {
+        Debug.Log("PROTECT");
+        if (hp < 300)
+        {
+            hp += hp * 10;
+            Debug.Log("hp");
+            Debug.Log(hp);
+        }
+        if (hp > 1001)
+            hp = originalHp;
     }
 
     public void Lunge()
@@ -126,9 +146,10 @@ public class SusanaController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        Debug.Log("AU");
+        healthBar.SetHealth(hp);
         if (hp <= 0)
         {
+            Debug.Log("RIP");
             Destroy(gameObject);
         }
     }

@@ -22,6 +22,14 @@
                     "interactions": "Press(behavior=2)"
                 },
                 {
+                    "name": "Defense",
+                    "type": "Button",
+                    "id": "6f582112-c314-41a6-b5ad-6bbb66291c99",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=5,pressPoint=0.5)"
+                },
+                {
                     "name": "Shoot",
                     "type": "PassThrough",
                     "id": "6ff890fc-6561-4857-bbb9-bc61d03b8af0",
@@ -124,6 +132,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Lunge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c080034-18a2-44ab-91c7-605bfa963f5a",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Defense",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
