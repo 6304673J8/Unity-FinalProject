@@ -5,28 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class Item : MonoBehaviour
 {
-    //public TileBase[] tiles;
-    //private RoomManager roomManager;
-
+ 
     [SerializeField]
     private Tilemap floorItemsTilemap;
-    //private Tilemap floorTilemap;
-
-    public GameObject floorItemsGameObject;
 
     private PickupInput pickupControls;
-    //public int numPociones = 1;
-    //public GameItem item;
-
-    /*public void OnTriggerEnter2D(Collider2D col)
-    {
-        SusanaController susana = col.GetComponent<SusanaController>();
-    }*/
-
-    //private KeyCode pickupButton = KeyCode.Alpha1; //Tecla para que Susana recoja el objeto
-    //public LayerMask floor;
-
-    //private Rigidbody2D rigidBody;
 
     private void Awake()
     {
@@ -47,22 +30,21 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pickupControls.Floor.Pickup.performed += ctx => Pickup(/*ctx.ReadValue<Vector2>()*/);
-        //rigidBody = GetComponent<Rigidbody2D>();
+        pickupControls.Floor.Pickup.performed += ctx => Pickup();
     }
 
-    private void Pickup(/*Vector2 posItem*/)
+    private void Pickup()
     {
         Vector3Int gridPosition = floorItemsTilemap.WorldToCell(transform.position);
-        if (ItemOnFloor(/*RELLENAR*/))
+        if (ItemOnFloor())
         {
-            floorItemsTilemap.SetTile(gridPosition, null);
             //Objecto++
-            //Destruir objeto del suelo. Destroy(gameObject);
+            floorItemsTilemap.SetTile(gridPosition, null);
         }
     }
 
-    private bool ItemOnFloor(/*Vector2 posItem*/) {
+    //Comprueba que la posición de Susana es la misma que la de un ítem
+    private bool ItemOnFloor() {
         Vector3Int gridPosition = floorItemsTilemap.WorldToCell(transform.position);
         if (!floorItemsTilemap.HasTile(gridPosition))
         {
@@ -71,12 +53,6 @@ public class Item : MonoBehaviour
         {
             return true;
         }
-        //Comprueba que la posición de Susana es la misma que la de un ítem
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
