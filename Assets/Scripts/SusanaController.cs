@@ -27,6 +27,9 @@ public class SusanaController : MonoBehaviour
     private Rigidbody2D rb;
     //new
     [SerializeField] private float speed;
+    // shows rounded position = tile position
+    public Vector3Int movementToInt;
+    public Vector3 pos;
     Vector2 movement;
 
     private void Awake()
@@ -105,6 +108,7 @@ public class SusanaController : MonoBehaviour
     {
         if (CanMove(dir))
         {
+            dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
             transform.position += (Vector3)dir;
         }
     }
@@ -132,8 +136,10 @@ public class SusanaController : MonoBehaviour
 
     private bool CanLunge(Vector2 lungeToNext)
     {
-        Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement * 2);
-        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
+        Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement);
+        Vector3Int lungeGridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement * 2);
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) ||
+            !floorTilemap.HasTile(lungeGridPos) || collisionTilemap.HasTile(lungeGridPos))
         {
             return false;
         }
