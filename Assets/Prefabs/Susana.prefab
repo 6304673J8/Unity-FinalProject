@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2109804911503582306}
   - component: {fileID: 2109804911503582307}
   - component: {fileID: 7663931183085479129}
+  - component: {fileID: 1730747763}
+  - component: {fileID: 1730747764}
   m_Layer: 0
   m_Name: Susana
   m_TagString: Susana
@@ -147,8 +149,81 @@ MonoBehaviour:
   floorTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
   mSpeed: 5
-  movePivot: {fileID: 0}
-  hp: 0
+  movePivot: {fileID: 5518576781351040933}
+  hp: 12
+  speed: 5
+--- !u!114 &1730747763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109804911503582318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd180b4a38ec3a468457fd6788ecc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorItemsTilemap: {fileID: 0}
+  floorItemsGameObject: {fileID: 0}
+--- !u!114 &1730747764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109804911503582318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 68f521036bab26a43853e9ec7ed12d80,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2109804911503582316}
+        m_MethodName: set_parent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2109804911503582316}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4fe83857-fbf0-43b3-b54f-b41cf6c05cf5
+    m_ActionName: Floor/Lunge[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 54b0a47a-78c6-481e-a1ce-212fdd7b016b
+    m_ActionName: Floor/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ff890fc-6561-4857-bbb9-bc61d03b8af0
+    m_ActionName: Floor/Shoot[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ae1ef832-0352-48f4-ae81-bdd287c87ee4
+    m_ActionName: Floor/MousePosition[/Mouse/position]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Floor
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &4877203436083515699
 GameObject:
   m_ObjectHideFlags: 0

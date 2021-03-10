@@ -19,20 +19,20 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             ""id"": ""0989f67f-8947-4487-bdbc-969ec1149cea"",
             ""actions"": [
                 {
+                    ""name"": ""Lunge"",
+                    ""type"": ""Button"",
+                    ""id"": ""4fe83857-fbf0-43b3-b54f-b41cf6c05cf5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Move"",
                     ""type"": ""PassThrough"",
                     ""id"": ""54b0a47a-78c6-481e-a1ce-212fdd7b016b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""NormalizeVector2"",
-                    ""interactions"": ""Press""
-                },
-                {
-                    ""name"": ""Lunge"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""4fe83857-fbf0-43b3-b54f-b41cf6c05cf5"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": ""NormalizeVector2"",
-                    ""interactions"": ""Press""
+                    ""interactions"": ""Press(behavior=2)""
                 },
                 {
                     ""name"": ""Shoot"",
@@ -52,17 +52,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""d7321198-f524-4c25-9436-8a0086553968"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Lunge"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""b6bcf65f-cb46-4854-a47d-aa3ed200ec07"",
@@ -89,7 +78,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""name"": ""WASD"",
                     ""id"": ""8dcf315c-5307-4594-ad17-f5e41442512c"",
                     ""path"": ""2DVector"",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.2)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
@@ -139,6 +128,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7321198-f524-4c25-9436-8a0086553968"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Lunge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -147,8 +147,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
 }");
         // Floor
         m_Floor = asset.FindActionMap("Floor", throwIfNotFound: true);
-        m_Floor_Move = m_Floor.FindAction("Move", throwIfNotFound: true);
         m_Floor_Lunge = m_Floor.FindAction("Lunge", throwIfNotFound: true);
+        m_Floor_Move = m_Floor.FindAction("Move", throwIfNotFound: true);
         m_Floor_Shoot = m_Floor.FindAction("Shoot", throwIfNotFound: true);
         m_Floor_MousePosition = m_Floor.FindAction("MousePosition", throwIfNotFound: true);
     }
@@ -200,16 +200,16 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     // Floor
     private readonly InputActionMap m_Floor;
     private IFloorActions m_FloorActionsCallbackInterface;
-    private readonly InputAction m_Floor_Move;
     private readonly InputAction m_Floor_Lunge;
+    private readonly InputAction m_Floor_Move;
     private readonly InputAction m_Floor_Shoot;
     private readonly InputAction m_Floor_MousePosition;
     public struct FloorActions
     {
         private @PlayerInput m_Wrapper;
         public FloorActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Floor_Move;
         public InputAction @Lunge => m_Wrapper.m_Floor_Lunge;
+        public InputAction @Move => m_Wrapper.m_Floor_Move;
         public InputAction @Shoot => m_Wrapper.m_Floor_Shoot;
         public InputAction @MousePosition => m_Wrapper.m_Floor_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Floor; }
@@ -221,12 +221,12 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_FloorActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
                 @Lunge.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnLunge;
                 @Lunge.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnLunge;
                 @Lunge.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnLunge;
+                @Move.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnMove;
                 @Shoot.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
@@ -237,12 +237,12 @@ public class @PlayerInput : IInputActionCollection, IDisposable
             m_Wrapper.m_FloorActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
                 @Lunge.started += instance.OnLunge;
                 @Lunge.performed += instance.OnLunge;
                 @Lunge.canceled += instance.OnLunge;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
@@ -255,8 +255,8 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     public FloorActions @Floor => new FloorActions(this);
     public interface IFloorActions
     {
-        void OnMove(InputAction.CallbackContext context);
         void OnLunge(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
     }

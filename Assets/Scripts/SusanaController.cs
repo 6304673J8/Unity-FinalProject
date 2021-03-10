@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+
 public class SusanaController : MonoBehaviour
 {
     [SerializeField]
     private Tilemap floorTilemap;
     [SerializeField]
     private Tilemap collisionTilemap;
-    [SerializeField]
-    private Tilemap breakableTilemap;
 
+    private bool m_Pressed;
     private PlayerInput controller;
 
     private enum States { NONE, ATTACK, DEFENSE };
@@ -19,14 +19,16 @@ public class SusanaController : MonoBehaviour
     public float mSpeed = 5.0f; //Velocidad de movimiento de Susana
     public Transform movePivot;
     public int hp;
-    Vector2 movement;
 
     private Rigidbody2D rb;
-    private BoxCollider2D boxCollider;
+    //new
+    [SerializeField] private float speed;
+    Vector2 movement;
 
     private void Awake()
     {
-        controller = new PlayerInput();    
+        controller = new PlayerInput();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -42,12 +44,13 @@ public class SusanaController : MonoBehaviour
     void Start()
     {
         controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
-        //controller.Floor.Lunge.performed += ctx => ;
-        movePivot.parent = null;
-        rb = GetComponent<Rigidbody2D>();
+        controller.Floor.Lunge.performed += ctx => Lunge();
+
+        //controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    //First Attempt
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         Vector3 hitPosition = Vector3.zero;
         Vector3Int gridPosition = breakableTilemap.WorldToCell(transform.position);
@@ -57,14 +60,55 @@ public class SusanaController : MonoBehaviour
             Debug.Log("ok");
             breakableTilemap.SetTile(gridPosition, null);
         }
-    }
+    }*/
+    //new
 
+   /* private void FixedUpdate()
+    {
+        movement = controller.Floor.Move.ReadValue<Vector2>();
+        rb.velocity = movement * speed;
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //Check if the tag of the trigger collided with is Exit.
+        if (other.tag == "Breakable")
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
     private void Move(Vector2 dir)
     {
         if (CanMove(dir))
         {
             transform.position += (Vector3)dir;
         }
+    }
+
+    public void Lunge()
+    {
+        Debug.Log("Fire!");
+        movement = controller.Floor.Move.ReadValue<Vector2>();
+        transform.position += (Vector3)movement * 2;
+    }
+
+    /*private void Lunge()
+    {
+        if (CanLunge(movement))
+        {
+            Debug.Log("ok");
+            this.transform.position += (Vector3)movement * 2;
+        }
+    }*/
+
+    private bool CanLunge(Vector2 lungeToNext)
+    {
+        Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement * 2);
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
+        {
+            return false;
+        }
+        return true;
     }
 
     private bool CanMove(Vector2 dir)

@@ -4810,7 +4810,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1324138430}
   - component: {fileID: 1324138429}
-  - component: {fileID: 1324138432}
   - component: {fileID: 1324138428}
   - component: {fileID: 1324138431}
   m_Layer: 0
@@ -4905,20 +4904,6 @@ MonoBehaviour:
   m_CropFrameX: 1
   m_CropFrameY: 1
   m_StretchFill: 0
---- !u!114 &1324138432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1324138427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cebd2d66890bfb7418f076d7c03d2214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  susana: {fileID: 0}
-  offset: {x: 0, y: 0, z: -1}
 --- !u!1 &2102364166
 GameObject:
   m_ObjectHideFlags: 0

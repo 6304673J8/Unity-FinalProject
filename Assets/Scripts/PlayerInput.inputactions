@@ -6,20 +6,20 @@
             "id": "0989f67f-8947-4487-bdbc-969ec1149cea",
             "actions": [
                 {
+                    "name": "Lunge",
+                    "type": "Button",
+                    "id": "4fe83857-fbf0-43b3-b54f-b41cf6c05cf5",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Move",
                     "type": "PassThrough",
                     "id": "54b0a47a-78c6-481e-a1ce-212fdd7b016b",
                     "expectedControlType": "Vector2",
                     "processors": "NormalizeVector2",
-                    "interactions": "Press"
-                },
-                {
-                    "name": "Lunge",
-                    "type": "PassThrough",
-                    "id": "4fe83857-fbf0-43b3-b54f-b41cf6c05cf5",
-                    "expectedControlType": "Button",
-                    "processors": "NormalizeVector2",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Shoot",
@@ -39,17 +39,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "d7321198-f524-4c25-9436-8a0086553968",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Lunge",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "b6bcf65f-cb46-4854-a47d-aa3ed200ec07",
@@ -76,7 +65,7 @@
                     "name": "WASD",
                     "id": "8dcf315c-5307-4594-ad17-f5e41442512c",
                     "path": "2DVector",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.1,pressPoint=0.2)",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -126,6 +115,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d7321198-f524-4c25-9436-8a0086553968",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lunge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
