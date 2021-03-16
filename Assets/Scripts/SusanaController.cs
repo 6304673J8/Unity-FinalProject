@@ -10,10 +10,15 @@ public class SusanaController : MonoBehaviour
     private Tilemap floorTilemap;
     [SerializeField]
     private Tilemap collisionTilemap;
+    [SerializeField]
+    private Tilemap damagingTilemap;
 
     private PlayerInput controller;
 
     private enum States { NONE, ATTACK, DEFENSE };
+
+    SpriteRenderer sprite;
+
     //Movimiento Susana
     public Transform movePivot;
 
@@ -50,6 +55,8 @@ public class SusanaController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        sprite = GetComponent<SpriteRenderer>();
+
         originalHp = hp;
         healthBar.SetMaxHealth(originalHp);
 
@@ -102,6 +109,19 @@ public class SusanaController : MonoBehaviour
             other.gameObject.SetActive(false);
 
             //other.gameObject.transform.position += this.transform.position;
+        }
+        else if (other.tag == "DamagingTile")
+        {
+            DamagedByTile();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "DamagingTile")
+        {
+            Debug.Log("Ya no hace pupa");
+            sprite.color = new Color(1, 1, 1, 1);
         }
     }
     private void Move(Vector2 dir)
@@ -164,6 +184,18 @@ public class SusanaController : MonoBehaviour
         {
             Debug.Log("RIP");
             Destroy(gameObject);
+        }
+    }
+
+    public void DamagedByTile()
+    {
+        Vector3Int currentPos = damagingTilemap.WorldToCell(transform.position);
+        if (damagingTilemap.HasTile(currentPos))
+        {
+            Debug.Log("Pupa");
+            sprite.color = new Color(1, 0, 0, 1);
+            Invoke("DamagedByTile", 2);
+            TakeDamage(5);
         }
     }
 

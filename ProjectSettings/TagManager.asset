@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Item
   - Breakable
+  - DamagingTile
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - Obstacle
   - Breakable
-  - 
+  - Susana
   - 
   - 
   - 
