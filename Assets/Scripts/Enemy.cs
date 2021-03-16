@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour
 {
     private float timerSpeed = 2f; //Este valor define los segundos del temporizador
 
+    public float attackDelay = 1;
+
+    private float lastAttackTime;
+
     private float elapsed;
 
     private float elapsedCD;
@@ -103,7 +107,11 @@ public class Enemy : MonoBehaviour
 
     void attackPlayer()
     {
+        if (Time.time > lastAttackTime + attackDelay)
+        {
             player.SendMessage("TakeDamage", damage);
+            lastAttackTime = Time.time;
+        }
     }
 
 }
