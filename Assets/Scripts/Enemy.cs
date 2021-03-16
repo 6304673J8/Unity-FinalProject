@@ -5,6 +5,12 @@ using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
+    private float timerSpeed = 2f; //Este valor define los segundos del temporizador
+
+    private float elapsed;
+
+    private float elapsedCD;
+
     public Transform player;
 
     public int damage;
@@ -32,6 +38,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         currentDir = directions[directionIndex];
+        elapsed += Time.deltaTime;
     }
 
 
@@ -56,17 +63,26 @@ public class Enemy : MonoBehaviour
 
             if (hit2D.collider.gameObject.CompareTag("Susana"))
             {
-                //Hace falta poner a Susana en otra Layer que no sea Default!
-                player.SendMessage("TakeDamage", damage);
+                attackPlayer();
+               
             }
         }
+
+
+        elapsed += Time.deltaTime;
+        if(elapsed>=timerSpeed)
+        {
+            elapsed = 0f;
+            ChangeDirection();
+        }
+
     }
 
 
     void ChangeDirection()
     {
         //Decide una dirección de forma aleatoria (En el array de direcciones)
-        directionIndex += Random.Range(0, 2) * 2 - 1;
+        directionIndex += Random.Range(0, 3) * 3 - 1;
 
         //Hace que el índice no supere 3
         int clampedIndex = directionIndex % directions.Length;
@@ -85,5 +101,9 @@ public class Enemy : MonoBehaviour
         rb.AddForce(currentDir * speed); 
     }
 
+    void attackPlayer()
+    {
+            player.SendMessage("TakeDamage", damage);
+    }
 
 }
