@@ -19,7 +19,7 @@
                     "id": "54b0a47a-78c6-481e-a1ce-212fdd7b016b",
                     "expectedControlType": "Vector2",
                     "processors": "NormalizeVector2",
-                    "interactions": "Press(behavior=2)"
+                    "interactions": ""
                 },
                 {
                     "name": "Defense",
@@ -28,6 +28,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold(duration=5,pressPoint=0.5)"
+                },
+                {
+                    "name": "Shaker",
+                    "type": "Button",
+                    "id": "abfbb360-c122-45e4-887b-74c00fe22889",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold"
                 },
                 {
                     "name": "Shoot",
@@ -73,7 +81,7 @@
                     "name": "WASD",
                     "id": "8dcf315c-5307-4594-ad17-f5e41442512c",
                     "path": "2DVector",
-                    "interactions": "Hold(duration=0.1,pressPoint=0.2)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -143,6 +151,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Defense",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0d75b95-20f1-4995-924c-516720552101",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shaker",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

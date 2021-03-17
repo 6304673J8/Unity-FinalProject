@@ -29,18 +29,30 @@ public class SusanaController : MonoBehaviour
 
     private bool facingRight = true;
 
+    GameHandler gameHandler;
+
+    private enum State
+    {
+        IDLE,
+        ATTACK,
+    }
     private Rigidbody2D rb;
     //new
     [SerializeField] private float speed;
+    [SerializeField] private float lungeDistance;
+
     // shows rounded position = tile position
     public Vector3Int movementToInt;
     public Vector3 pos;
     Vector2 movement;
 
+    private Vector3 lastMoveDir;
+    private State state;
     private void Awake()
     {
         controller = new PlayerInput();
         rb = GetComponent<Rigidbody2D>();
+        state = State.IDLE;
     }
 
     private void OnEnable()
@@ -56,7 +68,6 @@ public class SusanaController : MonoBehaviour
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
-
         originalHp = hp;
         healthBar.SetMaxHealth(originalHp);
 
@@ -64,7 +75,7 @@ public class SusanaController : MonoBehaviour
         controller.Floor.Lunge.performed += ctx => Lunge();
         controller.Floor.Defense.started += ctx => Defense();
         controller.Floor.Defense.canceled += ctx => Defense();
-
+        controller.Floor.Shaker.started += ctx => Earthquake();
 
         //controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
     }
@@ -81,6 +92,19 @@ public class SusanaController : MonoBehaviour
         }
     }*/
     //new
+
+    private void Update()
+    {
+
+        switch (state)
+        {
+            case State.IDLE:
+                Debug.Log("Anim IDLE");
+                break;
+            case State.ATTACK:
+                break;
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -105,9 +129,8 @@ public class SusanaController : MonoBehaviour
         }
         else if (other.tag == "Enemy")
         {
-            Debug.Log("AAAAAAAAAAAAA");
-            other.gameObject.SetActive(false);
-
+            other.gameObject.SetActive(true);
+            //other.gameObject.SetActive(true);
             //other.gameObject.transform.position += this.transform.position;
         }
         else if (other.tag == "DamagingTile")
@@ -128,6 +151,8 @@ public class SusanaController : MonoBehaviour
     {
         if (CanMove(dir))
         {
+            sprite.color = new Color(1, 1, 1, 1);
+
             dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
             transform.position += (Vector3)dir;
         }
@@ -136,6 +161,7 @@ public class SusanaController : MonoBehaviour
     private void Defense()
     {
         Debug.Log("PROTECT");
+        sprite.color = new Color(0, 1, 0, 1);
         if (hp < 300)
         {
             hp += hp * 10;
@@ -143,7 +169,9 @@ public class SusanaController : MonoBehaviour
             Debug.Log(hp);
         }
         if (hp > 1001)
+        {
             hp = originalHp;
+        }
     }
 
     public void Lunge()
@@ -151,7 +179,16 @@ public class SusanaController : MonoBehaviour
         Debug.Log("Topetazo!");
         movement = controller.Floor.Move.ReadValue<Vector2>();
         if (CanLunge(movement))
-            transform.position += (Vector3)movement * 2;
+            transform.position += (Vector3)movement * lungeDistance;
+    }
+
+    public void Earthquake()
+    {
+        sprite.color = new Color(0, 0, 1, 1);
+
+        Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
+        //Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
+        //gameHandler.GetComponent<CameraShake>().shakeDuration = 0.2f;
     }
 
     private bool CanLunge(Vector2 lungeToNext)
@@ -165,7 +202,6 @@ public class SusanaController : MonoBehaviour
         }
         return true;
     }
-
     private bool CanMove(Vector2 dir)
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
@@ -194,7 +230,7 @@ public class SusanaController : MonoBehaviour
         {
             Debug.Log("Pupa");
             sprite.color = new Color(1, 0, 0, 1);
-            Invoke("DamagedByTile", 2);
+            Invoke("DamagedByTile", 1);
             TakeDamage(5);
         }
     }

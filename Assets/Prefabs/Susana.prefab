@@ -148,9 +148,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floorTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
+  damagingTilemap: {fileID: 0}
   movePivot: {fileID: 5518576781351040933}
+  healthBar: {fileID: 0}
   hp: 12
   speed: 5
+  movementToInt: {x: 0, y: 0, z: 0}
+  pos: {x: 0, y: 0, z: 0}
 --- !u!114 &1730747763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +221,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: ae1ef832-0352-48f4-ae81-bdd287c87ee4
     m_ActionName: Floor/MousePosition[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f582112-c314-41a6-b5ad-6bbb66291c99
+    m_ActionName: Floor/Defense[/Keyboard/leftCtrl]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Floor

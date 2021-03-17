@@ -32,7 +32,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""id"": ""54b0a47a-78c6-481e-a1ce-212fdd7b016b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""NormalizeVector2"",
-                    ""interactions"": ""Press(behavior=2)""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Defense"",
@@ -41,6 +41,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=5,pressPoint=0.5)""
+                },
+                {
+                    ""name"": ""Shaker"",
+                    ""type"": ""Button"",
+                    ""id"": ""abfbb360-c122-45e4-887b-74c00fe22889"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold""
                 },
                 {
                     ""name"": ""Shoot"",
@@ -86,7 +94,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""name"": ""WASD"",
                     ""id"": ""8dcf315c-5307-4594-ad17-f5e41442512c"",
                     ""path"": ""2DVector"",
-                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.2)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
@@ -158,6 +166,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Defense"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0d75b95-20f1-4995-924c-516720552101"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shaker"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -169,6 +188,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Floor_Lunge = m_Floor.FindAction("Lunge", throwIfNotFound: true);
         m_Floor_Move = m_Floor.FindAction("Move", throwIfNotFound: true);
         m_Floor_Defense = m_Floor.FindAction("Defense", throwIfNotFound: true);
+        m_Floor_Shaker = m_Floor.FindAction("Shaker", throwIfNotFound: true);
         m_Floor_Shoot = m_Floor.FindAction("Shoot", throwIfNotFound: true);
         m_Floor_MousePosition = m_Floor.FindAction("MousePosition", throwIfNotFound: true);
     }
@@ -223,6 +243,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Floor_Lunge;
     private readonly InputAction m_Floor_Move;
     private readonly InputAction m_Floor_Defense;
+    private readonly InputAction m_Floor_Shaker;
     private readonly InputAction m_Floor_Shoot;
     private readonly InputAction m_Floor_MousePosition;
     public struct FloorActions
@@ -232,6 +253,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Lunge => m_Wrapper.m_Floor_Lunge;
         public InputAction @Move => m_Wrapper.m_Floor_Move;
         public InputAction @Defense => m_Wrapper.m_Floor_Defense;
+        public InputAction @Shaker => m_Wrapper.m_Floor_Shaker;
         public InputAction @Shoot => m_Wrapper.m_Floor_Shoot;
         public InputAction @MousePosition => m_Wrapper.m_Floor_MousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Floor; }
@@ -252,6 +274,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Defense.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnDefense;
                 @Defense.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnDefense;
                 @Defense.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnDefense;
+                @Shaker.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnShaker;
+                @Shaker.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnShaker;
+                @Shaker.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnShaker;
                 @Shoot.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnShoot;
@@ -271,6 +296,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Defense.started += instance.OnDefense;
                 @Defense.performed += instance.OnDefense;
                 @Defense.canceled += instance.OnDefense;
+                @Shaker.started += instance.OnShaker;
+                @Shaker.performed += instance.OnShaker;
+                @Shaker.canceled += instance.OnShaker;
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
@@ -286,6 +314,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnLunge(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnDefense(InputAction.CallbackContext context);
+        void OnShaker(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
     }

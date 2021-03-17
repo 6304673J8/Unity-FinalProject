@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     private float elapsed;
 
     private float elapsedCD;
+    SpriteRenderer sprite;
 
     public Transform player;
 
@@ -38,6 +39,8 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+
     }
     private void Start()
     {
