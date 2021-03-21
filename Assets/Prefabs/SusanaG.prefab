@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1730747763}
   - component: {fileID: 1730747764}
   m_Layer: 0
-  m_Name: Susana
+  m_Name: SusanaG
   m_TagString: Susana
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c64fa8d3aba4cb34e81bea983a0ab9ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -111,7 +111,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!50 &2109804911503582307
 Rigidbody2D:
@@ -153,6 +153,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   hp: 12
   speed: 5
+  lungeDistance: 0
   movementToInt: {x: 0, y: 0, z: 0}
   pos: {x: 0, y: 0, z: 0}
 --- !u!114 &1730747763
@@ -225,6 +226,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6f582112-c314-41a6-b5ad-6bbb66291c99
     m_ActionName: Floor/Defense[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: abfbb360-c122-45e4-887b-74c00fe22889
+    m_ActionName: Floor/Shaker[/Keyboard/2]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Floor

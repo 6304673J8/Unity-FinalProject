@@ -151,10 +151,10 @@ public class SusanaController : MonoBehaviour
     {
         if (CanMove(dir))
         {
-            sprite.color = new Color(1, 1, 1, 1);
-
             dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
             transform.position += (Vector3)dir;
+            sprite.color = new Color(1, 1, 1, 1);
+
         }
     }
 
