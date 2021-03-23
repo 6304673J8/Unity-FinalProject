@@ -11,7 +11,7 @@ public class DestroyMe : MonoBehaviour
         if (isDestroyed)
             return;
 
-        if (collision.CompareTag("Susana"))
+        if (collision.CompareTag("Earthquake"))
         {
             isDestroyed = true;
             Destroy(this.gameObject);

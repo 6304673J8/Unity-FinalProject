@@ -30,6 +30,8 @@ public class SusanaController : MonoBehaviour
     private bool facingRight = true;
 
     GameHandler gameHandler;
+    public GameObject earthquakePrefab;
+    public GameObject lungePrefab;
 
     private enum State
     {
@@ -179,13 +181,17 @@ public class SusanaController : MonoBehaviour
         Debug.Log("Topetazo!");
         movement = controller.Floor.Move.ReadValue<Vector2>();
         if (CanLunge(movement))
+        {
+            LungeLogic();
             transform.position += (Vector3)movement * lungeDistance;
+        }
     }
 
     public void Earthquake()
     {
         sprite.color = new Color(0, 0, 1, 1);
 
+        EarthquakeLogic();
         Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
         //Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
         //gameHandler.GetComponent<CameraShake>().shakeDuration = 0.2f;
@@ -241,5 +247,19 @@ public class SusanaController : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    public void EarthquakeLogic()
+    {
+        Vector2 pos = transform.position;
+
+        GameObject earthquakeFX = Instantiate(earthquakePrefab, pos, transform.rotation);
+    }
+
+    public void LungeLogic()
+    {
+        Vector2 pos = transform.position;
+
+        GameObject lungeFX = Instantiate(lungePrefab, pos, transform.rotation);
     }
 }
