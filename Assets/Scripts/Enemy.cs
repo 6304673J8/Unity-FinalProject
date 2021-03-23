@@ -22,11 +22,19 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
 
-    [SerializeField] float speed;
+
+    [SerializeField]
+    private Tilemap floorTilemap;
+    [SerializeField]
+    private Tilemap collisionTilemap;
+    /*[SerializeField]
+    private Tilemap damagingTilemap;*/
+
+
 
     Vector2[] directions = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
 
-    int directionIndex = 0;
+    
 
     //Ver la direccion actual
     [SerializeField] Vector2 currentDir;
@@ -44,68 +52,50 @@ public class Enemy : MonoBehaviour
     }
     private void Start()
     {
-        currentDir = directions[directionIndex];
         elapsed += Time.deltaTime;
     }
 
 
     private void Update()
     {
-        //Raycast
-        RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir,rayDistance, rayLayer);
-        Vector3 endpoint = currentDir * rayDistance;
-        Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
+        /* //Raycast
+         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir, rayDistance, rayLayer);
+         Vector3 endpoint = currentDir * rayDistance;
+         Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
 
-        if(hit2D.collider != null)
-        {
-            if(hit2D.collider.gameObject.CompareTag("Wall"))
-            {
-                ChangeDirection();
-            }
+         if(hit2D.collider != null)
+         {
+             if(hit2D.collider.gameObject.CompareTag("Wall"))
+             {
+                 ChangeDirection();
+             }
 
-            if (hit2D.collider.gameObject.CompareTag("Breakable"))
-            {
-                ChangeDirection();
-            }
+             if (hit2D.collider.gameObject.CompareTag("Breakable"))
+             {
+                 ChangeDirection();
+             }
 
-            if (hit2D.collider.gameObject.CompareTag("Susana"))
-            {
-                attackPlayer();
-               
-            }
-        }
+             if (hit2D.collider.gameObject.CompareTag("Susana"))
+             {
+                 attackPlayer();
+
+             }
+         }
 
 
-        elapsed += Time.deltaTime;
-        if(elapsed>=timerSpeed)
-        {
-            elapsed = 0f;
-            ChangeDirection();
-        }
-
+         */
     }
 
 
-    void ChangeDirection()
-    {
-        //Decide una dirección de forma aleatoria (En el array de direcciones)
-        directionIndex += Random.Range(0, 3) * 3 - 1;
 
-        //Hace que el índice no supere 3
-        int clampedIndex = directionIndex % directions.Length;
-
-        //Hace que el índice sea positivo
-        if (clampedIndex < 0)
-        {
-            clampedIndex = directions.Length + clampedIndex;
-        }
-        rb.velocity = Vector2.zero;
-
-        currentDir = directions[clampedIndex];
-    }
     private void FixedUpdate()
     {
-        rb.AddForce(currentDir * speed); 
+        elapsed += Time.deltaTime;
+        if (elapsed >= timerSpeed)
+        {
+            elapsed = 0f;
+            Patrol();
+        }
     }
 
     void attackPlayer()
@@ -117,4 +107,37 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void Patrol()
+    {
+        int dir = Random.Range(0,4);
+        Move(directions[dir]);
+    }
+
+
+    private void Move(Vector2 dir)
+    {
+        if (CanMove(dir))
+        {
+            dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
+            transform.position += (Vector3)dir;
+            sprite.color = new Color(1, 1, 1, 1);
+
+        }
+
+
+    }
+
+    private bool CanMove(Vector2 dir)
+    {
+        Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
+        {
+            return false;
+        }
+        return true;
+    }
+
+
+
 }
+
