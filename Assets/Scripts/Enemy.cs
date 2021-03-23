@@ -7,7 +7,9 @@ public class Enemy : MonoBehaviour
 {
     private float timerSpeed = 1f; //Este valor define los segundos del temporizador
 
-    private float timerSpeedAttack = 0.3f; 
+    private float stunTimer = 4f; //Temporizador del STUN
+
+    private float timerSpeedAttack = 0.8f; 
 
     public float attackDelay = 1;
 
@@ -16,7 +18,14 @@ public class Enemy : MonoBehaviour
     private float elapsed;
 
     private float elapsedF;
+
+    private float elapsedStun;
+
+
     SpriteRenderer sprite;
+
+
+    private bool stunned;
 
     public Transform player;
 
@@ -48,6 +57,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         elapsed += Time.deltaTime;
+        stunned = false;
     }
 
 
@@ -61,40 +71,57 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float separation = Vector3.Distance(this.transform.position, player.transform.position);
-        elapsed += Time.deltaTime;
-        if (elapsed >= timerSpeed)
+        if(!stunned)
         {
-            elapsed = 0f;
-           
-
-            Debug.Log("Range to player = " + separation);
-
-            if (separation <= range)
+            float separation = Vector3.Distance(this.transform.position, player.transform.position);
+            elapsed += Time.deltaTime;
+            if (elapsed >= timerSpeed)
             {
-                Debug.Log("The enemy sees the player");
-                followPlayer();
+                elapsed = 0f;
+
+
+                Debug.Log("Range to player = " + separation);
+
+                if (separation <= range)
+                {
+                    Debug.Log("The enemy sees the player");
+                    followPlayer();
+                }
+
+                else if (separation > range)
+                {
+                    Debug.Log("The enemy is patrolling");
+                    Patrol();
+                }
             }
 
-            else if(separation > range)
-            { 
-                Debug.Log("The enemy is patrolling");
-                Patrol();
+
+            if (separation <= 1)
+            {
+                elapsedF += Time.deltaTime;
+                if (elapsedF >= timerSpeedAttack)
+                {
+                    elapsedF = 0;
+                    attackPlayer();
+                }
+
+
             }
         }
 
 
-        if(separation <= 1)
+        else
         {
-            elapsedF += Time.deltaTime;
-            if(elapsedF >= timerSpeedAttack)
-            {
-                elapsedF = 0;
-                attackPlayer();
-            }
-
-            
+          elapsedStun += Time.deltaTime;
+        if (elapsedStun >= stunTimer)
+        {
+           elapsedStun = 0f;
+           unStun();
         }
+
+
+        }
+
     }
 
     void attackPlayer()
@@ -163,7 +190,33 @@ public class Enemy : MonoBehaviour
 
 
     }
- 
+
+    private void getStunned()
+    {
+        stunned = true;
+        sprite.color = new Color(0, 0, 1, 1);
+
+        return;
+        
+    }
+
+    private void unStun()
+    {
+        stunned = false;
+        sprite.color = new Color(1, 1, 1, 1);
+        return;
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Earthquake"))
+        {
+            getStunned();
+        }
+
+    }
+
 
 }
 
