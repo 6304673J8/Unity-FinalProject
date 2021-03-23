@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+using UnityEngine.SceneManagement;
 
 public class SusanaController : MonoBehaviour
 {
@@ -12,6 +12,10 @@ public class SusanaController : MonoBehaviour
     private Tilemap collisionTilemap;
     [SerializeField]
     private Tilemap damagingTilemap;
+    [SerializeField]
+    private Tilemap healingTilemap;
+    //[SerializeField]
+    //private Tilemap NPCTilemap;
 
     private PlayerInput controller;
 
@@ -101,7 +105,7 @@ public class SusanaController : MonoBehaviour
         switch (state)
         {
             case State.IDLE:
-                Debug.Log("Anim IDLE");
+                //Debug.Log("Anim IDLE");
                 break;
             case State.ATTACK:
                 break;
@@ -139,6 +143,14 @@ public class SusanaController : MonoBehaviour
         {
             DamagedByTile();
         }
+        else if (other.tag == "HealingTile")
+        {
+            HealedByTile();
+        }
+        else if (other.tag == "NPC")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -146,6 +158,11 @@ public class SusanaController : MonoBehaviour
         if (collision.tag == "DamagingTile")
         {
             Debug.Log("Ya no hace pupa");
+            sprite.color = new Color(1, 1, 1, 1);
+        }
+        if (collision.tag == "HealingTile")
+        {
+            Debug.Log("Ya no cura");
             sprite.color = new Color(1, 1, 1, 1);
         }
     }
@@ -201,8 +218,8 @@ public class SusanaController : MonoBehaviour
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement);
         Vector3Int lungeGridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement * 2);
-        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) ||
-            !floorTilemap.HasTile(lungeGridPos) || collisionTilemap.HasTile(lungeGridPos))
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) || /*NPCTilemap.HasTile(gridPos) ||*/
+            !floorTilemap.HasTile(lungeGridPos) || collisionTilemap.HasTile(lungeGridPos) /*|| NPCTilemap.HasTile(lungeGridPos)*/)
         {
             return false;
         }
@@ -211,7 +228,7 @@ public class SusanaController : MonoBehaviour
     private bool CanMove(Vector2 dir)
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
-        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) /*|| NPCTilemap.HasTile(gridPos)*/)
         {
             return false;
         }
@@ -238,6 +255,21 @@ public class SusanaController : MonoBehaviour
             sprite.color = new Color(1, 0, 0, 1);
             Invoke("DamagedByTile", 1);
             TakeDamage(5);
+        }
+    }
+
+    public void HealedByTile()
+    {
+        Vector3Int currentPos = healingTilemap.WorldToCell(transform.position);
+        if (hp < originalHp)
+        {
+            if (healingTilemap.HasTile(currentPos))
+            {
+                Debug.Log("Cura");
+                sprite.color = new Color(0, 1, 0, 1);
+                Invoke("HealedByTile", 1);
+                TakeDamage(-5);
+            }
         }
     }
 
