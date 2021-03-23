@@ -5,7 +5,9 @@ using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
-    private float timerSpeed = 2f; //Este valor define los segundos del temporizador
+    private float timerSpeed = 1f; //Este valor define los segundos del temporizador
+
+    private float timerSpeedAttack = 0.3f; 
 
     public float attackDelay = 1;
 
@@ -13,12 +15,14 @@ public class Enemy : MonoBehaviour
 
     private float elapsed;
 
-    private float elapsedCD;
+    private float elapsedF;
     SpriteRenderer sprite;
 
     public Transform player;
 
     public int damage;
+
+    public int range;
 
     Rigidbody2D rb;
 
@@ -30,19 +34,10 @@ public class Enemy : MonoBehaviour
     /*[SerializeField]
     private Tilemap damagingTilemap;*/
 
-
+    
 
     Vector2[] directions = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
 
-    
-
-    //Ver la direccion actual
-    [SerializeField] Vector2 currentDir;
-
-    //La distancia a la que va a mirar el raycast
-    [SerializeField] float rayDistance;
-
-    [SerializeField] LayerMask rayLayer;
 
     private void Awake()
     {
@@ -58,43 +53,47 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        /* //Raycast
-         RaycastHit2D hit2D = Physics2D.Raycast(transform.position, currentDir, rayDistance, rayLayer);
-         Vector3 endpoint = currentDir * rayDistance;
-         Debug.DrawLine(transform.position, transform.position + endpoint, Color.green);
+       
 
-         if(hit2D.collider != null)
-         {
-             if(hit2D.collider.gameObject.CompareTag("Wall"))
-             {
-                 ChangeDirection();
-             }
-
-             if (hit2D.collider.gameObject.CompareTag("Breakable"))
-             {
-                 ChangeDirection();
-             }
-
-             if (hit2D.collider.gameObject.CompareTag("Susana"))
-             {
-                 attackPlayer();
-
-             }
-         }
-
-
-         */
     }
 
 
 
     private void FixedUpdate()
     {
+        float separation = Vector3.Distance(this.transform.position, player.transform.position);
         elapsed += Time.deltaTime;
         if (elapsed >= timerSpeed)
         {
             elapsed = 0f;
-            Patrol();
+           
+
+            Debug.Log("Range to player = " + separation);
+
+            if (separation <= range)
+            {
+                Debug.Log("The enemy sees the player");
+                followPlayer();
+            }
+
+            else if(separation > range)
+            { 
+                Debug.Log("The enemy is patrolling");
+                Patrol();
+            }
+        }
+
+
+        if(separation <= 1)
+        {
+            elapsedF += Time.deltaTime;
+            if(elapsedF >= timerSpeedAttack)
+            {
+                elapsedF = 0;
+                attackPlayer();
+            }
+
+            
         }
     }
 
@@ -102,6 +101,7 @@ public class Enemy : MonoBehaviour
     {
         if (Time.time > lastAttackTime + attackDelay)
         {
+            Debug.Log("Player Taking Damage");
             player.SendMessage("TakeDamage", damage);
             lastAttackTime = Time.time;
         }
@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
 
     void Patrol()
     {
-        int dir = Random.Range(0,4);
+        int dir = Random.Range(0, 3);
         Move(directions[dir]);
     }
 
@@ -137,7 +137,33 @@ public class Enemy : MonoBehaviour
         return true;
     }
 
+    private void followPlayer()
+    {
+        if(player.position.x > rb.position.x)
+        {
+            Move(directions[1]);
+            return;
+        }
+        else if(player.position.x < rb.position.x)
+        {
+            Move(directions[3]);
+            return;
+        }
+        else if(player.position.y > rb.position.y)
+        {
+            Move(directions[0]);
+            return;
+        }
 
+        else if (player.position.y < rb.position.y)
+        {
+            Move(directions[2]);
+            return;
+        }
+
+
+    }
+ 
 
 }
 
