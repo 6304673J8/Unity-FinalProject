@@ -40,10 +40,15 @@ public class Enemy : MonoBehaviour
     private Tilemap floorTilemap;
     [SerializeField]
     private Tilemap collisionTilemap;
+    [SerializeField]
+    private Tilemap floorItemsTilemap;
+    [SerializeField]
+    private Tilemap breakablesTilemap;
+
     /*[SerializeField]
     private Tilemap damagingTilemap;*/
 
-    
+
 
     Vector2[] directions = { Vector2.up, Vector2.right, Vector2.down, Vector2.left };
 
@@ -157,7 +162,7 @@ public class Enemy : MonoBehaviour
     private bool CanMove(Vector2 dir)
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
-        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) || floorItemsTilemap.HasTile(gridPos) || breakablesTilemap.HasTile(gridPos))
         {
             return false;
         }
@@ -166,23 +171,23 @@ public class Enemy : MonoBehaviour
 
     private void followPlayer()
     {
-        if(player.position.x > rb.position.x)
+        if(player.position.x > rb.position.x + 1)
         {
             Move(directions[1]);
             return;
         }
-        else if(player.position.x < rb.position.x)
+        else if(player.position.x < rb.position.x - 1)
         {
             Move(directions[3]);
             return;
         }
-        else if(player.position.y > rb.position.y)
+        else if(player.position.y > rb.position.y + 1)
         {
             Move(directions[0]);
             return;
         }
 
-        else if (player.position.y < rb.position.y)
+        else if (player.position.y < rb.position.y - 1)
         {
             Move(directions[2]);
             return;
