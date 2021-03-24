@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    public int hp;
 
     private bool stunned;
 
@@ -68,7 +69,10 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-       
+       if(hp <= 0)
+        {
+            kill();
+        }
 
     }
 
@@ -200,7 +204,7 @@ public class Enemy : MonoBehaviour
     {
         stunned = true;
         sprite.color = new Color(0, 0, 1, 1);
-
+        hp -= 20;
         return;
         
     }
@@ -222,6 +226,10 @@ public class Enemy : MonoBehaviour
 
     }
 
+    private void kill()
+    {
+        Destroy(gameObject);
+    }
 
 }
 

@@ -5,7 +5,15 @@ using UnityEngine;
 public class DestroyMe : MonoBehaviour
 {
     private bool isDestroyed = false;
-    
+
+    public GameObject destroyItem;
+
+    [SerializeField]AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDestroyed)
@@ -14,6 +22,8 @@ public class DestroyMe : MonoBehaviour
         if (collision.CompareTag("Earthquake"))
         {
             isDestroyed = true;
+            GameObject di = Instantiate(destroyItem, transform.position, transform.rotation);
+            Destroy(di, 2);
             Destroy(this.gameObject);
         }
     }
