@@ -36,15 +36,9 @@ public class SusanaController : MonoBehaviour
     //public Item item;
 
     GameHandler gameHandler;
-    [Header("Abilities")]
-
     public GameObject earthquakePrefab;
     public GameObject lungePrefab;
     public GameObject susanaBreaksBarrel;
-    public Abilities abilities;
-    public bool defending;
-    public bool lunging;
-    public bool quaking;
 
     private enum State
     {
@@ -200,7 +194,6 @@ public class SusanaController : MonoBehaviour
         sprite.color = new Color(0, 1, 0, 1);
         if (hp < 300)
         {
-            defending = true;
             hp += hp * 10;
             Debug.Log("hp");
             Debug.Log(hp);
@@ -234,7 +227,7 @@ public class SusanaController : MonoBehaviour
     {
         Debug.Log("Topetazo!");
         movement = controller.Floor.Move.ReadValue<Vector2>();
-        if (CanLunge(movement) && abilities.lungeCooldown == false)
+        if (CanLunge(movement))
         {
             LungeLogic();
             transform.position += (Vector3)movement * lungeDistance;
@@ -243,15 +236,10 @@ public class SusanaController : MonoBehaviour
 
     public void Earthquake()
     {
-        quaking = true;
-        if (abilities.earthquakeCooldown == false)
-        {
-            quaking = true;
-            sprite.color = new Color(0, 0, 1, 1);
-            EarthquakeLogic();
-            Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
-        }
-        //sprite.color = new Color(1, 1, 1, 1);
+        sprite.color = new Color(0, 0, 1, 1);
+
+        EarthquakeLogic();
+        Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
         //Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
         //gameHandler.GetComponent<CameraShake>().shakeDuration = 0.2f;
     }
@@ -265,7 +253,6 @@ public class SusanaController : MonoBehaviour
         {
             return false;
         }
-        lunging = true;
         return true;
     }
     private bool CanMove(Vector2 dir)
