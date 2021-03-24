@@ -34,11 +34,17 @@ public class SusanaController : MonoBehaviour
     private bool facingRight = true;
 
     //public Item item;
+    [Header("Abilities")]
 
     GameHandler gameHandler;
     public GameObject earthquakePrefab;
     public GameObject lungePrefab;
+    public GameObject potionPrefab;
     public GameObject susanaBreaksBarrel;
+    public Abilities abilities;
+    public bool defending;
+    public bool lunging;
+    public bool quaking;
 
     private enum State
     {
@@ -86,26 +92,9 @@ public class SusanaController : MonoBehaviour
         controller.Floor.Defense.canceled += ctx => Defense();
         controller.Floor.Shaker.started += ctx => Earthquake();
         controller.Floor.Heal.performed += ctx => Heal();
-
-        //controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
     }
-    //First Attempt
-    /*void OnCollisionEnter2D(Collision2D collision)
-    {
-        Vector3 hitPosition = Vector3.zero;
-        Vector3Int gridPosition = breakableTilemap.WorldToCell(transform.position);
-
-        if (breakableTilemap != null && breakableTilemap == collision.gameObject)
-        {
-            Debug.Log("ok");
-            breakableTilemap.SetTile(gridPosition, null);
-        }
-    }*/
-    //new
-
     private void Update()
     {
-
         switch (state)
         {
             case State.IDLE:
@@ -212,11 +201,13 @@ public class SusanaController : MonoBehaviour
             Debug.Log("Has usado una poción!");
             if (hp <= (originalHp - healAmount))
             {
+                PotionLogic();
                 hp += healAmount;
                 GameManager.Instance.potionNumber--;
             }
             else
             {
+                PotionLogic();
                 hp = originalHp;
                 GameManager.Instance.potionNumber--;
             }
@@ -227,7 +218,7 @@ public class SusanaController : MonoBehaviour
     {
         Debug.Log("Topetazo!");
         movement = controller.Floor.Move.ReadValue<Vector2>();
-        if (CanLunge(movement))
+        if (CanLunge(movement) && abilities.lungeCooldown == false)
         {
             LungeLogic();
             transform.position += (Vector3)movement * lungeDistance;
@@ -236,10 +227,15 @@ public class SusanaController : MonoBehaviour
 
     public void Earthquake()
     {
-        sprite.color = new Color(0, 0, 1, 1);
-
-        EarthquakeLogic();
-        Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
+        quaking = true;
+        if (abilities.earthquakeCooldown == false)
+        {
+            quaking = true;
+            sprite.color = new Color(0, 0, 1, 1);
+            EarthquakeLogic();
+            Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
+        }
+        //sprite.color = new Color(1, 1, 1, 1);
         //Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
         //gameHandler.GetComponent<CameraShake>().shakeDuration = 0.2f;
     }
@@ -253,6 +249,7 @@ public class SusanaController : MonoBehaviour
         {
             return false;
         }
+        lunging = true;
         return true;
     }
     private bool CanMove(Vector2 dir)
@@ -323,5 +320,12 @@ public class SusanaController : MonoBehaviour
         Vector2 pos = transform.position;
 
         GameObject lungeFX = Instantiate(lungePrefab, pos, transform.rotation);
+    }
+
+    public void PotionLogic()
+    {
+        Vector2 pos = transform.position;
+
+        GameObject potionFX = Instantiate(potionPrefab, pos, transform.rotation);
     }
 }
