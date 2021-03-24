@@ -149,9 +149,14 @@ MonoBehaviour:
   floorTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
   damagingTilemap: {fileID: 0}
+  healingTilemap: {fileID: 0}
   movePivot: {fileID: 5518576781351040933}
   healthBar: {fileID: 0}
   hp: 12
+  earthquakePrefab: {fileID: 0}
+  lungePrefab: {fileID: 0}
+  susanaBreaksBarrel: {fileID: 1781865049369488854, guid: 4459493d2b36bb5459a15d187077773b,
+    type: 3}
   speed: 5
   lungeDistance: 0
   movementToInt: {x: 0, y: 0, z: 0}

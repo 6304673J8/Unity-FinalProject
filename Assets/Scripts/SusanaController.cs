@@ -36,6 +36,7 @@ public class SusanaController : MonoBehaviour
     GameHandler gameHandler;
     public GameObject earthquakePrefab;
     public GameObject lungePrefab;
+    public GameObject susanaBreaksBarrel;
 
     private enum State
     {
@@ -132,6 +133,7 @@ public class SusanaController : MonoBehaviour
         if (other.tag == "Breakable")
         {
             other.gameObject.SetActive(false);
+            GameObject sbb = Instantiate(susanaBreaksBarrel, transform.position, transform.rotation);
         }
         else if (other.tag == "Enemy")
         {
