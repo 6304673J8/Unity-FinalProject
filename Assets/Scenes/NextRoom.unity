@@ -14020,7 +14020,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1655733785}
     - target: {fileID: 7663931183085479129, guid: 24f52ef1edada914fb8d8dc47156ae97,
         type: 3}
       propertyPath: hp
@@ -73449,6 +73449,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1655733785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6272844400842207403, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 853152351}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dfce6aa8618bf4c91ce0392531c627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1703126851 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6272844399396022855, guid: 18b1722118f572848a3a1cf1a2fd20bb,
