@@ -33,6 +33,8 @@ public class SusanaController : MonoBehaviour
 
     private bool facingRight = true;
 
+    //public Item item;
+
     GameHandler gameHandler;
     public GameObject earthquakePrefab;
     public GameObject lungePrefab;
@@ -83,6 +85,7 @@ public class SusanaController : MonoBehaviour
         controller.Floor.Defense.started += ctx => Defense();
         controller.Floor.Defense.canceled += ctx => Defense();
         controller.Floor.Shaker.started += ctx => Earthquake();
+        controller.Floor.Heal.performed += ctx => Heal();
 
         //controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
     }
@@ -153,6 +156,12 @@ public class SusanaController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        else if (other.tag == "Door" && GameManager.Instance.keyNumber >= 1)
+        {
+            Debug.Log("Has usado una llave!");
+            GameManager.Instance.keyNumber--;
+            other.gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -195,6 +204,25 @@ public class SusanaController : MonoBehaviour
         }
     }
 
+    public void Heal()
+    {
+        const int healAmount = 100;
+
+        if (GameManager.Instance.potionNumber >= 1) {
+            Debug.Log("Has usado una poción!");
+            if (hp <= (originalHp - healAmount))
+            {
+                hp += healAmount;
+                GameManager.Instance.potionNumber--;
+            }
+            else
+            {
+                hp = originalHp;
+                GameManager.Instance.potionNumber--;
+            }
+        }
+    }
+
     public void Lunge()
     {
         Debug.Log("Topetazo!");
@@ -220,8 +248,8 @@ public class SusanaController : MonoBehaviour
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement);
         Vector3Int lungeGridPos = floorTilemap.WorldToCell(transform.position + (Vector3)movement * 2);
-        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) || /*NPCTilemap.HasTile(gridPos) ||*/
-            !floorTilemap.HasTile(lungeGridPos) || collisionTilemap.HasTile(lungeGridPos) /*|| NPCTilemap.HasTile(lungeGridPos)*/)
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) ||
+            !floorTilemap.HasTile(lungeGridPos) || collisionTilemap.HasTile(lungeGridPos))
         {
             return false;
         }
@@ -230,7 +258,7 @@ public class SusanaController : MonoBehaviour
     private bool CanMove(Vector2 dir)
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
-        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) /*|| NPCTilemap.HasTile(gridPos)*/)
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
         {
             return false;
         }

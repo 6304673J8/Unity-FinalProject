@@ -9,7 +9,18 @@ public class Item : MonoBehaviour
     [SerializeField]
     private Tilemap floorItemsTilemap;
 
+    [SerializeField]
+    private int nPotions;
+
+    [SerializeField]
+    private Tilemap keyTilemap;
+
+    [SerializeField]
+    private int nKeys;
+
     private PickupInput pickupControls;
+
+    SusanaController susanaController;
 
     private void Awake()
     {
@@ -30,16 +41,31 @@ public class Item : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        nPotions = 0;
+        nKeys = 0;
         pickupControls.Floor.Pickup.performed += ctx => Pickup();
     }
+
+    /*public int NumPotions()
+    {
+        return nPotions;
+    }*/
 
     private void Pickup()
     {
         Vector3Int gridPosition = floorItemsTilemap.WorldToCell(transform.position);
         if (ItemOnFloor())
         {
-            //Objecto++
             floorItemsTilemap.SetTile(gridPosition, null);
+            //nPotions++;
+            GameManager.Instance.potionNumber++;
+        }
+
+        Vector3Int keyGridPosition = keyTilemap.WorldToCell(transform.position);
+        if (KeyOnFloor())
+        {
+            keyTilemap.SetTile(keyGridPosition, null);
+            GameManager.Instance.keyNumber++;
         }
     }
 
@@ -55,4 +81,16 @@ public class Item : MonoBehaviour
         }
     }
 
+    private bool KeyOnFloor()
+    {
+        Vector3Int keyGridPosition = keyTilemap.WorldToCell(transform.position);
+        if (!keyTilemap.HasTile(keyGridPosition))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }

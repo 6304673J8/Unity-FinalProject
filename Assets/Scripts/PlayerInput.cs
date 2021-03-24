@@ -65,6 +65,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Heal"",
+                    ""type"": ""Button"",
+                    ""id"": ""268e0227-b291-4bce-a84b-49f70890670c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -177,6 +185,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Shaker"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e954b2ec-002c-47b8-b560-3a184837563b"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -191,6 +210,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Floor_Shaker = m_Floor.FindAction("Shaker", throwIfNotFound: true);
         m_Floor_Shoot = m_Floor.FindAction("Shoot", throwIfNotFound: true);
         m_Floor_MousePosition = m_Floor.FindAction("MousePosition", throwIfNotFound: true);
+        m_Floor_Heal = m_Floor.FindAction("Heal", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -246,6 +266,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Floor_Shaker;
     private readonly InputAction m_Floor_Shoot;
     private readonly InputAction m_Floor_MousePosition;
+    private readonly InputAction m_Floor_Heal;
     public struct FloorActions
     {
         private @PlayerInput m_Wrapper;
@@ -256,6 +277,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Shaker => m_Wrapper.m_Floor_Shaker;
         public InputAction @Shoot => m_Wrapper.m_Floor_Shoot;
         public InputAction @MousePosition => m_Wrapper.m_Floor_MousePosition;
+        public InputAction @Heal => m_Wrapper.m_Floor_Heal;
         public InputActionMap Get() { return m_Wrapper.m_Floor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -283,6 +305,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @MousePosition.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnMousePosition;
                 @MousePosition.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnMousePosition;
                 @MousePosition.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnMousePosition;
+                @Heal.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnHeal;
+                @Heal.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnHeal;
+                @Heal.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnHeal;
             }
             m_Wrapper.m_FloorActionsCallbackInterface = instance;
             if (instance != null)
@@ -305,6 +330,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @MousePosition.started += instance.OnMousePosition;
                 @MousePosition.performed += instance.OnMousePosition;
                 @MousePosition.canceled += instance.OnMousePosition;
+                @Heal.started += instance.OnHeal;
+                @Heal.performed += instance.OnHeal;
+                @Heal.canceled += instance.OnHeal;
             }
         }
     }
@@ -317,5 +345,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnShaker(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnHeal(InputAction.CallbackContext context);
     }
 }
