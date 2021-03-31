@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+    [Header("Management Scripts")]
     [SerializeField] SusanaOmega susana;
     Vector2 axis;
+
     public void OnMove(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
@@ -16,7 +18,6 @@ public class InputManager : MonoBehaviour
         }
         if (ctx.canceled)
         {
-            Debug.Log("Fire!");
             axis = Vector2.zero;
         }
         susana.SetAxis(axis);
@@ -35,6 +36,11 @@ public class InputManager : MonoBehaviour
         if (ctx.started)
         {
             susana.Defense();
+        }
+        if (ctx.canceled)
+        {
+            Debug.Log("WEEEEAK");
+            //susana.Defense();
         }
     }
 }
