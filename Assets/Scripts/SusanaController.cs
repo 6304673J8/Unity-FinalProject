@@ -125,7 +125,6 @@ public class SusanaController : MonoBehaviour
         if (other.tag == "Breakable")
         {
             other.gameObject.SetActive(false);
-            GameObject sbb = Instantiate(susanaBreaksBarrel, transform.position, transform.rotation);
         }
         else if (other.tag == "Enemy")
         {
@@ -252,6 +251,7 @@ public class SusanaController : MonoBehaviour
         lunging = true;
         return true;
     }
+
     private bool CanMove(Vector2 dir)
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);

@@ -1,39 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Tilemaps;
+﻿using UnityEngine;
+using System.Collections;
 
 public class SusanaOmega : MonoBehaviour
 {
     //HP SUSANA
-    public HealthBar healthBar;
-    public int hp;
-    private int originalHp;
-
-    private bool facingRight = true;
-    private bool isMoving;
-
-    private Rigidbody2D rb;
-    //new
-    [SerializeField] private float speed;
-    // shows rounded position = tile position
+    [SerializeField] float speed;
     Vector2 axis;
+
+    bool facingRight = true;
+    bool isMoving;
+
+    Rigidbody2D rb;
+    //new
+    // shows rounded position = tile position
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        originalHp = hp;
-        healthBar.SetMaxHealth(originalHp);
-    }
-
-    private void Update()
-    {
-        CheckFlip();
     }
 
     private void FixedUpdate()
@@ -41,22 +24,65 @@ public class SusanaOmega : MonoBehaviour
         Movement();
     }
 
-    public void Movement()
+    void Movement()
     {
+
         if (axis.x != 0)
         {
-            Debug.Log("PR");
+            isMoving = true;
+            Debug.Log("Moving");
             //axis = new Vector2Int(Mathf.FloorToInt(axis.x), Mathf.FloorToInt(axis.y));
             //transform.position += (Vector3)axis;
-            rb.velocity = new Vector2(axis.x * speed, rb.velocity.y);
+            //rb.velocity = new Vector2(axis.x * speed, rb.velocity.y);
 
         }
         else
         {
-            Debug.Log("PROTECT");
+            //Debug.Log("PROTECT");
             isMoving = false;
         }
-        CheckFlip();
+    }
+    public void Earthquake()
+    {
+        Debug.Log("BROOOM");
+    }
+
+    public void Lunge()
+    {
+        Debug.Log("Lunging");
+        //transform.position += (Vector3)axis * 2;
+    }
+
+    private void CheckFlip()
+    {
+        if (facingRight == false && axis.x > 0)
+        {
+
+            Flip();
+
+        }
+        else if (facingRight == true && axis.x < 0)
+        {
+            Flip();
+        }
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+    }
+
+    public void SetAxis(Vector2 _axis)
+    {
+        print(axis);
+        axis = _axis;
+    }
+    public bool IsMoving()
+    {
+        return isMoving;
     }
     /*
      *
@@ -121,62 +147,4 @@ public class SusanaOmega : MonoBehaviour
         }
     }
      */
-    public void Defense()
-    {
-        Debug.Log("PROTECT");
-        if (hp < 300)
-        {
-            hp += hp * 10;
-            Debug.Log("hp");
-            Debug.Log(hp);
-        }
-        if (hp > 1001)
-            hp = originalHp;
-    }
-
-    public void Lunge()
-    {
-        transform.position += (Vector3)axis * 2;
-    }
-    public void TakeDamage(int damage)
-    {
-        hp -= damage;
-        healthBar.SetHealth(hp);
-        if (hp <= 0)
-        {
-            Debug.Log("RIP");
-            Destroy(gameObject);
-        }
-    }
-
-    private void CheckFlip()
-    {
-        if (facingRight == false && axis.x > 0)
-        {
-
-            Flip();
-
-        }
-        else if (facingRight == true && axis.x < 0)
-        {
-            Flip();
-        }
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
-    }
-
-    public void SetAxis(Vector2 _axis)
-    {
-        axis = _axis;
-    }
-    public bool IsMoving()
-    {
-        return isMoving;
-    }
 }

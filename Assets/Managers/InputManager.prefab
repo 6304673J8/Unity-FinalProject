@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: e1513e69da2144248891d34b0ed4dd6a,
+  m_Actions: {fileID: -944628639613478452, guid: db2f64ab4a8ba624295aab4fac3dc69c,
     type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
@@ -72,31 +72,52 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d4738247-0a7a-46e5-9c03-33585700bb1c
-    m_ActionName: Susana/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      m_Calls:
+      - m_Target: {fileID: 178061085370747561}
+        m_MethodName: OnMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 178061085370747561}
+        m_MethodName: OnShaker
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 178061085370747561}
+        m_MethodName: OnLunge
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b37cd4ac-1e08-41a3-a452-37de917dcd79
+    m_ActionName: Player/Player[/Keyboard/w]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: ebe1d0f6-e9e2-4766-a3f0-c0e217a35cfc
+    m_ActionId: 754657a2-8b3a-4427-b34f-89ffe0cd20f5
     m_ActionName: Susana/Lunge[/Keyboard/space]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 15c3b4d5-804a-4ac5-a703-25bb92aeb40b
-    m_ActionName: Susana/Defense[/Keyboard/leftCtrl]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e1f48eaa-5a2c-4321-a8d6-3ba6482bdbcf
-    m_ActionName: Susana/Earthquake[/Keyboard/2]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b7f28c3c-8e93-4903-9717-5743e331a0b3
-    m_ActionName: Susana/Pick[/Keyboard/1]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 4c963e51-da22-4c9f-8970-9bc0eaf7035e
-    m_ActionName: Susana/Use[/Keyboard/3]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+    m_ActionId: 8690ae30-0382-4e22-9c67-9bc4d280fe11
+    m_ActionName: Susana/Earthquake[/Keyboard/ctrl]
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Susana
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

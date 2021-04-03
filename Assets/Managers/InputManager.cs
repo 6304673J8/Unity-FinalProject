@@ -9,11 +9,10 @@ public class InputManager : MonoBehaviour
     [SerializeField] SusanaOmega susana;
     Vector2 axis;
 
-    public void OnMove(InputAction.CallbackContext ctx)
+    public void OnMovement(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
-
             axis = ctx.ReadValue<Vector2>();
         }
         if (ctx.canceled)
@@ -22,7 +21,6 @@ public class InputManager : MonoBehaviour
         }
         susana.SetAxis(axis);
     }
-
     public void OnLunge(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
@@ -31,16 +29,11 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public void OnDefense(InputAction.CallbackContext ctx)
+    public void OnShaker(InputAction.CallbackContext ctx)
     {
         if (ctx.started)
         {
-            susana.Defense();
-        }
-        if (ctx.canceled)
-        {
-            Debug.Log("WEEEEAK");
-            //susana.Defense();
+            susana.Earthquake();
         }
     }
 }
