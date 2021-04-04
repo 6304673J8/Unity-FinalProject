@@ -15,6 +15,7 @@ TagManager:
   - Key
   - NPC
   - Earthquake
+  - Lunge
   layers:
   - Default
   - TransparentFX

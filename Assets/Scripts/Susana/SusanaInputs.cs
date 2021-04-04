@@ -2,10 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.SceneManagement;
 
-public class SusanaController : MonoBehaviour
+public class SusanaInputs : MonoBehaviour
 {
+    //Movement
+    private Rigidbody2D susanaRb;
+    Vector2 movement;
+    SpriteRenderer sprite;
+    [SerializeField] private float lungeDistance;
+
+    //HP
+    public int hp;
+    private int originalHp;
+
+    private PlayerInput controller;
+    private bool facingRight = true;
+
+    //Collision Check
     [SerializeField]
     private Tilemap floorTilemap;
     [SerializeField]
@@ -14,34 +27,16 @@ public class SusanaController : MonoBehaviour
     private Tilemap damagingTilemap;
     [SerializeField]
     private Tilemap healingTilemap;
-    //[SerializeField]
-    //private Tilemap NPCTilemap;
 
-    private PlayerInput controller;
-
-    SpriteRenderer sprite;
-
-    //Movimiento Susana
-    public Transform movePivot;
-
-    //HP SUSANA
-    public HealthBar healthBar;
-    public int hp;
-    private int originalHp;
-
-    private bool facingRight = true;
-
-    //public Item item;
-    [Header("Abilities")]
-
-    GameHandler gameHandler;
-    public GameObject earthquakePrefab;
-    public GameObject lungePrefab;
-    public GameObject potionPrefab;
+    //Skills
+    public Transform lungePosition;
     public Abilities abilities;
     public bool defending;
     public bool lunging;
     public bool quaking;
+
+    //Managers
+    SusanaSkills skills;
 
     private enum State
     {
@@ -51,22 +46,14 @@ public class SusanaController : MonoBehaviour
         HEALING
     }
 
-    private Rigidbody2D rb;
-    //new
-    [SerializeField] private float speed;
-    [SerializeField] private float lungeDistance;
-
-    // shows rounded position = tile position
-    public Vector3Int movementToInt;
-    public Vector3 pos;
-    Vector2 movement;
-
-    private Vector3 lastMoveDir;
     private State state;
+
     private void Awake()
     {
         controller = new PlayerInput();
-        rb = GetComponent<Rigidbody2D>();
+        susanaRb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        skills = GameObject.FindGameObjectWithTag("GameController").GetComponent<SusanaSkills>();
         state = State.IDLE;
     }
 
@@ -79,13 +66,9 @@ public class SusanaController : MonoBehaviour
     {
         controller.Disable();
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
-        originalHp = hp;
-        healthBar.SetMaxHealth(originalHp);
-
         controller.Floor.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
         controller.Floor.Lunge.performed += ctx => Lunge();
         controller.Floor.Defense.started += ctx => Defense();
@@ -93,34 +76,18 @@ public class SusanaController : MonoBehaviour
         controller.Floor.Shaker.started += ctx => Earthquake();
         controller.Floor.Heal.performed += ctx => Heal();
     }
-    private void Update()
-    {
-        switch (state)
-        {
-            case State.IDLE:
-                Debug.Log("Anim IDLE");
-                break;
-            case State.ATTACK:
-                //Debug.Log("Anim ATTACK");
-                break;
-            case State.MOVING:
-                Debug.Log("Anim MOVE");
-                break;
-            case State.HEALING:
-                Debug.Log("Healing");
-                break;
-        }
-    }
 
     private void FixedUpdate()
     {
         movement = controller.Floor.Move.ReadValue<Vector2>();
 
-        if (facingRight == false && movement.x > 0) {
+        if (facingRight == false && movement.x > 0)
+        {
 
             Flip();
 
-        } else if (facingRight == true && movement.x < 0)
+        }
+        else if (facingRight == true && movement.x < 0)
         {
             Flip();
         }
@@ -129,27 +96,13 @@ public class SusanaController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         //Check if the tag of the trigger collided with is Exit.
-        if (other.tag == "Breakable")
-        {
-            other.gameObject.SetActive(false);
-        }
-        else if (other.tag == "Enemy")
-        {
-            other.gameObject.SetActive(true);
-            //other.gameObject.SetActive(true);
-            //other.gameObject.transform.position += this.transform.position;
-        }
-        else if (other.tag == "DamagingTile")
+        if (other.tag == "DamagingTile")
         {
             DamagedByTile();
         }
         else if (other.tag == "HealingTile")
         {
             HealedByTile();
-        }
-        else if (other.tag == "NPC")
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if (other.tag == "Door" && GameManager.Instance.keyNumber >= 1)
         {
@@ -171,18 +124,6 @@ public class SusanaController : MonoBehaviour
             Debug.Log("Ya no cura");
             sprite.color = new Color(1, 1, 1, 1);
         }
-    }
-    private void Move(Vector2 dir)
-    {
-        state = State.MOVING;
-        if (CanMove(dir))
-        {
-            dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
-            transform.position += (Vector3)dir;
-            sprite.color = new Color(1, 1, 1, 1);
-
-        }
-        state = State.IDLE;
     }
 
     private void Defense()
@@ -207,47 +148,55 @@ public class SusanaController : MonoBehaviour
         state = State.HEALING;
         const int healAmount = 100;
 
-        if (GameManager.Instance.potionNumber >= 1) {
+        if (GameManager.Instance.potionNumber >= 1)
+        {
             Debug.Log("Has usado una poción!");
             if (hp <= (originalHp - healAmount))
             {
-                PotionLogic();
+                skills.PotionLogic();
                 hp += healAmount;
                 GameManager.Instance.potionNumber--;
             }
             else
             {
-                PotionLogic();
+                skills.PotionLogic();
                 hp = originalHp;
                 GameManager.Instance.potionNumber--;
             }
         }
     }
 
-    public void Lunge()
+    private void Move(Vector2 dir)
     {
-        Debug.Log("Topetazo!");
-        movement = controller.Floor.Move.ReadValue<Vector2>();
-        if (CanLunge(movement) && abilities.lungeCooldown == false)
+        if (CanMove(dir))
         {
-            LungeLogic();
-            transform.position += (Vector3)movement * lungeDistance;
+            dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
+            transform.position += (Vector3)dir;
+            sprite.color = new Color(1, 1, 1, 1);
         }
     }
 
-    public void Earthquake()
+    private bool CanMove(Vector2 dir)
     {
-        quaking = true;
-        if (abilities.earthquakeCooldown == false)
+        Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
         {
-            quaking = true;
-            sprite.color = new Color(0, 0, 1, 1);
-            EarthquakeLogic();
-            Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
+            return false;
         }
-        //sprite.color = new Color(1, 1, 1, 1);
-        //Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
-        //gameHandler.GetComponent<CameraShake>().shakeDuration = 0.2f;
+        return true;
+    }
+
+    public void Lunge()
+    {
+        //animator.SetTrigger("Lunge");
+        movement = controller.Floor.Move.ReadValue<Vector2>();
+        if (movement == Vector2.zero)
+            return;
+        else if (CanLunge(movement) && abilities.lungeCooldown == false)
+        {
+            skills.LungeLogic();
+            transform.position += (Vector3)movement * lungeDistance;
+        }
     }
 
     private bool CanLunge(Vector2 lungeToNext)
@@ -263,22 +212,29 @@ public class SusanaController : MonoBehaviour
         return true;
     }
 
-    private bool CanMove(Vector2 dir)
+    public void Earthquake()
     {
-        Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
-        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
+        //animator.SetTrigger("Earthquake");
+        quaking = true;
+        if (abilities.earthquakeCooldown == false)
         {
-            return false;
+            quaking = true;
+            sprite.color = new Color(0, 0, 1, 1);
+            skills.EarthquakeLogic();
+            Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
         }
-        return true;
+        //sprite.color = new Color(1, 1, 1, 1);
+        //Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
+        //gameHandler.GetComponent<CameraShake>().shakeDuration = 0.2f;
     }
 
     public void TakeDamage(int damage)
     {
+        //animator.SetTrigger("Hurt");
         hp -= damage;
-        healthBar.SetHealth(hp);
         if (hp <= 0)
         {
+            //animator.SetTrigger("Dead");
             Debug.Log("RIP");
             Destroy(gameObject);
         }
@@ -317,26 +273,5 @@ public class SusanaController : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-    }
-
-    public void EarthquakeLogic()
-    {
-        Vector2 pos = transform.position;
-
-        GameObject earthquakeFX = Instantiate(earthquakePrefab, pos, transform.rotation);
-    }
-
-    public void LungeLogic()
-    {
-        Vector2 pos = transform.position;
-
-        GameObject lungeFX = Instantiate(lungePrefab, pos, transform.rotation);
-    }
-
-    public void PotionLogic()
-    {
-        Vector2 pos = transform.position;
-
-        GameObject potionFX = Instantiate(potionPrefab, pos, transform.rotation);
     }
 }

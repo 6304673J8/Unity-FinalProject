@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Abilities : MonoBehaviour
 {
-    public SusanaController susanaController;
+    public SusanaInputs susanaInputs;
     [Header("Ability 1")]
     public Image EarthquakeImage;
     public float CD_Earthquake = 4;
@@ -32,14 +32,14 @@ public class Abilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (susanaController.quaking == true)
+        if (susanaInputs.quaking == true)
         {
             Skill_E();
         }
-        if (susanaController.lunging == true) {
+        if (susanaInputs.lunging == true) {
             Skill_L();
         }
-        if (susanaController.defending == true) { 
+        if (susanaInputs.defending == true) { 
             Debug.Log("fkfkfkfk");
             Skill_S();
         }
@@ -58,7 +58,7 @@ public class Abilities : MonoBehaviour
             {
                 EarthquakeImage.fillAmount = 0;
                 earthquakeCooldown = false;
-                susanaController.quaking = false;
+                susanaInputs.quaking = false;
             }
         }
     }
@@ -78,7 +78,7 @@ public class Abilities : MonoBehaviour
             {
                 LungeImage.fillAmount = 0;
                 lungeCooldown = false;
-                susanaController.lunging = false;
+                susanaInputs.lunging = false;
             }
         }
     }
