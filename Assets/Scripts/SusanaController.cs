@@ -151,7 +151,7 @@ public class SusanaController : MonoBehaviour
         }
         else if (other.tag == "NPC")
         {
-            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if (other.tag == "Door" && GameManager.Instance.keyNumber >= 1)
         {

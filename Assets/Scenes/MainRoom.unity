@@ -765,12 +765,12 @@ PrefabInstance:
     - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 45.5
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
         type: 3}
@@ -30725,9 +30725,9 @@ MonoBehaviour:
   textFile: {fileID: 4900000, guid: f8a2a40efb9bfb94ca3ac362e9b18874, type: 3}
   textLines: []
   currentLine: 0
-  endAtLine: 3
+  endAtLine: 2
   susana: {fileID: 204609710}
-  isActive: 0
+  isActive: 1
   stopPlayerMovement: 1
 --- !u!4 &921044851
 Transform:
@@ -31181,8 +31181,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.97082466}
-  m_AnchoredPosition: {x: 0, y: -152.86}
-  m_SizeDelta: {x: 0, y: -305.7171}
+  m_AnchoredPosition: {x: 0, y: -86.06}
+  m_SizeDelta: {x: 0, y: -377.80316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1188140476
 MonoBehaviour:
@@ -44450,7 +44450,6 @@ MonoBehaviour:
   earthquakePrefab: {fileID: 0}
   lungePrefab: {fileID: 0}
   potionPrefab: {fileID: 0}
-  susanaBreaksBarrel: {fileID: 0}
   abilities: {fileID: 0}
   defending: 0
   lunging: 0

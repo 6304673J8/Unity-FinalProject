@@ -1,20 +1,3 @@
-Gouda, Brie, American Cheese, Pecorino Romano, Cheddar, Manchego, Camembert, 
-Smoked Gouda, Provolone, Babybel, Parmesan, Mascarpone, Mozzarella, Asiago, 
-Feta, Le Gruyere AOP, Gorgonzola, Monterey Jack, Stilton, Abbaye de Belloc, 
-Taleggio, Grana Padano, Swiss, Boursin, Cotija, Fontina Val d’Aosta, Roquefort, 
-Blue Vein Cheese, Emmental, Grana, Jarlsberg, Mozzarella di Bufala, Pepper Jack, 
-Munster, Bocconcini, Fromage Frais, Ricotta Salata, Cream Havarti, Scamorza, 
-Fromage a Raclette, Chevre, Pecorino, Burrata, Halloumi, Aged Gouda, Fresh Mozzarella, 
-Colby, Limburger, Paneer, Queso Blanco, Port-Salut, Adelost, Abondance, Butterkase, 
-Brillat-Savarin, Comte, Camembert de Normandie, Reblochon, Longhorn, Oaxaca, Airag, 
-Abbaye du Mont des Cats, Saint Agur, Cottage Cheese, Panela, Acapella, Fresh Truffles, 
-Romano, Wensleydale, Double Gloucester, Red Leicester, Abbaye de Citeaux, Colby-Jack, 
-Caciocavallo, Crottin de Chavignol, Cream Cheese, Zanetti Parmigiano Reggiano, 
-Juustoleipa, Baby Swiss, Le Roule, Brie de Meaux, Berkswell, Fresh Ricotta, Maasdam, 
-Canadian Cheddar, Ambert, Tommes, Cantal, Menonita, Crescenza, Queso Ibérico, 
-Crema Mexicana, Sage Derby, Geitost, Brick, Kasseri, Bel Paese, Affidelice au Chablis, 
-Pave d’Affinois, Muenster, Danablu, Acorn, Afuega’l Pitu, Abbot’s Gold, La Vache Qui Rit, 
-Buffalo, Caerphilly, Tomme de Chevre, Bath Cheese, Epoisses de Bourgogne, Cheshire, 
-Neufchatel, Blue Castello, Basket Cheese, Saint-Nectaire, Cabrales, Stinking Bishop, 
-Cotswold, Sainte Maure, Applewood, Fiore Sardo, Dolcelatte, Pont l’Eveque, 
-Cahill’s Irish Porter Cheddar, Zanetti Grana Padano, Langres, Il Boschetto al Tartufo.
+Keep moving on!
+Reach the end!
+Good luck!

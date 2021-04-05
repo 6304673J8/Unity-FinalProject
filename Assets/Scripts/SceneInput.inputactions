@@ -1,0 +1,52 @@
+{
+    "name": "SceneInput",
+    "maps": [
+        {
+            "name": "Scene",
+            "id": "022e57c7-2f6d-4ec4-b53f-7ba39f782170",
+            "actions": [
+                {
+                    "name": "Last",
+                    "type": "Button",
+                    "id": "eaf174c8-45ac-4446-bacc-804c8c8c2188",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Next",
+                    "type": "Button",
+                    "id": "36fe6d5e-f22d-42e2-ab46-59a99183ebb2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "285d5a74-7643-41cd-8871-08b5c4532dde",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce9c45b1-2b9c-4e75-9062-2e3332369e55",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Last",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
