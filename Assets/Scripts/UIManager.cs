@@ -20,12 +20,12 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (tag == "Item")
+        if (tag == "Item")
         {
             potions.text = "x" + GameManager.Instance.potionNumber;
         } else if (tag == "Key") {
             keys.text = "x" + GameManager.Instance.keyNumber;
-        }*/
+        }
         //Debug.Log(ItemSusana.NumPotions());
     }
 }
