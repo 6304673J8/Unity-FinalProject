@@ -143,11 +143,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8476badc8245e4845b2fad9974d6d124, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timerSpeed: 1.3
   attackDelay: 1
-  hp: 100
+  hp: 80
   player: {fileID: 2109804911503582316, guid: f728a9e3a710e504c86e2f2ae39d365a, type: 3}
   damage: 40
-  range: 5
+  range: 7
   floorTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
   floorItemsTilemap: {fileID: 0}

@@ -5,11 +5,11 @@ using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
-    private float timerSpeed = 1f; //Este valor define los segundos del temporizador
+    public float timerSpeed; //Este valor define los segundos del temporizador
 
     private float stunTimer = 4f; //Temporizador del STUN
 
-    private float timerSpeedAttack = 0.8f; 
+    private float timerSpeedAttack = 0.8f; //Temporizador del ataque (ataca a los 0.8 segundos de estar en rango)
 
     public float attackDelay = 1;
 
@@ -64,6 +64,7 @@ public class Enemy : MonoBehaviour
     {
         elapsed += Time.deltaTime;
         stunned = false;
+        
     }
 
 
@@ -221,6 +222,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Earthquake"))
         {
+           
             getStunned();
         }
 
@@ -231,5 +233,6 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    
 }
 
