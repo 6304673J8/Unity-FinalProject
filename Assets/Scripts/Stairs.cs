@@ -33,17 +33,23 @@ public class Stairs : MonoBehaviour
     private void StairsOnFloor()
     {
         Vector3 stairstut = new Vector3(70.5f, 0.5f, 0);
+
         Vector3 stairs1a = new Vector3(-18.5f, -4.5f, 0);
         Vector3 stairs2a = new Vector3(-8.5f, 46.5f, 0);
 
+        Vector3 stairs1b = new Vector3(11.5f, 61.5f, 0);
+
         //if (transform.position == new Vector3(-9.5f, -1.5f, 0))
-        if (Vector3.Distance(transform.position, stairs1a) < 0.1f)
+        if (Vector3.Distance(transform.position, stairs1a) < 0.5f)
         {
             transform.position = stairs2a;
-        } else if (Vector3.Distance(transform.position, stairs2a) < 0.1f)
+        } else if (Vector3.Distance(transform.position, stairs2a) < 0.5f)
         {
             transform.position = stairs1a;
-        } else if (Vector3.Distance(transform.position, stairstut) < 0.1f)
+        } else if (Vector3.Distance(transform.position, stairstut) < 0.5f)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        } else if (Vector3.Distance(transform.position, stairs1b) < 0.5f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

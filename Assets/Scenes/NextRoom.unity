@@ -403,6 +403,37 @@ CompositeCollider2D:
       - {x: -58.99997, y: 20}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!1 &250918193 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2109804911503582318, guid: 24f52ef1edada914fb8d8dc47156ae97,
+    type: 3}
+  m_PrefabInstance: {fileID: 676401378}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &250918194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250918193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a19a565995da498974c8eab0415a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  susana: {fileID: 676401379}
+--- !u!114 &250918199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250918193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ade90716b7afa4c9825213495bc92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &301832020
 GameObject:
   m_ObjectHideFlags: 0
@@ -47573,7 +47604,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 676401378}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 250918193}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 022f4c754e63b7b48a39ff59b9d31238, type: 3}
@@ -47735,6 +47766,18 @@ PrefabInstance:
     - target: {fileID: 1730747763, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
       propertyPath: nKeys
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730747764, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730747764, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: 268e0227-b291-4bce-a84b-49f70890670c
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730747764, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Floor/Heal[/Keyboard/3]
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582306, guid: 24f52ef1edada914fb8d8dc47156ae97,
         type: 3}
@@ -107389,7 +107432,6 @@ MonoBehaviour:
   earthquakePrefab: {fileID: 0}
   lungePrefab: {fileID: 0}
   potionPrefab: {fileID: 0}
-  susanaBreaksBarrel: {fileID: 0}
   abilities: {fileID: 0}
   defending: 0
   lunging: 0
@@ -107837,7 +107879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1807726598
 MonoBehaviour:
   m_ObjectHideFlags: 0

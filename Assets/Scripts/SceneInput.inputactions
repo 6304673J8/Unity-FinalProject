@@ -6,7 +6,7 @@
             "id": "022e57c7-2f6d-4ec4-b53f-7ba39f782170",
             "actions": [
                 {
-                    "name": "Last",
+                    "name": "Previous",
                     "type": "Button",
                     "id": "eaf174c8-45ac-4446-bacc-804c8c8c2188",
                     "expectedControlType": "Button",
@@ -41,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Last",
+                    "action": "Previous",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
