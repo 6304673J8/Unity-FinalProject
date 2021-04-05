@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class Stairs : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class Stairs : MonoBehaviour
 
     private void StairsOnFloor()
     {
-
+        Vector3 stairstut = new Vector3(70.5f, 0.5f, 0);
         Vector3 stairs1a = new Vector3(-18.5f, -4.5f, 0);
         Vector3 stairs2a = new Vector3(-8.5f, 46.5f, 0);
 
@@ -42,6 +43,9 @@ public class Stairs : MonoBehaviour
         } else if (Vector3.Distance(transform.position, stairs2a) < 0.1f)
         {
             transform.position = stairs1a;
+        } else if (Vector3.Distance(transform.position, stairstut) < 0.1f)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

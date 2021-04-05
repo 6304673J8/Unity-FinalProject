@@ -24,6 +24,8 @@ public class SusanaController : MonoBehaviour
     //Movimiento Susana
     public Transform movePivot;
 
+    public bool canMove = false;
+
     //HP SUSANA
     public HealthBar healthBar;
     public int hp;
@@ -149,7 +151,7 @@ public class SusanaController : MonoBehaviour
         }
         else if (other.tag == "NPC")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if (other.tag == "Door" && GameManager.Instance.keyNumber >= 1)
         {
@@ -175,7 +177,7 @@ public class SusanaController : MonoBehaviour
     private void Move(Vector2 dir)
     {
         state = State.MOVING;
-        if (CanMove(dir))
+        if (CanMove(dir) && canMove == true)
         {
             dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
             transform.position += (Vector3)dir;
@@ -263,7 +265,7 @@ public class SusanaController : MonoBehaviour
         return true;
     }
 
-    private bool CanMove(Vector2 dir)
+    public bool CanMove(Vector2 dir)
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)dir);
         if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos))
