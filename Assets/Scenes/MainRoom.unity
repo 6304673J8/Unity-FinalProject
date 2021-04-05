@@ -44938,6 +44938,11 @@ PrefabInstance:
       propertyPath: susanaController
       value: 
       objectReference: {fileID: 204609710}
+    - target: {fileID: 6272844399396022855, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: susanaInputs
+      value: 
+      objectReference: {fileID: 204609710}
     - target: {fileID: 6272844399396022856, guid: 18b1722118f572848a3a1cf1a2fd20bb,
         type: 3}
       propertyPath: m_LocalPosition.x

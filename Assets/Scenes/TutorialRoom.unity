@@ -1374,6 +1374,18 @@ PrefabInstance:
       objectReference: {fileID: 588921086}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
+--- !u!114 &791976258 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7663931183085479129, guid: 24f52ef1edada914fb8d8dc47156ae97,
+    type: 3}
+  m_PrefabInstance: {fileID: 791976257}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942908580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022f4c754e63b7b48a39ff59b9d31238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &817369716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21958,6 +21970,11 @@ PrefabInstance:
       propertyPath: susanaController
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6272844399396022855, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: susanaInputs
+      value: 
+      objectReference: {fileID: 791976258}
     - target: {fileID: 6272844399396022856, guid: 18b1722118f572848a3a1cf1a2fd20bb,
         type: 3}
       propertyPath: m_LocalPosition.x

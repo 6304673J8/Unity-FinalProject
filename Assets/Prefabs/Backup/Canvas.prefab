@@ -301,7 +301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc871a3d2f25fe147bd5cc0fd0865033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  susanaInputs: {fileID: 0}
+  susanaInputs: {fileID: 7663931183085479129, guid: 24f52ef1edada914fb8d8dc47156ae97,
+    type: 3}
   EarthquakeImage: {fileID: 6272844399657618283}
   CD_Earthquake: 4
   earthquakeCooldown: 0

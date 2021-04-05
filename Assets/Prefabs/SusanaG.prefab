@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c64fa8d3aba4cb34e81bea983a0ab9ef, type: 3}
+  m_Sprite: {fileID: 525029565986753617, guid: 590ad70b5f2f4834cb15ce96e1950976, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -151,12 +151,16 @@ MonoBehaviour:
   damagingTilemap: {fileID: 0}
   healingTilemap: {fileID: 0}
   movePivot: {fileID: 5518576781351040933}
+  canMove: 0
   healthBar: {fileID: 0}
   hp: 12
   earthquakePrefab: {fileID: 0}
   lungePrefab: {fileID: 0}
-  susanaBreaksBarrel: {fileID: 1781865049369488854, guid: 4459493d2b36bb5459a15d187077773b,
-    type: 3}
+  potionPrefab: {fileID: 0}
+  abilities: {fileID: 0}
+  defending: 0
+  lunging: 0
+  quaking: 0
   speed: 5
   lungeDistance: 0
   movementToInt: {x: 0, y: 0, z: 0}
@@ -174,6 +178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorItemsTilemap: {fileID: 0}
+  nPotions: 0
+  keyTilemap: {fileID: 0}
+  nKeys: 0
 --- !u!114 &1730747764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +242,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: abfbb360-c122-45e4-887b-74c00fe22889
     m_ActionName: Floor/Shaker[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 268e0227-b291-4bce-a84b-49f70890670c
+    m_ActionName: Floor/Heal[/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Floor

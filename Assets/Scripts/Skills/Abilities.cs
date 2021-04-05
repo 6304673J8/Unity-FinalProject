@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Abilities : MonoBehaviour
 {
-    public SusanaInputs susanaInputs;
+    public SusanaController susanaInputs;
     [Header("Ability 1")]
     public Image EarthquakeImage;
     public float CD_Earthquake = 4;
