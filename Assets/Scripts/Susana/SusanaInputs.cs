@@ -8,6 +8,7 @@ public class SusanaInputs : MonoBehaviour
     //Movement
     private Rigidbody2D susanaRb;
     Vector2 movement;
+    public bool canMove = false;
     SpriteRenderer sprite;
     [SerializeField] private float lungeDistance;
 
@@ -168,12 +169,14 @@ public class SusanaInputs : MonoBehaviour
 
     private void Move(Vector2 dir)
     {
-        if (CanMove(dir))
+        state = State.MOVING;
+        if (CanMove(dir) && canMove == true)
         {
             dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
             transform.position += (Vector3)dir;
             sprite.color = new Color(1, 1, 1, 1);
         }
+        state = State.IDLE;
     }
 
     private bool CanMove(Vector2 dir)

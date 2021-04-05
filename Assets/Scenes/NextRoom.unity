@@ -49131,6 +49131,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6272844399298535780, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3967974602688066841, guid: 51a2730bf049f0b4b8b16d30de2abc6e,
+        type: 3}
     - target: {fileID: 6272844399396022855, guid: 18b1722118f572848a3a1cf1a2fd20bb,
         type: 3}
       propertyPath: susanaController
@@ -49251,6 +49257,24 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6272844399657618283, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6040947082337652997, guid: 51a2730bf049f0b4b8b16d30de2abc6e,
+        type: 3}
+    - target: {fileID: 6272844400031512999, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4257631221838764002, guid: 51a2730bf049f0b4b8b16d30de2abc6e,
+        type: 3}
+    - target: {fileID: 6272844400251879085, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3917085012647652114, guid: 51a2730bf049f0b4b8b16d30de2abc6e,
+        type: 3}
     - target: {fileID: 6272844400513927275, guid: 18b1722118f572848a3a1cf1a2fd20bb,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -49261,6 +49285,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6272844401068781933, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2185889260401983478, guid: 51a2730bf049f0b4b8b16d30de2abc6e,
+        type: 3}
+    - target: {fileID: 6272844401215610151, guid: 18b1722118f572848a3a1cf1a2fd20bb,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 612976108895266200, guid: 51a2730bf049f0b4b8b16d30de2abc6e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18b1722118f572848a3a1cf1a2fd20bb, type: 3}
 --- !u!1 &882624755

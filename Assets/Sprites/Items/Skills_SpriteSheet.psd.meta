@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: a1f4560c8a6220b4aa9d8b47d39ae624
+guid: 51a2730bf049f0b4b8b16d30de2abc6e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7648637643319355648
-    second: Key_SpriteSheet_0
+      213: -4257631221838764002
+    second: Skills_SpriteSheet_0
   - first:
-      213: -7675455173303294538
-    second: Key_SpriteSheet_1
+      213: -3917085012647652114
+    second: Skills_SpriteSheet_1
   - first:
-      213: 6864290074036383770
-    second: Key_SpriteSheet_2
+      213: -7407556229438805831
+    second: Skills_SpriteSheet_2
   - first:
-      213: 5592950409756742626
-    second: Key_SpriteSheet_3
+      213: -3967974602688066841
+    second: Skills_SpriteSheet_3
   - first:
-      213: -9181033375372920964
-    second: Key_SpriteSheet_4
+      213: 612976108895266200
+    second: Skills_SpriteSheet_4
   - first:
-      213: 1086479348374174404
-    second: Key_SpriteSheet_5
+      213: -5873759537954202027
+    second: Skills_SpriteSheet_5
   - first:
-      213: 6955622203007277754
-    second: Key_SpriteSheet_6
+      213: 6040947082337652997
+    second: Skills_SpriteSheet_6
   - first:
-      213: -8359394951657411098
-    second: Key_SpriteSheet_7
+      213: -2185889260401983478
+    second: Skills_SpriteSheet_7
+  - first:
+      213: -6651219143341548162
+    second: Skills_SpriteSheet_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,13 +138,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Key_SpriteSheet_0
+      name: Skills_SpriteSheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,41 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 007d44e66949ad590800000000000000
-      internalID: -7648637643319355648
+      spriteID: e1820bd26fad9e4c0800000000000000
+      internalID: -4257631221838764002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Key_SpriteSheet_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b5a2d9af2e4b7590800000000000000
-      internalID: -7675455173303294538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Key_SpriteSheet_2
+      name: Skills_SpriteSheet_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 16
-        width: 16
-        height: 16
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a10bd2a247bd24f50800000000000000
-      internalID: 6864290074036383770
+      spriteID: ee451224fe7b3a9c0800000000000000
+      internalID: -3917085012647652114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Key_SpriteSheet_3
+      name: Skills_SpriteSheet_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
-        width: 16
-        height: 16
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +194,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e31de3d3c62e9d40800000000000000
-      internalID: 5592950409756742626
+      spriteID: 9b861923bd2133990800000000000000
+      internalID: -7407556229438805831
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Key_SpriteSheet_4
+      name: Skills_SpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea81014f1ceee8c0800000000000000
+      internalID: -3967974602688066841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skills_SpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 895e08af58ab18800800000000000000
+      internalID: 612976108895266200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skills_SpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55e5d2c12d63c7ea0800000000000000
+      internalID: -5873759537954202027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skills_SpriteSheet_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,41 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7734edc9ca669080800000000000000
-      internalID: -9181033375372920964
+      spriteID: 5011ba57d51c5d350800000000000000
+      internalID: 6040947082337652997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Key_SpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4caf3aff533f31f00800000000000000
-      internalID: 1086479348374174404
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Key_SpriteSheet_6
+      name: Skills_SpriteSheet_7
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -275,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aba911a8a85578060800000000000000
-      internalID: 6955622203007277754
+      spriteID: a00066b8c492aa1e0800000000000000
+      internalID: -2185889260401983478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Key_SpriteSheet_7
+      name: Skills_SpriteSheet_8
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 16
-        height: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -296,8 +320,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ed2449d4967dfb80800000000000000
-      internalID: -8359394951657411098
+      spriteID: e7d59d5cd6f12b3a0800000000000000
+      internalID: -6651219143341548162
       vertices: []
       indices: 
       edges: []
