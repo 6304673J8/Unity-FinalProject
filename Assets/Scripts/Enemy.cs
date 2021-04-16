@@ -124,6 +124,7 @@ public class Enemy : MonoBehaviour
             if(separation > 1)
             {
                 animator.ResetTrigger("isAttacking");
+                animator.SetTrigger("isWalking");
             }
         }
 
