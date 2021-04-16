@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
 
     private float elapsedStun;
 
+    private Animator animator;
 
     SpriteRenderer sprite;
 
@@ -58,6 +59,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
 
     }
     private void Start()
@@ -78,7 +80,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-
+    
     private void FixedUpdate()
     {
         if(!stunned)
@@ -100,6 +102,7 @@ public class Enemy : MonoBehaviour
 
                 else if (separation > range)
                 {
+                    
                     Debug.Log("The enemy is patrolling");
                     Patrol();
                 }
@@ -116,6 +119,11 @@ public class Enemy : MonoBehaviour
                 }
 
 
+            }
+
+            if(separation > 1)
+            {
+                animator.ResetTrigger("isAttacking");
             }
         }
 
@@ -138,9 +146,11 @@ public class Enemy : MonoBehaviour
     {
         if (Time.time > lastAttackTime + attackDelay)
         {
+            animator.SetTrigger("isAttacking");
             Debug.Log("Player Taking Damage");
             player.SendMessage("TakeDamage", damage);
             lastAttackTime = Time.time;
+            
         }
     }
 
@@ -230,6 +240,7 @@ public class Enemy : MonoBehaviour
 
     private void kill()
     {
+
         Destroy(gameObject);
     }
 

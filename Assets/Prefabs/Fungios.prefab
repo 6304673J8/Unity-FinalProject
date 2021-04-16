@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2354794393573461307}
   - component: {fileID: 2354794393573461306}
   - component: {fileID: -2617818440920443775}
+  - component: {fileID: 4554384000158279658}
   m_Layer: 0
   m_Name: Fungios
   m_TagString: Enemy
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -3605094076012378890, guid: 1fbc0bd9d0053f640b1ad76481093075,
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -1835703324528775766, guid: 7d2a0b35ee080fb47942030a7a378448,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,10 +96,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.040150285, y: 0.113479316}
+  m_Offset: {x: -0.021196127, y: 0.045244217}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.46759963, y: 0.43019438}
+  m_Size: {x: 0.28563952, y: 0.33921432}
   m_EdgeRadius: 0
 --- !u!50 &2354794393573461306
 Rigidbody2D:
@@ -123,9 +124,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -148,9 +149,28 @@ MonoBehaviour:
   attackDelay: 1
   hp: 10
   player: {fileID: 0}
-  damage: 10
-  range: 7
+  damage: 100
+  range: 5
   floorTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
   floorItemsTilemap: {fileID: 0}
   breakablesTilemap: {fileID: 0}
+--- !u!95 &4554384000158279658
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2354794393573461311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99118c9fd624ffc40890299e1b160394, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

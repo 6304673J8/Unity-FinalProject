@@ -1,25 +1,37 @@
 fileFormatVersion: 2
-guid: 1fbc0bd9d0053f640b1ad76481093075
+guid: 93f5906062c16a14b9821ba717bf855f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3605094076012378890
-    second: Fungios 1_0
+      213: 2045016177066385679
+    second: FungiosDeath_0
   - first:
-      213: -3678151134469115862
-    second: Fungios 1_1
+      213: 5730822082694710455
+    second: FungiosDeath_1
   - first:
-      213: -5776441484461193034
-    second: Fungios 1_2
+      213: 4362493514116337546
+    second: FungiosDeath_2
   - first:
-      213: 440763326357596180
-    second: Fungios 1_3
+      213: 8174895920920261520
+    second: FungiosDeath_3
   - first:
-      213: 5648383789647005395
-    second: Fungios 1_4
+      213: 4695440351333497603
+    second: FungiosDeath_4
   - first:
-      213: -8344211308624925813
-    second: Fungios 1_5
+      213: -5732263305762425572
+    second: FungiosDeath_5
+  - first:
+      213: 1130496739247275920
+    second: FungiosDeath_6
+  - first:
+      213: -1074416914571532043
+    second: FungiosDeath_7
+  - first:
+      213: 5399921312260663473
+    second: FungiosDeath_8
+  - first:
+      213: -8503487018763160308
+    second: FungiosDeath_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fungios 1_0
+      name: FungiosDeath_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,41 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f4ca69d90228fdc0800000000000000
-      internalID: -3605094076012378890
+      spriteID: f0128f9c06b516c10800000000000000
+      internalID: 2045016177066385679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fungios 1_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a20b4c7e70594fcc0800000000000000
-      internalID: -3678151134469115862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungios 1_2
+      name: FungiosDeath_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,41 +164,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b84cd42315f5dfa0800000000000000
-      internalID: -5776441484461193034
+      spriteID: 7b48bfd2258f78f40800000000000000
+      internalID: 5730822082694710455
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fungios 1_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4186099f8e7ed1600800000000000000
-      internalID: 440763326357596180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Fungios 1_4
+      name: FungiosDeath_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d60cf85127136e40800000000000000
-      internalID: 5648383789647005395
+      spriteID: a8f89d3dcb0ba8c30800000000000000
+      internalID: 4362493514116337546
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fungios 1_5
+      name: FungiosDeath_3
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 0
-        width: 32
-        height: 32
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +206,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8b2d9a3608633c80800000000000000
-      internalID: -8344211308624925813
+      spriteID: 093fd321780137170800000000000000
+      internalID: 8174895920920261520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FungiosDeath_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30bb44d3f1e892140800000000000000
+      internalID: 4695440351333497603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FungiosDeath_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15360de4e8e270b0800000000000000
+      internalID: -5732263305762425572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FungiosDeath_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f32927bc450bf00800000000000000
+      internalID: 1130496739247275920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FungiosDeath_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8ea4a3287e611f0800000000000000
+      internalID: -1074416914571532043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FungiosDeath_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b8ab50d2df50fa40800000000000000
+      internalID: 5399921312260663473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FungiosDeath_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05f97e1c9b8df980800000000000000
+      internalID: -8503487018763160308
       vertices: []
       indices: 
       edges: []
