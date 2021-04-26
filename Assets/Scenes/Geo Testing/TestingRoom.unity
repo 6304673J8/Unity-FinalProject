@@ -708,75 +708,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &283336085
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 21
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582318, guid: 24f52ef1edada914fb8d8dc47156ae97,
-        type: 3}
-      propertyPath: m_Name
-      value: SusanaG
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
 --- !u!1 &339060777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,12 +1502,12 @@ PrefabInstance:
     - target: {fileID: 2109804911503582306, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582306, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582306, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
@@ -1586,7 +1517,7 @@ PrefabInstance:
     - target: {fileID: 2109804911503582307, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: m_Mass
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582316, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
@@ -1671,7 +1602,7 @@ PrefabInstance:
     - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: speed
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009111b1c900c5743a03469fc6bf65f0, type: 3}
@@ -2476,7 +2407,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Susana
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -30190,7 +30121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 32
-  m_ScaleFactor: 1
+  m_ScaleFactor: 3
   m_ReferenceResolution: {x: 320, y: 180}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
