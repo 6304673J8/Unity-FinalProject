@@ -2447,7 +2447,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Susana
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -27625,8 +27625,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 900
     y: 10
-    width: 80
-    height: 80
+    width: 200
+    height: 200
   m_Visualization: 1
   m_ActionReference: {fileID: -6311047087319999991, guid: db2f64ab4a8ba624295aab4fac3dc69c,
     type: 3}
@@ -29445,7 +29445,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -9.83, y: 43.15}
   m_SizeDelta: {x: -17.66, y: -34.3}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29655,7 +29655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &6272844400062391358
 MonoBehaviour:
   m_ObjectHideFlags: 0
