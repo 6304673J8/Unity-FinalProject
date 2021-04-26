@@ -5,11 +5,15 @@ using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
+   /* PlayerInputs controls;
     [Header("Management Scripts")]
-    [SerializeField] SusanaOmega susana;
+    [SerializeField] SusanaControlled susana;
     Vector2 axis;
 
-    public void OnMovement(InputAction.CallbackContext ctx)
+    private void Awake() { 
+    }
+
+    public void OnMove(InputAction.CallbackContext ctx)
     {
         if (ctx.performed)
         {
@@ -35,5 +39,5 @@ public class InputManager : MonoBehaviour
         {
             susana.Earthquake();
         }
-    }
+    }*/
 }

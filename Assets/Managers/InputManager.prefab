@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &178061085370747560
 Transform:
   m_ObjectHideFlags: 0
@@ -116,6 +116,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8690ae30-0382-4e22-9c67-9bc4d280fe11
     m_ActionName: Susana/Earthquake[/Keyboard/ctrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 09ece67f-c3b2-4039-997e-004f6ae61c40
+    m_ActionName: UI/New action
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Susana
