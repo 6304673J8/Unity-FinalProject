@@ -37,6 +37,8 @@ public class SusanaControlled : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerInputs();
+        
+        controls.Susana.Move.performed += ctx => SendMessage(ctx.ReadValue<Vector2>());
 
         controls.Susana.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Susana.Move.canceled += ctx => move = Vector2.zero;
@@ -51,6 +53,10 @@ public class SusanaControlled : MonoBehaviour
         controls.Susana.Disable();
     }
 
+    void SendMessage(Vector2 coordinates)
+    {
+        Debug.Log("Thumb-stick coordinates" + coordinates);
+    }
     /*private void FixedUpdate()
     {
         Movement();
@@ -89,7 +95,7 @@ public class SusanaControlled : MonoBehaviour
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move);
 
-        if (move.x != 0)
+        if (move.x != 0 || move.y != 0)
         {
             if (facingRight == false && move.x > 0)
             {
@@ -106,7 +112,7 @@ public class SusanaControlled : MonoBehaviour
                 Debug.Log("Moving");
                 move = new Vector2Int(Mathf.FloorToInt(move.x), Mathf.FloorToInt(move.y));
                 //rb.velocity = new Vector2(move.x * speed * Time.fixedDeltaTime, rb.velocity.y);
-                transform.position += (Vector3)move;
+                transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
             }
         }
         else
