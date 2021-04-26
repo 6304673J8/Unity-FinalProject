@@ -125,7 +125,7 @@ public class SusanaControlled : MonoBehaviour
             if (floorTilemap.HasTile(gridPos) || !collisionTilemap.HasTile(gridPos))
             {
                 Debug.Log("Moving");
-                move = new Vector2Int(Mathf.FloorToInt(move.x), Mathf.FloorToInt(move.y));
+                //move = new Vector2Int(Mathf.FloorToInt(move.x), Mathf.FloorToInt(move.y));
                 //rb.velocity = new Vector2(move.x * speed * Time.fixedDeltaTime, rb.velocity.y);
                 transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
             }

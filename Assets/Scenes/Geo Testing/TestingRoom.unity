@@ -27571,9 +27571,9 @@ MonoBehaviour:
   m_TimeWindow: 3
   m_Rect:
     serializedVersion: 2
-    x: 800
-    y: 50
-    width: 30
+    x: 788
+    y: 42
+    width: 45
     height: 30
   m_Visualization: 1
   m_ActionReference: {fileID: -8953818305569058678, guid: db2f64ab4a8ba624295aab4fac3dc69c,
@@ -27597,9 +27597,9 @@ MonoBehaviour:
   m_TimeWindow: 3
   m_Rect:
     serializedVersion: 2
-    x: 800
+    x: 788
     y: 10
-    width: 30
+    width: 45
     height: 30
   m_Visualization: 1
   m_ActionReference: {fileID: -4751761315550100627, guid: db2f64ab4a8ba624295aab4fac3dc69c,
@@ -27623,7 +27623,7 @@ MonoBehaviour:
   m_TimeWindow: 3
   m_Rect:
     serializedVersion: 2
-    x: 900
+    x: 845.32
     y: 10
     width: 200
     height: 200
