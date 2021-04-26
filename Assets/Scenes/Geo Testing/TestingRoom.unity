@@ -1604,8 +1604,43 @@ PrefabInstance:
       propertyPath: speed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
+        type: 3}
+      propertyPath: earthquakePrefab
+      value: 
+      objectReference: {fileID: 990326997976766212, guid: ffe2528ca36563442be9534852e2ee8e,
+        type: 3}
+    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
+        type: 3}
+      propertyPath: lungePrefab
+      value: 
+      objectReference: {fileID: 288329291259624461, guid: 2eb165e840641a24984412f5fc3cd2e1,
+        type: 3}
+    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
+        type: 3}
+      propertyPath: potionPrefab
+      value: 
+      objectReference: {fileID: 1631369526455959851, guid: dcb83ab84f8c17e449bb9dd0036552d3,
+        type: 3}
+    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
+        type: 3}
+      propertyPath: abilities
+      value: 
+      objectReference: {fileID: 6272844400703274719}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009111b1c900c5743a03469fc6bf65f0, type: 3}
+--- !u!114 &768599744 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 768599743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835414789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be562f59dd21f4b4197bc3abdf552168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &817369716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29728,7 +29763,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &6272844400424853496
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -30085,28 +30120,6 @@ RectTransform:
   m_AnchoredPosition: {x: 6.7332, y: 14}
   m_SizeDelta: {x: 15, y: 9}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6272844400703274709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6272844400703274718}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc871a3d2f25fe147bd5cc0fd0865033, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  susanaInputs: {fileID: 0}
-  EarthquakeImage: {fileID: 6272844400424853497}
-  CD_Earthquake: 4
-  earthquakeCooldown: 0
-  LungeImage: {fileID: 6272844400532387318}
-  CD_Lunge: 1
-  lungeCooldown: 0
-  ShieldImage: {fileID: 6272844400873057589}
-  CD_Shield: 3
-  shieldCooldown: 0
 --- !u!114 &6272844400703274712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30201,7 +30214,7 @@ GameObject:
   - component: {fileID: 6272844400703274715}
   - component: {fileID: 6272844400703274712}
   - component: {fileID: 6272844400703274713}
-  - component: {fileID: 6272844400703274709}
+  - component: {fileID: 6272844400703274719}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -30209,6 +30222,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6272844400703274719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6272844400703274718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3d205552cadb345b47a6e450359419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  susanaInputs: {fileID: 768599744}
+  EarthquakeImage: {fileID: 6272844400424853497}
+  CD_Earthquake: 4
+  earthquakeCooldown: 0
+  LungeImage: {fileID: 6272844400532387318}
+  CD_Lunge: 1
+  lungeCooldown: 0
+  ShieldImage: {fileID: 6272844400873057589}
+  CD_Shield: 3
+  shieldCooldown: 0
 --- !u!222 &6272844400873057588
 CanvasRenderer:
   m_ObjectHideFlags: 0

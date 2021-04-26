@@ -29,7 +29,16 @@ public class SusanaControlled : MonoBehaviour
 
     Rigidbody2D rb;
 
+    [Header("Abilities")]
 
+    GameHandler gameHandler;
+    public GameObject earthquakePrefab;
+    public GameObject lungePrefab;
+    public GameObject potionPrefab;
+    public AbilitiesControlled abilities;
+    public bool defending;
+    public bool lunging;
+    public bool quaking;
     //new
     // shows rounded position = tile position
 
@@ -42,6 +51,12 @@ public class SusanaControlled : MonoBehaviour
 
         controls.Susana.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Susana.Move.canceled += ctx => move = Vector2.zero;
+
+        //Test Abilities
+        controls.Susana.Lunge.performed += ctx => Lunge();
+        controls.Susana.Shield.started += ctx => Shield();
+        controls.Susana.Shield.canceled += ctx => Shield();
+        controls.Susana.Earthquake.started += ctx => Earthquake();
     }
 
     private void OnEnable()
@@ -122,6 +137,64 @@ public class SusanaControlled : MonoBehaviour
         }
     }
 
+    public void Lunge()
+    {
+        Debug.Log("Topetazo!");
+        move = controls.Susana.Move.ReadValue<Vector2>();
+        if (CanLunge(move) && abilities.lungeCooldown == false)
+        {
+            LungeLogic();
+            transform.position += (Vector3)move * lungeDistance;
+        }
+    }
+
+    private bool CanLunge(Vector2 lungeToNext)
+    {
+        Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move);
+        Vector3Int lungeGridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move * 2);
+        if (!floorTilemap.HasTile(gridPos) || collisionTilemap.HasTile(gridPos) ||
+            !floorTilemap.HasTile(lungeGridPos) || collisionTilemap.HasTile(lungeGridPos))
+        {
+            return false;
+        }
+        lunging = true;
+        return true;
+    }
+    
+    public void Earthquake()
+    {
+        quaking = true;
+        if (abilities.earthquakeCooldown == false)
+        {
+            quaking = true;
+            //sprite.color = new Color(0, 0, 1, 1);
+            EarthquakeLogic();
+            Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
+        }
+        //sprite.color = new Color(1, 1, 1, 1);
+        //Camera.main.GetComponent<CameraShake>().shakeDuration = 0.2f;
+        //gameHandler.GetComponent<CameraShake>().shakeDuration = 0.2f;
+    }
+
+    public void EarthquakeLogic()
+    {
+        Vector2 pos = transform.position;
+
+        GameObject earthquakeFX = Instantiate(earthquakePrefab, pos, transform.rotation);
+    }
+
+    public void LungeLogic()
+    {
+        Vector2 pos = transform.position;
+
+        GameObject lungeFX = Instantiate(lungePrefab, pos, transform.rotation);
+    }
+
+    private void Shield()
+    {
+        Debug.Log("Topetazo!");
+    }
+
     void Flip()
     {
         facingRight = !facingRight;
@@ -129,6 +202,7 @@ public class SusanaControlled : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
+
     /*public void Earthquake()
     {
         Debug.Log("BROOOM");

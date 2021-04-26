@@ -41,6 +41,22 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Action"",
+                    ""type"": ""Button"",
+                    ""id"": ""16ac4f06-e0f4-45c5-9088-3736b926e01d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shield"",
+                    ""type"": ""Button"",
+                    ""id"": ""84289052-d486-4654-8c4d-8cbf82b59511"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -124,7 +140,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a57dc1f3-c760-4a40-99d1-70566e0352cc"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -146,11 +162,55 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""df80f463-a1ca-4876-918f-27f73a69a1f0"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Earthquake"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""644cbf95-916d-4bb2-a4ef-64c2796d9233"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0aaa6f97-3970-47b9-afa2-3652c95a3e36"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b990e74-1392-4592-9499-9096a05d8e10"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Shield"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c4e23f70-d62e-4393-8dcf-c47378e91ef6"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -214,6 +274,8 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_Susana_Move = m_Susana.FindAction("Move", throwIfNotFound: true);
         m_Susana_Lunge = m_Susana.FindAction("Lunge", throwIfNotFound: true);
         m_Susana_Earthquake = m_Susana.FindAction("Earthquake", throwIfNotFound: true);
+        m_Susana_Action = m_Susana.FindAction("Action", throwIfNotFound: true);
+        m_Susana_Shield = m_Susana.FindAction("Shield", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -269,6 +331,8 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Susana_Move;
     private readonly InputAction m_Susana_Lunge;
     private readonly InputAction m_Susana_Earthquake;
+    private readonly InputAction m_Susana_Action;
+    private readonly InputAction m_Susana_Shield;
     public struct SusanaActions
     {
         private @PlayerInputs m_Wrapper;
@@ -276,6 +340,8 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Susana_Move;
         public InputAction @Lunge => m_Wrapper.m_Susana_Lunge;
         public InputAction @Earthquake => m_Wrapper.m_Susana_Earthquake;
+        public InputAction @Action => m_Wrapper.m_Susana_Action;
+        public InputAction @Shield => m_Wrapper.m_Susana_Shield;
         public InputActionMap Get() { return m_Wrapper.m_Susana; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -294,6 +360,12 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Earthquake.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnEarthquake;
                 @Earthquake.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnEarthquake;
                 @Earthquake.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnEarthquake;
+                @Action.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnAction;
+                @Action.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnAction;
+                @Action.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnAction;
+                @Shield.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnShield;
+                @Shield.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnShield;
+                @Shield.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnShield;
             }
             m_Wrapper.m_SusanaActionsCallbackInterface = instance;
             if (instance != null)
@@ -307,6 +379,12 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Earthquake.started += instance.OnEarthquake;
                 @Earthquake.performed += instance.OnEarthquake;
                 @Earthquake.canceled += instance.OnEarthquake;
+                @Action.started += instance.OnAction;
+                @Action.performed += instance.OnAction;
+                @Action.canceled += instance.OnAction;
+                @Shield.started += instance.OnShield;
+                @Shield.performed += instance.OnShield;
+                @Shield.canceled += instance.OnShield;
             }
         }
     }
@@ -367,6 +445,8 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLunge(InputAction.CallbackContext context);
         void OnEarthquake(InputAction.CallbackContext context);
+        void OnAction(InputAction.CallbackContext context);
+        void OnShield(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

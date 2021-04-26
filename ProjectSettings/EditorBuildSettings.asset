@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Geo Testing/TestingRoom.unity
+    guid: b8fc805571e3ea74c81547e67f8cddc7
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 6a5dbf2443650ef49b6c9652a9d98a38
   - enabled: 1
