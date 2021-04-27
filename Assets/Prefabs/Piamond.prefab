@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 781223597936994546}
   - component: {fileID: 781223597936994559}
   - component: {fileID: 781223597936994556}
-  - component: {fileID: -8027476425150905816}
   - component: {fileID: 1360799869084496183}
+  - component: {fileID: 8083432867940718627}
   m_Layer: 0
   m_Name: Piamond
   m_TagString: Enemy
@@ -133,28 +133,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-8027476425150905816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781223597936994547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8476badc8245e4845b2fad9974d6d124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerSpeed: 1
-  attackDelay: 1
-  hp: 50
-  player: {fileID: 0}
-  damage: 100
-  range: 5
-  floorTilemap: {fileID: 0}
-  collisionTilemap: {fileID: 0}
-  floorItemsTilemap: {fileID: 0}
-  breakablesTilemap: {fileID: 0}
 --- !u!95 &1360799869084496183
 Animator:
   serializedVersion: 3
@@ -174,3 +152,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8083432867940718627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781223597936994547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3ef7d9d012e954584d7261e37ec038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
+  moveSpeed: 5
+  timerSpeed: 0
+  attackDelay: 1
+  hp: 80
+  damage: 8
+  range: 8
