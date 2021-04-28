@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour
 
     private float timerSpeedAttack = 0.3f; //Temporizador del ataque (ataca a los 0.8 segundos de estar en rango)
 
-    public float attackDelay = 0.8f;
+    public float attackDelay = 0.3f;
 
     private float dieDelay = 1f;
 
@@ -222,8 +222,11 @@ public class EnemyAI : MonoBehaviour
 
     void attackPlayer()
     {
+        animator.ResetTrigger("isAttacking");
+        animator.SetTrigger("isWalking");
         if (Time.time > lastAttackTime + attackDelay)
         {
+            animator.ResetTrigger("isWalking");
             animator.SetTrigger("isAttacking");
             Debug.Log("Player Taking Damage");
             player.SendMessage("TakeDamage", damage);
