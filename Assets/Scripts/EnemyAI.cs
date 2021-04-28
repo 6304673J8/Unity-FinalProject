@@ -12,9 +12,15 @@ public class EnemyAI : MonoBehaviour
 
     private float stunTimer = 4f; //Temporizador del STUN
 
-    private float timerSpeedAttack = 0.8f; //Temporizador del ataque (ataca a los 0.8 segundos de estar en rango)
+    private float timerSpeedAttack = 0.3f; //Temporizador del ataque (ataca a los 0.8 segundos de estar en rango)
 
-    public float attackDelay = 1;
+    public float attackDelay = 0.8f;
+
+    private float dieDelay = 1f;
+
+    private float dying;
+
+    private bool dyingb;
 
     private float lastAttackTime;
 
@@ -36,6 +42,18 @@ public class EnemyAI : MonoBehaviour
 
     public int range;
 
+    public bool canBeInvisible;
+
+    public bool canDrop;
+
+    public int originalRange;
+
+    public GameObject key;
+
+    bool facingLeft;
+
+
+
    /* public Transform moveSpot;
 
     public float minX;
@@ -47,13 +65,17 @@ public class EnemyAI : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
     }
 
     private void Start()
     {
+        dyingb = false;
+        facingLeft = true;
         elapsed += Time.deltaTime;
         stunned = false;
         rb = this.GetComponent<Rigidbody2D>();
+        originalRange = range;
     }
 
     private void Update()
@@ -69,8 +91,10 @@ public class EnemyAI : MonoBehaviour
 
     private void FixedUpdate()
     {
+        
         if (!stunned)
         {
+            checkPosition();
             float separation = Vector3.Distance(this.transform.position, player.transform.position);
             elapsed += Time.deltaTime;
             
@@ -83,16 +107,28 @@ public class EnemyAI : MonoBehaviour
                 
                 if (separation <= range)
                 {
+                    animator.ResetTrigger("isIdle");
+                    animator.SetTrigger("isWalking");
+                    if(canBeInvisible)
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                    }
                     Debug.Log("The enemy sees the player");
                     chasePlayer(movement);
+                    range = originalRange * 2;
                 }
 
-                /*else if (separation > range)
+                else if (separation > range)
                 {
+                    animator.ResetTrigger("isWalking");
+                    animator.SetTrigger("isIdle");
+                 if(canBeInvisible)
+                    {
+                        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                    }
 
-                    Debug.Log("The enemy is patrolling");
-                    Patrol();
-                }*/
+                    range = originalRange;
+                }
             }
 
 
@@ -127,6 +163,8 @@ public class EnemyAI : MonoBehaviour
 
         }
 
+
+
     }
 
     void chasePlayer(Vector2 direction)
@@ -137,16 +175,31 @@ public class EnemyAI : MonoBehaviour
 
     private void kill()
     {
-
-        Destroy(gameObject);
+        dyingb = true;
+        sprite.color = new Color(1, 1, 1, 1);
+        animator.ResetTrigger("isWalking");
+        animator.SetTrigger("isDying");
+        dying += Time.deltaTime;
+        if (dying >= dieDelay)
+        {
+            Destroy(gameObject);
+            if (canDrop)
+            {
+                GameObject k = Instantiate(key, transform.position, transform.rotation);
+            }
+        }
     }
 
     private void getStunned()
     {
-        stunned = true;
-        sprite.color = new Color(0, 0, 1, 1);
-        hp -= 20;
-        return;
+        if(!dyingb)
+        {
+            stunned = true;
+            sprite.color = new Color(0, 0, 1, 1);
+            hp -= 20;
+            return;
+        }
+       
 
     }
 
@@ -183,5 +236,26 @@ public class EnemyAI : MonoBehaviour
     {
         //moveSpot.position = new Vector2(Random.Range(minX,maxX), Random.Range(minY,maxY));
         //transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, moveSpeed * Time.deltaTime);
+    }
+
+    void Flip()
+    {
+        facingLeft = !facingLeft;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
+    }
+
+    void checkPosition()
+    {
+        if(facingLeft && player.position.x > transform.position.x)
+        {
+            Flip();
+        }
+
+        if(!facingLeft && player.position.x < transform.position.x)
+        {
+            Flip();
+        }
     }
 }

@@ -1,37 +1,40 @@
 fileFormatVersion: 2
-guid: f17ecc651191a074e95723404c50bf44
+guid: a592ba75f012a0c40863bc032276cfad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8335214613088547266
-    second: piamondDeath_0
+      213: 3204055058502472377
+    second: OnaosIdle_0
   - first:
-      213: 3685715769802095435
-    second: piamondDeath_1
+      213: -7190696884938806651
+    second: OnaosIdle_1
   - first:
-      213: 1645629684544072773
-    second: piamondDeath_2
+      213: 6325537769603079767
+    second: OnaosIdle_2
   - first:
-      213: -5157439944979464467
-    second: piamondDeath_3
+      213: -8446112196509386975
+    second: OnaosIdle_3
   - first:
-      213: -6876116819615631907
-    second: piamondDeath_4
+      213: -7911167607068288946
+    second: OnaosIdle_4
   - first:
-      213: 1081655582129155139
-    second: piamondDeath_5
+      213: 5183594778253335729
+    second: OnaosIdle_5
   - first:
-      213: -4146202670710563226
-    second: piamondDeath_6
+      213: -7240760132919508360
+    second: OnaosIdle_6
   - first:
-      213: -68941427441494399
-    second: piamondDeath_7
+      213: -4172210254150859004
+    second: OnaosIdle_7
   - first:
-      213: -5207382903215825046
-    second: piamondDeath_8
+      213: -7891102647830949084
+    second: OnaosIdle_8
   - first:
-      213: -372390167552242670
-    second: piamondDeath_9
+      213: 6122780702769322691
+    second: OnaosIdle_9
+  - first:
+      213: 8637179512391485036
+    second: OnaosIdle_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -129,7 +132,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: piamondDeath_0
+      name: OnaosIdle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c1b9cb5781aca370800000000000000
-      internalID: 8335214613088547266
+      spriteID: 9b255d29917177c20800000000000000
+      internalID: 3204055058502472377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_1
+      name: OnaosIdle_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4bfb1207fa462330800000000000000
-      internalID: 3685715769802095435
+      spriteID: 58ae6b5f743853c90800000000000000
+      internalID: -7190696884938806651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_2
+      name: OnaosIdle_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,14 +188,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54c661baa7376d610800000000000000
-      internalID: 1645629684544072773
+      spriteID: 75e128a5613d8c750800000000000000
+      internalID: 6325537769603079767
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_3
+      name: OnaosIdle_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,14 +209,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deeb61102b71d68b0800000000000000
-      internalID: -5157439944979464467
+      spriteID: 127b6f9e4b169ca80800000000000000
+      internalID: -8446112196509386975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_4
+      name: OnaosIdle_4
       rect:
         serializedVersion: 2
         x: 256
@@ -227,14 +230,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd5b8bc0f202390a0800000000000000
-      internalID: -6876116819615631907
+      spriteID: e481e1ef9f2e53290800000000000000
+      internalID: -7911167607068288946
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_5
+      name: OnaosIdle_5
       rect:
         serializedVersion: 2
         x: 320
@@ -248,14 +251,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34c60266500d20f00800000000000000
-      internalID: 1081655582129155139
+      spriteID: 1bc1c59acf3dfe740800000000000000
+      internalID: 5183594778253335729
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_6
+      name: OnaosIdle_6
       rect:
         serializedVersion: 2
         x: 384
@@ -269,14 +272,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66e558573aab576c0800000000000000
-      internalID: -4146202670710563226
+      spriteID: 872c585b507a38b90800000000000000
+      internalID: -7240760132919508360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_7
+      name: OnaosIdle_7
       rect:
         serializedVersion: 2
         x: 448
@@ -290,14 +293,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1869a0313221b0ff0800000000000000
-      internalID: -68941427441494399
+      spriteID: 407881111e45916c0800000000000000
+      internalID: -4172210254150859004
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_8
+      name: OnaosIdle_8
       rect:
         serializedVersion: 2
         x: 512
@@ -311,14 +314,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6fd064e6d8abb7b0800000000000000
-      internalID: -5207382903215825046
+      spriteID: 42354ed53fb2d7290800000000000000
+      internalID: -7891102647830949084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_9
+      name: OnaosIdle_9
       rect:
         serializedVersion: 2
         x: 576
@@ -332,8 +335,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21c43399d1105daf0800000000000000
-      internalID: -372390167552242670
+      spriteID: 3ca9e2afb9c78f450800000000000000
+      internalID: 6122780702769322691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OnaosIdle_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c664069310d6dd770800000000000000
+      internalID: 8637179512391485036
       vertices: []
       indices: 
       edges: []

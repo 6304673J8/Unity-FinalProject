@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: f17ecc651191a074e95723404c50bf44
+guid: 61fa324e3e0f85b4cac8f7581f7fd33b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8335214613088547266
-    second: piamondDeath_0
+      213: -2740271831892659041
+    second: OnaosDeath_0
   - first:
-      213: 3685715769802095435
-    second: piamondDeath_1
+      213: 5358268867788250864
+    second: OnaosDeath_1
   - first:
-      213: 1645629684544072773
-    second: piamondDeath_2
+      213: 1533421416411155024
+    second: OnaosDeath_2
   - first:
-      213: -5157439944979464467
-    second: piamondDeath_3
+      213: -2947453292428548567
+    second: OnaosDeath_3
   - first:
-      213: -6876116819615631907
-    second: piamondDeath_4
+      213: -3428100073015536364
+    second: OnaosDeath_4
   - first:
-      213: 1081655582129155139
-    second: piamondDeath_5
+      213: -8019718620293216198
+    second: OnaosDeath_5
   - first:
-      213: -4146202670710563226
-    second: piamondDeath_6
+      213: 1163063426202596710
+    second: OnaosDeath_6
   - first:
-      213: -68941427441494399
-    second: piamondDeath_7
+      213: -8623064821456282934
+    second: OnaosDeath_7
   - first:
-      213: -5207382903215825046
-    second: piamondDeath_8
+      213: 8158007230099098374
+    second: OnaosDeath_8
   - first:
-      213: -372390167552242670
-    second: piamondDeath_9
+      213: -2855037384141832023
+    second: OnaosDeath_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: piamondDeath_0
+      name: OnaosDeath_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c1b9cb5781aca370800000000000000
-      internalID: 8335214613088547266
+      spriteID: f947708994998f9d0800000000000000
+      internalID: -2740271831892659041
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_1
+      name: OnaosDeath_1
       rect:
         serializedVersion: 2
         x: 64
@@ -164,14 +164,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4bfb1207fa462330800000000000000
-      internalID: 3685715769802095435
+      spriteID: 0fe9d8b55256c5a40800000000000000
+      internalID: 5358268867788250864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_2
+      name: OnaosDeath_2
       rect:
         serializedVersion: 2
         x: 128
@@ -185,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54c661baa7376d610800000000000000
-      internalID: 1645629684544072773
+      spriteID: 05ac92067aec74510800000000000000
+      internalID: 1533421416411155024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_3
+      name: OnaosDeath_3
       rect:
         serializedVersion: 2
         x: 192
@@ -206,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: deeb61102b71d68b0800000000000000
-      internalID: -5157439944979464467
+      spriteID: 926adb8c8da8817d0800000000000000
+      internalID: -2947453292428548567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_4
+      name: OnaosDeath_4
       rect:
         serializedVersion: 2
         x: 256
@@ -227,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd5b8bc0f202390a0800000000000000
-      internalID: -6876116819615631907
+      spriteID: 4151b6d7521fc60d0800000000000000
+      internalID: -3428100073015536364
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_5
+      name: OnaosDeath_5
       rect:
         serializedVersion: 2
         x: 320
@@ -248,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34c60266500d20f00800000000000000
-      internalID: 1081655582129155139
+      spriteID: a3846d6b76c34b090800000000000000
+      internalID: -8019718620293216198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_6
+      name: OnaosDeath_6
       rect:
         serializedVersion: 2
         x: 384
@@ -269,14 +269,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66e558573aab576c0800000000000000
-      internalID: -4146202670710563226
+      spriteID: 665fd022608042010800000000000000
+      internalID: 1163063426202596710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_7
+      name: OnaosDeath_7
       rect:
         serializedVersion: 2
         x: 448
@@ -290,14 +290,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1869a0313221b0ff0800000000000000
-      internalID: -68941427441494399
+      spriteID: aca5ee95b38b45880800000000000000
+      internalID: -8623064821456282934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_8
+      name: OnaosDeath_8
       rect:
         serializedVersion: 2
         x: 512
@@ -311,14 +311,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6fd064e6d8abb7b0800000000000000
-      internalID: -5207382903215825046
+      spriteID: 60b00215a50173170800000000000000
+      internalID: 8158007230099098374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: piamondDeath_9
+      name: OnaosDeath_9
       rect:
         serializedVersion: 2
         x: 576
@@ -332,8 +332,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21c43399d1105daf0800000000000000
-      internalID: -372390167552242670
+      spriteID: 9a004c130aed068d0800000000000000
+      internalID: -2855037384141832023
       vertices: []
       indices: 
       edges: []
