@@ -5,9 +5,13 @@ using UnityEngine;
 public class DestroyMe : MonoBehaviour
 {
     private bool isDestroyed = false;
-
+    private Animator animator;
     public GameObject destroyItem;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDestroyed)
@@ -16,17 +20,19 @@ public class DestroyMe : MonoBehaviour
         if (collision.CompareTag("Earthquake"))
         {
             isDestroyed = true;
+            animator.SetTrigger("Skill");
             GameObject di = Instantiate(destroyItem, transform.position, transform.rotation);
             Destroy(di, 2);
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.8f);
         }
 
         if (collision.CompareTag("Lunge"))
         {
             isDestroyed = true;
+            animator.SetTrigger("Skill");
             GameObject di = Instantiate(destroyItem, transform.position, transform.rotation);
             Destroy(di, 2);
-            Destroy(this.gameObject);
+            Destroy(this.gameObject, 0.8f);
         }
     }
 }

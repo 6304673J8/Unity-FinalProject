@@ -137,6 +137,7 @@ public class SusanaControlled : MonoBehaviour
         }
     }
 
+    #region SKILLS
     public void Lunge()
     {
         Debug.Log("Topetazo!");
@@ -157,10 +158,21 @@ public class SusanaControlled : MonoBehaviour
         {
             return false;
         }
+        else if (move.x == 0 && move.y == 0)
+        {
+            return false;
+        }
         lunging = true;
         return true;
     }
-    
+
+    public void LungeLogic()
+    {
+        Vector2 pos = transform.position;
+
+        GameObject lungeFX = Instantiate(lungePrefab, pos, transform.rotation);
+    }
+
     public void Earthquake()
     {
         quaking = true;
@@ -183,17 +195,13 @@ public class SusanaControlled : MonoBehaviour
         GameObject earthquakeFX = Instantiate(earthquakePrefab, pos, transform.rotation);
     }
 
-    public void LungeLogic()
-    {
-        Vector2 pos = transform.position;
-
-        GameObject lungeFX = Instantiate(lungePrefab, pos, transform.rotation);
-    }
 
     private void Shield()
     {
         Debug.Log("Topetazo!");
     }
+
+    #endregion
 
     void Flip()
     {
