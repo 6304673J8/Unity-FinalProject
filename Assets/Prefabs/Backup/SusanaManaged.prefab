@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2109804911503582316}
   - component: {fileID: 2109804911503582317}
+  - component: {fileID: 835414790}
   - component: {fileID: 2109804911503582306}
   - component: {fileID: 2109804911503582307}
   - component: {fileID: 7109467811767998936}
+  - component: {fileID: 835414795}
   m_Layer: 0
   m_Name: SusanaManaged
   m_TagString: Susana
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: c64fa8d3aba4cb34e81bea983a0ab9ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 802b96f0ac7fbdc43ae62529f64da13b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,6 +87,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &835414790
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109804911503582318}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &2109804911503582306
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -95,7 +116,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -109,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &2109804911503582307
 Rigidbody2D:
@@ -123,14 +144,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.1
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &7109467811767998936
 MonoBehaviour:
@@ -144,7 +165,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be562f59dd21f4b4197bc3abdf552168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lungeDistance: 1
+  floorTilemap: {fileID: 0}
+  collisionTilemap: {fileID: 0}
+  damagingTilemap: {fileID: 0}
+  healingTilemap: {fileID: 0}
   speed: 5
+  canMove: 0
+  earthquakePrefab: {fileID: 990326997976766212, guid: ffe2528ca36563442be9534852e2ee8e,
+    type: 3}
+  lungePrefab: {fileID: 288329291259624461, guid: 2eb165e840641a24984412f5fc3cd2e1,
+    type: 3}
+  potionPrefab: {fileID: 1631369526455959851, guid: dcb83ab84f8c17e449bb9dd0036552d3,
+    type: 3}
+  abilities: {fileID: 0}
+  defending: 0
+  lunging: 0
+  quaking: 0
+--- !u!114 &835414795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109804911503582318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: db2f64ab4a8ba624295aab4fac3dc69c,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Susana
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &4877203436083515699
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +224,7 @@ GameObject:
   - component: {fileID: 5518576781351040933}
   m_Layer: 0
   m_Name: Susana Pivot
-  m_TagString: Untagged
+  m_TagString: Lunge
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
