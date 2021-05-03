@@ -6,9 +6,33 @@ using UnityEngine.Tilemaps;
 
 public class SusanaControlled : MonoBehaviour
 {
+    //testing 
+    public bool saver;
+
     PlayerInputs controls;
 
+    //Movement
+    Vector2 move;
+    public bool canMove = false;
+    bool facingRight = true;
+
+    //hp
+    public int health;
+    public int level;
+
+    //inventory
+    public int nPotions;
+    public int nKeys;
+    public int nBombs;
+
     [SerializeField] private float lungeDistance;
+
+    //Animation
+    Animator anim;
+    Rigidbody2D rb;
+
+    bool isMoving;
+
 
     //Collision Check
     [SerializeField]
@@ -20,14 +44,6 @@ public class SusanaControlled : MonoBehaviour
     [SerializeField]
     private Tilemap healingTilemap;
     [SerializeField] float speed;
-    Vector2 move;
-
-    bool facingRight = true;
-    bool isMoving;
-
-    public bool canMove = false;
-
-    Rigidbody2D rb;
 
     [Header("Abilities")]
 
@@ -44,19 +60,31 @@ public class SusanaControlled : MonoBehaviour
 
     private void Awake()
     {
+        //testing 
+        saver = false;
+
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerInputs();
-        
+
+        //items 
+        nPotions = 0;
+        nKeys = 0;
+        nBombs = 0;
+
+        #region INPUCTACTIONS
         controls.Susana.Move.performed += ctx => SendMessage(ctx.ReadValue<Vector2>());
 
         controls.Susana.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
         controls.Susana.Move.canceled += ctx => move = Vector2.zero;
+
+        //controls.Susana.Action.performed += ctx => Interact();
 
         //Test Abilities
         controls.Susana.Lunge.performed += ctx => Lunge();
         controls.Susana.Shield.started += ctx => Shield();
         controls.Susana.Shield.canceled += ctx => Shield();
         controls.Susana.Earthquake.started += ctx => Earthquake();
+        #endregion
     }
 
     private void OnEnable()
@@ -72,40 +100,14 @@ public class SusanaControlled : MonoBehaviour
     {
         Debug.Log("Thumb-stick coordinates" + coordinates);
     }
-    /*private void FixedUpdate()
+    private void Update()
     {
-        Movement();
+        if (saver == true)
+        {
+            Debug.Log("CULAZO CRIS");
+            LoadPlayer();
+        }
     }
-
-    void Movement()
-    {
-        if (move.x != 0)
-        {
-            if (facingRight == false && move.x > 0)
-            {
-
-                Flip();
-
-            }
-            else if (facingRight == true && move.x < 0)
-            {
-                Flip();
-            }
-            if (CanMove(move) && canMove == true)
-            {
-                Debug.Log("Moving");
-                move = new Vector2Int(Mathf.FloorToInt(move.x), Mathf.FloorToInt(move.y));
-                transform.position += (Vector3)move;
-                rb.velocity = new Vector2(move.x * speed, rb.velocity.y);
-            }
-        }
-        else
-        {
-            //Debug.Log("PROTECT");
-            isMoving = false;
-        }
-    }*/
-
     void FixedUpdate()
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move);
@@ -146,6 +148,7 @@ public class SusanaControlled : MonoBehaviour
         {
             LungeLogic();
             transform.position += (Vector3)move * lungeDistance;
+            //rb.velocity = new Vector2(lungeDistance, rb.velocity.y);
         }
     }
 
@@ -209,6 +212,48 @@ public class SusanaControlled : MonoBehaviour
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
+    }
+
+    public void SavePlayer()
+    {
+        SaveSystem.SaveSusana(this);
+    }
+
+    public void LoadPlayer()
+    {
+        SusanaData data = SaveSystem.LoadSusana();
+
+        //level = susana.level;
+        health = data.health;
+        nPotions = data.potions;
+        nKeys = data.keys;
+        nBombs = data.bombs;
+
+        Vector3 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        position.z = data.position[2];
+        transform.position = position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "SavePoint")
+        {
+            SavePlayer();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "SavePoint")
+        {
+            if (saver == true)
+            {
+                Debug.Log("CULAZO CRIS");
+                LoadPlayer();
+            }
+        }
     }
 
     /*public void Earthquake()
