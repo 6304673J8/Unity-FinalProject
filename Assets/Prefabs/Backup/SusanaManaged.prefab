@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2109804911503582307}
   - component: {fileID: 7109467811767998936}
   - component: {fileID: 835414795}
+  - component: {fileID: 550780136}
   m_Layer: 0
   m_Name: SusanaManaged
   m_TagString: Susana
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 2109804911503582318}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: -0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 5518576781351040933}
   m_Father: {fileID: 0}
@@ -165,13 +166,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be562f59dd21f4b4197bc3abdf552168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saver: 0
+  canMove: 0
+  health: 222
+  level: 222
+  nPotions: 2222
+  nKeys: 222
+  nBombs: 2222
   lungeDistance: 1
   floorTilemap: {fileID: 0}
   collisionTilemap: {fileID: 0}
   damagingTilemap: {fileID: 0}
   healingTilemap: {fileID: 0}
   speed: 5
-  canMove: 0
   earthquakePrefab: {fileID: 990326997976766212, guid: ffe2528ca36563442be9534852e2ee8e,
     type: 3}
   lungePrefab: {fileID: 288329291259624461, guid: 2eb165e840641a24984412f5fc3cd2e1,
@@ -213,6 +220,18 @@ MonoBehaviour:
   m_DefaultActionMap: Susana
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &550780136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109804911503582318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8915825c9f096564597ee32419037533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4877203436083515699
 GameObject:
   m_ObjectHideFlags: 0

@@ -1832,16 +1832,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 009111b1c900c5743a03469fc6bf65f0,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2109804911503582316, guid: 009111b1c900c5743a03469fc6bf65f0,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582318, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: m_Name
@@ -1872,31 +1862,6 @@ PrefabInstance:
       propertyPath: abilities
       value: 
       objectReference: {fileID: 6272844400703274719}
-    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
-        type: 3}
-      propertyPath: health
-      value: 222
-      objectReference: {fileID: 0}
-    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
-        type: 3}
-      propertyPath: level
-      value: 222
-      objectReference: {fileID: 0}
-    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
-        type: 3}
-      propertyPath: nPotions
-      value: 2222
-      objectReference: {fileID: 0}
-    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
-        type: 3}
-      propertyPath: nKeys
-      value: 222
-      objectReference: {fileID: 0}
-    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
-        type: 3}
-      propertyPath: nBombs
-      value: 2222
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009111b1c900c5743a03469fc6bf65f0, type: 3}
 --- !u!114 &768599744 stripped
@@ -2984,7 +2949,7 @@ GameObject:
   - component: {fileID: 1122270771}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3004,6 +2969,7 @@ MonoBehaviour:
   ItemSusana: {fileID: 0}
   potionNumber: 0
   keyNumber: 0
+  lastCheckPoint: {x: 0, y: 0}
 --- !u!4 &1122270772
 Transform:
   m_ObjectHideFlags: 0
@@ -27855,6 +27821,24 @@ MonoBehaviour:
   nPotions: 0
   keyTilemap: {fileID: 0}
   nKeys: 0
+--- !u!1 &1495061093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6210488559150763447, guid: 6818c3a79e056fd43a5023753d7bb890,
+    type: 3}
+  m_PrefabInstance: {fileID: 791500368}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1495061094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495061093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dce73499945ce4184ebe266bc12883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1604968127
 GameObject:
   m_ObjectHideFlags: 0
