@@ -17,6 +17,7 @@ TagManager:
   - Earthquake
   - Lunge
   - SavePoint
+  - GameManager
   layers:
   - Default
   - TransparentFX

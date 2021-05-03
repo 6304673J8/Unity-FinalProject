@@ -8,11 +8,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Item ItemSusana;
     public static GameManager Instance { get; private set; }
-    //Text potions;
-    //Text keys;
+    //Text Items;
     public int potionNumber;
     public int keyNumber;
-    // Start is called before the first frame update
+    
+    public Vector2 lastCheckPoint;
 
     private void Awake()
     {
@@ -21,11 +21,11 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(Instance);
         }
         else
         {
-            Debug.Log("Multiples " + this);
+            Destroy(gameObject);
         }
     }
 

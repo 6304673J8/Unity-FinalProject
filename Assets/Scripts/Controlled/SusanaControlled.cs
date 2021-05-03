@@ -47,7 +47,6 @@ public class SusanaControlled : MonoBehaviour
 
     [Header("Abilities")]
 
-    GameHandler gameHandler;
     public GameObject earthquakePrefab;
     public GameObject lungePrefab;
     public GameObject potionPrefab;
