@@ -55,11 +55,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Floor
+    uniqueID: 247405437
+    locked: 0
   - name: Tutorial
     uniqueID: 760448005
-    locked: 0
-  - name: Susana
-    uniqueID: 10569033
     locked: 0
   - name: Enemies
     uniqueID: 900639987
@@ -67,6 +67,24 @@ TagManager:
   - name: Barrels
     uniqueID: 442065107
     locked: 0
+  - name: Susana
+    uniqueID: 10569033
+    locked: 0
   - name: Checkpoint
     uniqueID: 3330037129
+    locked: 0
+  - name: Wall
+    uniqueID: 625438597
+    locked: 0
+  - name: Red Tiles
+    uniqueID: 2825384309
+    locked: 0
+  - name: Green Tiles
+    uniqueID: 4016872267
+    locked: 0
+  - name: Torch
+    uniqueID: 4131060627
+    locked: 0
+  - name: Stairs
+    uniqueID: 4002381087
     locked: 0
