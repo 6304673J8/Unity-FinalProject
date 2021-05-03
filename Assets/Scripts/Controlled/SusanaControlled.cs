@@ -227,7 +227,7 @@ public class SusanaControlled : MonoBehaviour
         nPotions = data.potions;
         nKeys = data.keys;
         nBombs = data.bombs;
-
+        controls = new PlayerInputs();
         Vector3 position;
         position.x = data.position[0];
         position.y = data.position[1];
@@ -249,7 +249,6 @@ public class SusanaControlled : MonoBehaviour
         {
             if (saver == true)
             {
-                Debug.Log("CULAZO CRIS");
                 LoadPlayer();
             }
         }

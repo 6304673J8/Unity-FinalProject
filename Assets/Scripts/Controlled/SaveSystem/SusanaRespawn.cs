@@ -8,11 +8,25 @@ public class SusanaRespawn : MonoBehaviour
 {
     private GameManager gm;
     PlayerInputs controls;
+    Rigidbody2D rb;
 
     private void Awake()
     {
+        controls = new PlayerInputs();
+        rb = GetComponent<Rigidbody2D>();
+
         controls.Susana.Action.performed += ctx => Interact();
     }
+
+    private void OnEnable()
+    {
+        controls.Susana.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Susana.Disable();
+    }
+
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
