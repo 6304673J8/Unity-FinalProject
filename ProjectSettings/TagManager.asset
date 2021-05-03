@@ -61,3 +61,12 @@ TagManager:
   - name: Susana
     uniqueID: 10569033
     locked: 0
+  - name: Enemies
+    uniqueID: 900639987
+    locked: 0
+  - name: Barrels
+    uniqueID: 442065107
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 3330037129
+    locked: 0
