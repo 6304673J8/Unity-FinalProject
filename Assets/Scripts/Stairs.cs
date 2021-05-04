@@ -32,7 +32,8 @@ public class Stairs : MonoBehaviour
 
     private void StairsOnFloor()
     {
-        Vector3 stairstut = new Vector3(70.5f, 0.5f, 0);
+        //Vector3 stairstut = new Vector3(70.5f, 0.5f, 0);
+        Vector3 stairstut = new Vector3(15.5f, 72.5f, 0);
 
         Vector3 stairs1a = new Vector3(-18.5f, -4.5f, 0);
         Vector3 stairs2a = new Vector3(-8.5f, 46.5f, 0);
