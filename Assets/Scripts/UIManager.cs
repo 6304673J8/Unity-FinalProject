@@ -22,9 +22,9 @@ public class UIManager : MonoBehaviour
     {
         if (tag == "Item")
         {
-            potions.text = "x" + GameManager.Instance.potionNumber;
+            potions.text = "x " + GameManager.Instance.potionNumber;
         } else if (tag == "Key") {
-            keys.text = "x" + GameManager.Instance.keyNumber;
+            keys.text = "x " + GameManager.Instance.keyNumber;
         }
         //Debug.Log(ItemSusana.NumPotions());
     }
