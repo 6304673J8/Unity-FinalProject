@@ -79,6 +79,7 @@ public class RangedEnemyAI : MonoBehaviour
 
         if(timeBtwShots <= 0)
         {
+            FindObjectOfType<SoundManager>().Play("FireballShot");
             Instantiate(fireBall, transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;
         }

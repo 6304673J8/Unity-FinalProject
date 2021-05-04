@@ -46,5 +46,5 @@ MonoBehaviour:
   sounds:
   - name: FireballShot
     clip: {fileID: 8300000, guid: d0d3395a23a183543b91c35abf1ead07, type: 3}
-    volume: 0.213
+    volume: 0.04
     source: {fileID: 0}
