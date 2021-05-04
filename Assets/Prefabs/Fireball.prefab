@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerR: {fileID: 0}
   damage: 20
-  speed: 5
+  speed: 7
 --- !u!95 &2253100797921363181
 Animator:
   serializedVersion: 3

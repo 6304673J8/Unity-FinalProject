@@ -56,6 +56,11 @@ public class FireBall : MonoBehaviour
         {
             DestroyProjectile();
         }
+
+        if(collision.tag == "Enemy")
+        {
+            DestroyProjectile();
+        }
     }
 
 
@@ -72,6 +77,7 @@ public class FireBall : MonoBehaviour
     {
         
         animator.SetTrigger("Destroyed");
+        //speed = 0;
         beingDestroyed += Time.deltaTime;
         if(beingDestroyed >= destroyTime)
         {
@@ -80,8 +86,5 @@ public class FireBall : MonoBehaviour
        
     }
 
-    private void susanaImpact()
-    {
-        Destroy(gameObject);
-    }
+    
 }

@@ -237,19 +237,34 @@ public class SusanaControlled : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //This to a manager
         if (collision.tag == "SavePoint")
         {
             SavePlayer();
         }
 
-        if(collision.tag == "Fireball")
+        else if(collision.tag == "Fireball")
         {
             health -= 20;
         }
+        
+        else if (collision.tag == "Potion")
+        {
+            GameManager.Instance.potionNumber++;
+            nPotions++;
+        }
+        
+        else if (collision.tag == "Key")
+        {
+            GameManager.Instance.keyNumber++;
+            nKeys++;
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //This to a manager
         if (collision.tag == "SavePoint")
         {
             if (saver == true)
