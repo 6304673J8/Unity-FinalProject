@@ -19,6 +19,8 @@ public class FireBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         player = GameObject.FindGameObjectWithTag("Susana").transform;
 
         playerR = GameObject.FindGameObjectWithTag("Susana");
