@@ -14,6 +14,7 @@ public class RangedEnemyAI : MonoBehaviour
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
+    public float shotDistance = 15;
     private bool stunned;
     SpriteRenderer sprite;
     private Animator animator;
@@ -79,9 +80,13 @@ public class RangedEnemyAI : MonoBehaviour
 
         if(timeBtwShots <= 0)
         {
-            FindObjectOfType<SoundManager>().Play("FireballShot");
-            Instantiate(fireBall, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
+            if(Vector2.Distance(transform.position, player.position) < shotDistance)
+            {
+                FindObjectOfType<SoundManager>().Play("FireballShot");
+                Instantiate(fireBall, transform.position, Quaternion.identity);
+                timeBtwShots = startTimeBtwShots;
+            }
+            
         }
 
         else
