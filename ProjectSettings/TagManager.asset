@@ -18,6 +18,7 @@ TagManager:
   - Lunge
   - SavePoint
   - GameManager
+  - Fireball
   layers:
   - Default
   - TransparentFX

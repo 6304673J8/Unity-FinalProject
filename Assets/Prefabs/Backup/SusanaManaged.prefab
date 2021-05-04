@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Color: {r: 0.99215686, g: 0.84313726, b: 0.89411765, a: 1}
   m_Intensity: 0.24
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 000000007d1bbf0e0584532d4945a100f3acae35d360591a89557cc6856f472575f167a84b9b6cef93fb3af6
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -149,7 +149,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 10569033
-  m_SortingLayer: 2
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 802b96f0ac7fbdc43ae62529f64da13b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saver: 0
   canMove: 0
-  health: 222
+  health: 100
   level: 222
   nPotions: 2222
   nKeys: 222
@@ -331,7 +331,7 @@ MonoBehaviour:
   - {x: -0.25, y: 0.25, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 30340
+  m_InstanceId: -24810
 --- !u!1 &4877203436083515699
 GameObject:
   m_ObjectHideFlags: 0

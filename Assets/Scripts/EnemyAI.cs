@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject key;
 
-    bool facingLeft;
+    private bool facingLeft;
 
 
 
