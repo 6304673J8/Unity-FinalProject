@@ -241,6 +241,11 @@ public class SusanaControlled : MonoBehaviour
         {
             SavePlayer();
         }
+
+        if(collision.tag == "Fireball")
+        {
+            health -= 20;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
