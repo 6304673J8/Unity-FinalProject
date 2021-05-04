@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: -6491069658186306872
     second: PiamondWalk_5
+  - first:
+      213: -4156836440716312582
+    second: PiamondWalk_0
+  - first:
+      213: 2116756640203381140
+    second: PiamondWalk_1
+  - first:
+      213: -3383152310877737077
+    second: PiamondWalk_2
+  - first:
+      213: 3626050495416884507
+    second: PiamondWalk_3
+  - first:
+      213: -8854044779203276543
+    second: PiamondWalk_4
+  - first:
+      213: -8476737828857822523
+    second: PiamondWalk_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -63,7 +81,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,6 +131,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -120,10 +162,10 @@ TextureImporter:
       name: PiamondWalk_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 27
+        y: 23
+        width: 10
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c34f86252aa8ffda0800000000000000
-      internalID: -5908851756314856388
+      spriteID: aff74b1f743ff46c0800000000000000
+      internalID: -4156836440716312582
       vertices: []
       indices: 
       edges: []
@@ -141,10 +183,10 @@ TextureImporter:
       name: PiamondWalk_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 91
+        y: 22
+        width: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +194,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30a6b2015f824ef70800000000000000
-      internalID: 9215535770510256643
+      spriteID: 499954ff2fa306d10800000000000000
+      internalID: 2116756640203381140
       vertices: []
       indices: 
       edges: []
@@ -162,10 +204,10 @@ TextureImporter:
       name: PiamondWalk_2
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
+        x: 155
+        y: 21
+        width: 10
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 819247d6e8990b1b0800000000000000
-      internalID: -5642841496094496488
+      spriteID: b8f2711e5e0ac01d0800000000000000
+      internalID: -3383152310877737077
       vertices: []
       indices: 
       edges: []
@@ -183,10 +225,10 @@ TextureImporter:
       name: PiamondWalk_3
       rect:
         serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        x: 218
+        y: 23
+        width: 13
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,8 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 910ffb3700dad6ad0800000000000000
-      internalID: -2707317583526236135
+      spriteID: b1dd3f4c6b1525230800000000000000
+      internalID: 3626050495416884507
       vertices: []
       indices: 
       edges: []
@@ -204,10 +246,10 @@ TextureImporter:
       name: PiamondWalk_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
+        x: 283
+        y: 22
+        width: 11
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,8 +257,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0447a01fd5d90d740800000000000000
-      internalID: 5174808998650213440
+      spriteID: 101df2e1f2d102580800000000000000
+      internalID: -8854044779203276543
       vertices: []
       indices: 
       edges: []
@@ -225,10 +267,10 @@ TextureImporter:
       name: PiamondWalk_5
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
+        x: 347
+        y: 21
+        width: 11
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ca2d7b79861be5a0800000000000000
-      internalID: -6491069658186306872
+      spriteID: 5c240d83bd39c5a80800000000000000
+      internalID: -8476737828857822523
       vertices: []
       indices: 
       edges: []

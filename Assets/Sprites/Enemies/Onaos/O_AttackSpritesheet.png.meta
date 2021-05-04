@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 6e9e1e5130a621742b7039867091e2c9
+guid: fea353026938a41429c95369c543a178
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8360444476841481593
-    second: PiamondIdle_0
+      213: 2566408671447572940
+    second: O_AttackSpritesheet_0
   - first:
-      213: -2921895146840674374
-    second: PiamondIdle_1
+      213: 3266508952239394345
+    second: O_AttackSpritesheet_1
   - first:
-      213: 4544628423912729015
-    second: PiamondIdle_2
+      213: 941558256318861494
+    second: O_AttackSpritesheet_2
   - first:
-      213: -3668744603601890587
-    second: PiamondIdle_3
-  - first:
-      213: -619022935285343948
-    second: PiamondIdle_0
-  - first:
-      213: 146350390501278196
-    second: PiamondIdle_1
-  - first:
-      213: 3013376114133551299
-    second: PiamondIdle_2
-  - first:
-      213: 5499978256680038948
-    second: PiamondIdle_3
+      213: 1671421188630865593
+    second: O_AttackSpritesheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -108,18 +96,6 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -147,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PiamondIdle_0
+      name: O_AttackSpritesheet_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 21
-        width: 11
-        height: 13
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4395f7a8be9c867f0800000000000000
-      internalID: -619022935285343948
+      spriteID: cc16d1ad617bd9320800000000000000
+      internalID: 2566408671447572940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PiamondIdle_1
+      name: O_AttackSpritesheet_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 21
-        width: 11
-        height: 12
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f1819e97e0f70200800000000000000
-      internalID: 146350390501278196
+      spriteID: 92eccd9d598f45d20800000000000000
+      internalID: 3266508952239394345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PiamondIdle_2
+      name: O_AttackSpritesheet_2
       rect:
         serializedVersion: 2
-        x: 155
-        y: 21
-        width: 11
-        height: 13
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c8c3993c99a1d920800000000000000
-      internalID: 3013376114133551299
+      spriteID: 6b0d83bde36111d00800000000000000
+      internalID: 941558256318861494
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PiamondIdle_3
+      name: O_AttackSpritesheet_3
       rect:
         serializedVersion: 2
-        x: 219
-        y: 21
-        width: 11
-        height: 14
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42239c59519d35c40800000000000000
-      internalID: 5499978256680038948
+      spriteID: 9b6676a27b4123710800000000000000
+      internalID: 1671421188630865593
       vertices: []
       indices: 
       edges: []
