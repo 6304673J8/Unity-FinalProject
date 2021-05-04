@@ -18,7 +18,7 @@ public class DialogManager : MonoBehaviour
 
     private PickupInput dialogControls;
 
-    public SusanaController susana;
+    public SusanaControlled susana;
 
     public bool isActive;
 
@@ -44,7 +44,7 @@ public class DialogManager : MonoBehaviour
     {
         dialogControls.Floor.Pickup.performed += ctx => Talk(ctx);
 
-        susana = FindObjectOfType<SusanaController>();
+        susana = FindObjectOfType<SusanaControlled>();
 
         if (textFile != null)
         {
