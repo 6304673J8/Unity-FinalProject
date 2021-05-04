@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: fea353026938a41429c95369c543a178
+guid: 931bf99f6f2af8a4ab78547d16bcbfca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2566408671447572940
-    second: O_AttackSpritesheet_0
+      213: 1319523285340019815
+    second: F_MovementSpritesheet_0
   - first:
-      213: 3266508952239394345
-    second: O_AttackSpritesheet_1
+      213: -5880218309946708149
+    second: F_MovementSpritesheet_1
   - first:
-      213: 941558256318861494
-    second: O_AttackSpritesheet_2
+      213: -2904642079698932527
+    second: F_MovementSpritesheet_2
   - first:
-      213: 1671421188630865593
-    second: O_AttackSpritesheet_3
+      213: -590610662151453202
+    second: F_MovementSpritesheet_3
+  - first:
+      213: -783056605022033156
+    second: F_MovementSpritesheet_4
+  - first:
+      213: 7419780588447766218
+    second: F_MovementSpritesheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: O_AttackSpritesheet_0
+      name: F_MovementSpritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +137,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc16d1ad617bd9320800000000000000
-      internalID: 2566408671447572940
+      spriteID: 76c5c87df63ef4210800000000000000
+      internalID: 1319523285340019815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: O_AttackSpritesheet_1
+      name: F_MovementSpritesheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,20 +158,41 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92eccd9d598f45d20800000000000000
-      internalID: 3266508952239394345
+      spriteID: b4fe0e11a94456ea0800000000000000
+      internalID: -5880218309946708149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: O_AttackSpritesheet_2
+      name: F_MovementSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dca4effa63a0b7d0800000000000000
+      internalID: -2904642079698932527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F_MovementSpritesheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -173,20 +200,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b0d83bde36111d00800000000000000
-      internalID: 941558256318861494
+      spriteID: ee587e16bbabdc7f0800000000000000
+      internalID: -590610662151453202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: O_AttackSpritesheet_3
+      name: F_MovementSpritesheet_4
       rect:
         serializedVersion: 2
         x: 32
@@ -194,14 +221,35 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b6676a27b4123710800000000000000
-      internalID: 1671421188630865593
+      spriteID: cfa63a2aa260225f0800000000000000
+      internalID: -783056605022033156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: F_MovementSpritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac694cd222b58f660800000000000000
+      internalID: 7419780588447766218
       vertices: []
       indices: 
       edges: []
@@ -215,9 +263,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 3d739868f020c10448d45f0c2706fd8b, type: 3}
-      name: _Emission
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: fea353026938a41429c95369c543a178
+guid: 04c1bf775b65e7e48940f18f5a2f96fb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2566408671447572940
-    second: O_AttackSpritesheet_0
+      213: -4116272852085334541
+    second: F_AttackSpritesheet_0
   - first:
-      213: 3266508952239394345
-    second: O_AttackSpritesheet_1
+      213: -5778617904892396973
+    second: F_AttackSpritesheet_1
   - first:
-      213: 941558256318861494
-    second: O_AttackSpritesheet_2
-  - first:
-      213: 1671421188630865593
-    second: O_AttackSpritesheet_3
+      213: -3677686394157073756
+    second: F_AttackSpritesheet_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -123,7 +120,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: O_AttackSpritesheet_0
+      name: F_AttackSpritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +128,20 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc16d1ad617bd9320800000000000000
-      internalID: 2566408671447572940
+      spriteID: 3fd9ed466af00e6c0800000000000000
+      internalID: -4116272852085334541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: O_AttackSpritesheet_1
+      name: F_AttackSpritesheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,56 +149,35 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92eccd9d598f45d20800000000000000
-      internalID: 3266508952239394345
+      spriteID: 35a3d26c1a93ecfa0800000000000000
+      internalID: -5778617904892396973
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: O_AttackSpritesheet_2
+      name: F_AttackSpritesheet_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b0d83bde36111d00800000000000000
-      internalID: 941558256318861494
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: O_AttackSpritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b6676a27b4123710800000000000000
-      internalID: 1671421188630865593
+      spriteID: 4aafaf0b5bb36fcc0800000000000000
+      internalID: -3677686394157073756
       vertices: []
       indices: 
       edges: []
@@ -215,9 +191,7 @@ TextureImporter:
     indices: 
     edges: []
     weights: []
-    secondaryTextures:
-    - texture: {fileID: 2800000, guid: 3d739868f020c10448d45f0c2706fd8b, type: 3}
-      name: _Emission
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
