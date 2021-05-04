@@ -84,11 +84,11 @@ TagManager:
   - name: Susana
     uniqueID: 10569033
     locked: 0
-  - name: Checkpoint
-    uniqueID: 3330037129
-    locked: 0
   - name: Wall
     uniqueID: 625438597
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 3330037129
     locked: 0
   - name: Torch
     uniqueID: 4131060627
