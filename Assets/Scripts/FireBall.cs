@@ -46,7 +46,7 @@ public class FireBall : MonoBehaviour
 
         if (collision.tag == "Susana")
         {
-            susanaImpact();
+            DestroyProjectile();
             playerR.SendMessage("TakeDamage", damage);
         }
 
@@ -73,7 +73,7 @@ public class FireBall : MonoBehaviour
         beingDestroyed += Time.deltaTime;
         if(beingDestroyed >= destroyTime)
         {
-            
+            Destroy(gameObject);
         }
        
     }
