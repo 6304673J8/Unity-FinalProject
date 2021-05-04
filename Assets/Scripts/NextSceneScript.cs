@@ -21,12 +21,14 @@ public class NextSceneScript : MonoBehaviour
         elapsed += Time.deltaTime;
         if (Input.GetKey(KeyCode.Space))
         {
-            SceneManager.LoadScene("TutorialRoom", LoadSceneMode.Single);
+            //SceneManager.LoadScene("TutorialRoom", LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         if(elapsed>=timer)
         {
-            SceneManager.LoadScene("TutorialRoom", LoadSceneMode.Single);
+            //SceneManager.LoadScene("TutorialRoom", LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
