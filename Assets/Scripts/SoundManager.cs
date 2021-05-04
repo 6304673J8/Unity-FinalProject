@@ -1,4 +1,47 @@
-﻿using System.Collections;
+﻿using UnityEngine.Audio;
+using System;
+using UnityEngine;
+
+public class SoundManager : MonoBehaviour
+{
+    //Para usar: Aumentar el tamaño de "size" de sonidos en el objeto de sound manager en el inspector y arrastrar el sonido.
+    //FindObjectOfType<SoundManager>().Play("NOMBRESONIDO"); Para reproducir un sonido desde otro script
+    public Sound[] sounds;
+    public static SoundManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+        foreach (Sound s in sounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+
+            s.source.volume = s.volume;
+        }
+    }
+
+
+    public void Play(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.Play();
+    }
+}
+
+
+/*
+ * SOUND MANAGER ANTIGUO
+ * using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using System.Reflection;
@@ -57,4 +100,4 @@ public class GameAssets : MonoBehaviour {
 }
  
 //En el script del sonido que se quiere reproducir:
-//SoundManager.PlaySound(SoundManager.Sound.Earthquake);
+//SoundManager.PlaySound(SoundManager.Sound.Earthquake);*/
