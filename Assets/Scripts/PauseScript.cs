@@ -36,7 +36,7 @@ public class PauseScript : MonoBehaviour
         isPaused = false;
     }
 
-    public void mainMenu()
+    public void mainMenu() //AQUI PONER LO DE GUARDAR
     {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
