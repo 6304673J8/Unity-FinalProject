@@ -25,7 +25,7 @@ public class PauseScript : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Backspace))
         {
             isPaused = !isPaused;
         }
