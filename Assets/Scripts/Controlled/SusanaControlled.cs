@@ -177,8 +177,6 @@ public class SusanaControlled : MonoBehaviour
             if (floorTilemap.HasTile(gridPos) || !collisionTilemap.HasTile(gridPos))
             {
                 Debug.Log("Moving");
-                //move = new Vector2Int(Mathf.FloorToInt(move.x), Mathf.FloorToInt(move.y));
-                //rb.velocity = new Vector2(move.x * speed * Time.fixedDeltaTime, rb.velocity.y);
                 transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
             }
         }
@@ -192,7 +190,6 @@ public class SusanaControlled : MonoBehaviour
     #region SKILLS
     public void Lunge()
     {
-        Debug.Log("Topetazo!");
         move = controls.Susana.Move.ReadValue<Vector2>();
         if (CanLunge(move) && abilities.lungeCooldown == false)
         {
@@ -251,7 +248,17 @@ public class SusanaControlled : MonoBehaviour
 
     private void Shield()
     {
-        Debug.Log("Topetazo!");
+        if (health < 80)
+        {
+            state = State.HEALING;
+            defending = true;
+            health += health * 10;
+        }
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        state = State.IDLE;
     }
 
     #endregion

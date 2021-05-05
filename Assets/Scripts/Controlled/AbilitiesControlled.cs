@@ -40,7 +40,6 @@ public class AbilitiesControlled : MonoBehaviour
             Skill_L();
         }
         if (susanaInputs.defending == true) { 
-            Debug.Log("fkfkfkfk");
             Skill_S();
         }
     }
@@ -98,6 +97,7 @@ public class AbilitiesControlled : MonoBehaviour
             {
                 ShieldImage.fillAmount = 0;
                 shieldCooldown = false;
+                susanaInputs.defending = false;
             }
         }
     }
