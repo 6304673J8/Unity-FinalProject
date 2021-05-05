@@ -121,7 +121,7 @@ public class SusanaControlled : MonoBehaviour
 
     private void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetMaxHealth(health);
     }
 
     public void UpdateHealth(int mod)
@@ -151,7 +151,15 @@ public class SusanaControlled : MonoBehaviour
             LoadPlayer();
         }
 
-  
+
+        if (health <= 0)
+        {
+            //animator.SetTrigger("Dead");
+            health = 0;
+            //healthBar.SetHealth(health);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
         if (hasLunged == true)
         {
             transform.position += (Vector3)move * speed * lungeDistance * Time.deltaTime;
