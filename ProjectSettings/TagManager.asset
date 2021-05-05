@@ -93,3 +93,6 @@ TagManager:
   - name: Checkpoint
     uniqueID: 3330037129
     locked: 0
+  - name: Skills
+    uniqueID: 160941931
+    locked: 0

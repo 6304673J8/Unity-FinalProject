@@ -136,7 +136,7 @@ public class SusanaControlled : MonoBehaviour
         {
             //animator.SetTrigger("Dead");
             health = 0;
-            healthBar.SetHealth(health);
+            //healthBar.SetHealth(health);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         isHurt = false;
@@ -248,17 +248,16 @@ public class SusanaControlled : MonoBehaviour
 
     private void Shield()
     {
-        if (health < 80)
+        /*if (health < 100)
         {
+            Debug.Log(health + "JODER");
             state = State.HEALING;
             defending = true;
-            health += health * 10;
+            health = health * 10;
+            UpdateHealth(health);
         }
-        if (health > maxHealth)
-        {
-            health = maxHealth;
-        }
-        state = State.IDLE;
+        state = State.IDLE;*/
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     #endregion
@@ -335,7 +334,7 @@ public class SusanaControlled : MonoBehaviour
         }
         else if (collision.tag == "HealingTile")
         {
-            UpdateHealth(2);
+            UpdateHealth(-2);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

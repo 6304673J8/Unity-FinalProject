@@ -18,7 +18,7 @@ public class AbilitiesControlled : MonoBehaviour
 
     [Header("Ability 3")]
     public Image ShieldImage;
-    public float CD_Shield = 3;
+    public float CD_Shield = 8;
     public bool shieldCooldown = false;
 
     // Start is called before the first frame update
