@@ -25,6 +25,7 @@ public class RangedEnemyAI : MonoBehaviour
 
     public GameObject fireBall;
 
+    public GameObject key;
 
     private bool facingLeft;
 
@@ -34,6 +35,9 @@ public class RangedEnemyAI : MonoBehaviour
     private bool dyingb;
 
     private int range = 6;
+
+    public bool canDrop;
+
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -160,10 +164,10 @@ public class RangedEnemyAI : MonoBehaviour
         if (dying >= dieDelay)
         {
             Destroy(gameObject);
-            /*if (canDrop)
+            if (canDrop)
             {
                 GameObject k = Instantiate(key, transform.position, transform.rotation);
-            }*/
+            }
         }
     }
 }

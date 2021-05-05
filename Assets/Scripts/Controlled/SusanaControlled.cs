@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
+
 
 public class SusanaControlled : MonoBehaviour
 {
@@ -272,6 +274,13 @@ public class SusanaControlled : MonoBehaviour
                 LoadPlayer();
             }
         }
+    }
+
+
+    public void continueMatch()
+    {
+        SceneManager.LoadScene("MainRoomv3", LoadSceneMode.Single);
+        LoadPlayer();
     }
 
     /*public void Earthquake()

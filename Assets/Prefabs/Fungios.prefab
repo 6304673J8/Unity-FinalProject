@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 900639987
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: -1835703324528775766, guid: 7d2a0b35ee080fb47942030a7a378448,
     type: 3}
@@ -146,16 +146,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ae45142e7589248a7f43e940db52bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 10
+  hp: 15
   damage: 5
   speed: 3
   stoppingDistance: 4
   retreatDistance: 3
-  shotDistance: 6
+  shotDistance: 8
   player: {fileID: 2109804911503582316, guid: 24f52ef1edada914fb8d8dc47156ae97, type: 3}
   startTimeBtwShots: 2
   fireBall: {fileID: 8627265362508738230, guid: 21b189d2b4426bc4cbed2a119752d03a,
     type: 3}
+  key: {fileID: 0}
+  canDrop: 0
 --- !u!95 &4554384000158279658
 Animator:
   serializedVersion: 3

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 900639987
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 1
   m_Sprite: {fileID: 7240016541235936936, guid: 738483c16f5a893448a3032e662a0709,
     type: 3}
@@ -169,8 +169,8 @@ MonoBehaviour:
   moveSpeed: 3
   timerSpeed: 0
   attackDelay: 1
-  hp: 44
-  damage: 8
+  hp: 30
+  damage: 20
   range: 8
   canBeInvisible: 0
   canDrop: 0
