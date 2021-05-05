@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro.unity
     guid: 7f49becc7bf09954fad5b4282de68be1
   - enabled: 1
-    path: Assets/Scenes/Rooms/TutorialRoomv3.unity
-    guid: 4651888099a649a49b1ff9c629d0fade
+    path: Assets/Scenes/Rooms V4/TutorialRoomv4.unity
+    guid: dc23f7031ecc6e841938c5011f5c80c6
   - enabled: 1
-    path: Assets/Scenes/Rooms v3/MainRoomv3.unity
-    guid: 30350af1693817c4f8e6e216137bc6ce
+    path: Assets/Scenes/Rooms V4/MainRoomv4.unity
+    guid: 23be2dc368df97f4f95c4d3400c54faf
   - enabled: 1
-    path: Assets/Scenes/Rooms/NextRoomv3.unity
-    guid: 167dc36aae0e52749a03cd6ad12ed847
+    path: Assets/Scenes/Rooms V4/NextRoomv4.unity
+    guid: 2e60ff24c9bc3984f9ffbb272ddcbf04
   - enabled: 1
     path: Assets/Scenes/Victory.unity
     guid: 603d052e584ade84bbe64b29a121cadd
