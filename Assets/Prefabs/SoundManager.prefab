@@ -50,9 +50,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: OnaosDeath
     clip: {fileID: 8300000, guid: 7e192b3878ba40e4bb74a9da2b27120a, type: 3}
-    volume: 0.04
+    volume: 0.075
     source: {fileID: 0}
   - name: PiamondDeath
     clip: {fileID: 8300000, guid: f38c367ba77f4d94b987f749bf9eff17, type: 3}
-    volume: 0.04
+    volume: 0.103
+    source: {fileID: 0}
+  - name: itemPick
+    clip: {fileID: 8300000, guid: 2b14deeff318c60419629a763d8f25d9, type: 3}
+    volume: 0.095
     source: {fileID: 0}
