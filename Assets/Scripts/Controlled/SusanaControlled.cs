@@ -19,8 +19,12 @@ public class SusanaControlled : MonoBehaviour
     bool facingRight = true;
 
     //hp
+    public HealthBar healthBar;
+
+    bool isHurt;
     public int health;
     public int level;
+    [SerializeField] private int maxHealth = 100;
 
     //inventory
     public int nPotions;
@@ -35,6 +39,7 @@ public class SusanaControlled : MonoBehaviour
 
     bool isMoving;
 
+    bool hasLunged;
 
     //Collision Check
     [SerializeField]
@@ -56,16 +61,28 @@ public class SusanaControlled : MonoBehaviour
     public bool defending;
     public bool lunging;
     public bool quaking;
-    //new
+    
+    //new animations
+    private State state;
+
     // shows rounded position = tile position
+    private enum State
+    {
+        IDLE,
+        MOVING,
+        ATTACK,
+        HEALING
+    }
 
     private void Awake()
     {
         //testing 
         saver = false;
-
+        hasLunged = false;
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerInputs();
+        
+        state = State.IDLE;
 
         //items 
         nPotions = 0;
@@ -85,9 +102,7 @@ public class SusanaControlled : MonoBehaviour
         controls.Susana.Shield.started += ctx => Shield();
         controls.Susana.Shield.canceled += ctx => Shield();
         controls.Susana.Earthquake.started += ctx => Earthquake();
-        #endregion
     }
-
     private void OnEnable()
     {
         controls.Susana.Enable();
@@ -101,18 +116,53 @@ public class SusanaControlled : MonoBehaviour
     {
         Debug.Log("Thumb-stick coordinates" + coordinates);
     }
+    #endregion
+
+    private void Start()
+    {
+        health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
+
+    public void UpdateHealth(int mod)
+    {
+        //animator.SetTrigger("Hurt");
+        isHurt = true;
+        health += mod;
+
+        if (health > maxHealth) {
+            health = maxHealth;
+        }else if (health <= 0)
+        {
+            //animator.SetTrigger("Dead");
+            health = 0;
+            healthBar.SetHealth(health);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        isHurt = false;
+    }
+
     private void Update()
     {
+        healthBar.SetHealth(health);
+
         if (saver == true)
         {
             Debug.Log("CULAZO CRIS");
             LoadPlayer();
         }
+
+  
+        if (hasLunged == true)
+        {
+            transform.position += (Vector3)move * speed * lungeDistance * Time.deltaTime;
+            hasLunged = false;
+        }
     }
     void FixedUpdate()
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move);
-
+        
         if (move.x != 0 || move.y != 0)
         {
             if (facingRight == false && move.x > 0)
@@ -139,7 +189,7 @@ public class SusanaControlled : MonoBehaviour
             isMoving = false;
         }
     }
-
+    
     #region SKILLS
     public void Lunge()
     {
@@ -148,11 +198,11 @@ public class SusanaControlled : MonoBehaviour
         if (CanLunge(move) && abilities.lungeCooldown == false)
         {
             LungeLogic();
-            transform.position += (Vector3)move * lungeDistance;
+            hasLunged = true;
+            //transform.position += (Vector3)move * lungeDistance * Time.deltaTime;
             //rb.velocity = new Vector2(lungeDistance, rb.velocity.y);
         }
     }
-
     private bool CanLunge(Vector2 lungeToNext)
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move);
@@ -229,7 +279,6 @@ public class SusanaControlled : MonoBehaviour
         nPotions = data.potions;
         nKeys = data.keys;
         nBombs = data.bombs;
-        controls = new PlayerInputs();
         Vector3 position;
         position.x = data.position[0];
         position.y = data.position[1];
@@ -262,6 +311,27 @@ public class SusanaControlled : MonoBehaviour
             nKeys++;
         }
 
+    }
+
+    public void DamagedByTile()
+    {
+        Vector3Int currentPos = damagingTilemap.WorldToCell(transform.position);
+        Debug.Log(currentPos);
+        if (damagingTilemap.HasTile(currentPos))
+        {
+            Invoke("DamagedByTile", 1);
+            UpdateHealth(5);
+        }
+    }
+
+    public void HealedByTile()
+    {
+        Vector3Int currentPos = healingTilemap.WorldToCell(transform.position);
+        if (healingTilemap.HasTile(currentPos))
+        {
+            Invoke("HealedByTile", 1);
+            UpdateHealth(-5);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

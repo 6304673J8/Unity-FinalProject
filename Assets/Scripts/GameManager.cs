@@ -28,18 +28,4 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-   /* void Start()
-    {
-        potions = GetComponent<Text>();
-        keys = GetComponent<Text>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        potions.text = "x" + potionNumber;
-        keys.text = "x" + keyNumber;
-        //Debug.Log(ItemSusana.NumPotions());
-    }*/
 }
