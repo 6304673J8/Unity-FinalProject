@@ -136,7 +136,7 @@ public class SusanaControlled : MonoBehaviour
         {
             //animator.SetTrigger("Dead");
             health = 0;
-            healthBar.SetHealth(health);
+            //healthBar.SetHealth(health);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         isHurt = false;
@@ -248,15 +248,13 @@ public class SusanaControlled : MonoBehaviour
 
     private void Shield()
     {
-        if (health < 80)
+        if (health < 100)
         {
+            Debug.Log(health + "JODER");
             state = State.HEALING;
             defending = true;
-            health += health * 10;
-        }
-        if (health > maxHealth)
-        {
-            health = maxHealth;
+            health = health * 10;
+            UpdateHealth(health);
         }
         state = State.IDLE;
     }
