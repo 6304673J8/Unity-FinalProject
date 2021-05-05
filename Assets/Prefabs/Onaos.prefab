@@ -175,6 +175,7 @@ MonoBehaviour:
   canDrop: 0
   originalRange: 0
   key: {fileID: 0}
+  enemyTag: 1
 --- !u!1001 &3523428149058987512
 PrefabInstance:
   m_ObjectHideFlags: 0

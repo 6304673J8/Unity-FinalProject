@@ -32,6 +32,8 @@ public class RangedEnemyAI : MonoBehaviour
     private float dying;
 
     private bool dyingb;
+
+    private int range = 6;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -58,7 +60,8 @@ public class RangedEnemyAI : MonoBehaviour
             kill();
         }
 
-        if(Vector2.Distance(transform.position,player.position) > stoppingDistance)
+        
+        if(Vector2.Distance(transform.position,player.position) > stoppingDistance && Vector2.Distance(transform.position, player.position) < range)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
 

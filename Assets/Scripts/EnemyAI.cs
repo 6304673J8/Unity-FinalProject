@@ -52,7 +52,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool facingLeft;
 
-
+    public int enemyTag;
 
    /* public Transform moveSpot;
 
@@ -175,6 +175,15 @@ public class EnemyAI : MonoBehaviour
 
     private void kill()
     {
+        if(enemyTag == 1)
+        {
+            FindObjectOfType<SoundManager>().Play("OnaosDeath");
+        }
+
+        else if(enemyTag == 2)
+        {
+            FindObjectOfType<SoundManager>().Play("PiamondDeath");
+        }
         dyingb = true;
         sprite.color = new Color(1, 1, 1, 1);
         animator.ResetTrigger("isWalking");

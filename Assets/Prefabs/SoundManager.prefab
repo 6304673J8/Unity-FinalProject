@@ -48,3 +48,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d0d3395a23a183543b91c35abf1ead07, type: 3}
     volume: 0.04
     source: {fileID: 0}
+  - name: OnaosDeath
+    clip: {fileID: 8300000, guid: 7e192b3878ba40e4bb74a9da2b27120a, type: 3}
+    volume: 0.04
+    source: {fileID: 0}
+  - name: PiamondDeath
+    clip: {fileID: 8300000, guid: f38c367ba77f4d94b987f749bf9eff17, type: 3}
+    volume: 0.04
+    source: {fileID: 0}

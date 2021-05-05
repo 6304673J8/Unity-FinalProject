@@ -176,6 +176,7 @@ MonoBehaviour:
   canDrop: 0
   originalRange: 0
   key: {fileID: 6210488559150763447, guid: 61ed3144367953a45ad5ac748d771287, type: 3}
+  enemyTag: 2
 --- !u!1001 &5589261869933543603
 PrefabInstance:
   m_ObjectHideFlags: 0
