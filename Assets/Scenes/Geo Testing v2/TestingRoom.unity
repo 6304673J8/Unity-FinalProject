@@ -1018,6 +1018,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Onaos
       objectReference: {fileID: 0}
+    - target: {fileID: 6652136071742272268, guid: 8593f4a7f36dc0d41966c398bd63770e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6652136071742272270, guid: 8593f4a7f36dc0d41966c398bd63770e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1182,6 +1187,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fungios
       objectReference: {fileID: 0}
+    - target: {fileID: 2354794393573461311, guid: 58427b404a16b9f46bd292bde858460d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58427b404a16b9f46bd292bde858460d, type: 3}
 --- !u!1001 &458646917
@@ -1195,6 +1205,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Piamond
+      objectReference: {fileID: 0}
+    - target: {fileID: 781223597936994547, guid: 80189c3b4000aea40ae6be29d5054adf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 781223597936994557, guid: 80189c3b4000aea40ae6be29d5054adf,
         type: 3}
@@ -1808,12 +1823,12 @@ PrefabInstance:
     - target: {fileID: 2109804911503582316, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.18
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582316, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2109804911503582316, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
@@ -1903,7 +1918,7 @@ PrefabInstance:
     - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
       propertyPath: health
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
         type: 3}
@@ -1915,6 +1930,11 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 6272844400062391353}
+    - target: {fileID: 7109467811767998936, guid: 009111b1c900c5743a03469fc6bf65f0,
+        type: 3}
+      propertyPath: maxHealth
+      value: 420
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 009111b1c900c5743a03469fc6bf65f0, type: 3}
 --- !u!114 &768599744 stripped

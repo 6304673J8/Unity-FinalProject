@@ -24,7 +24,7 @@ public class SusanaControlled : MonoBehaviour
     bool isHurt;
     public int health;
     public int level;
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int maxHealth = 350;
 
     //inventory
     public int nPotions;
@@ -81,7 +81,8 @@ public class SusanaControlled : MonoBehaviour
         hasLunged = false;
         rb = GetComponent<Rigidbody2D>();
         controls = new PlayerInputs();
-        
+        health = maxHealth;
+
         state = State.IDLE;
 
         //items 
@@ -120,7 +121,6 @@ public class SusanaControlled : MonoBehaviour
 
     private void Start()
     {
-        health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
 
@@ -128,7 +128,7 @@ public class SusanaControlled : MonoBehaviour
     {
         //animator.SetTrigger("Hurt");
         isHurt = true;
-        health += mod;
+        health -= mod;
 
         if (health > maxHealth) {
             health = maxHealth;
@@ -148,7 +148,6 @@ public class SusanaControlled : MonoBehaviour
 
         if (saver == true)
         {
-            Debug.Log("CULAZO CRIS");
             LoadPlayer();
         }
 
@@ -310,30 +309,28 @@ public class SusanaControlled : MonoBehaviour
             GameManager.Instance.keyNumber++;
             nKeys++;
         }
-
-    }
-
-    public void DamagedByTile()
-    {
-        Vector3Int currentPos = damagingTilemap.WorldToCell(transform.position);
-        Debug.Log(currentPos);
-        if (damagingTilemap.HasTile(currentPos))
+        else if (collision.tag == "NPC")
         {
-            Invoke("DamagedByTile", 1);
-            UpdateHealth(5);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else if (collision.tag == "Door" && GameManager.Instance.keyNumber >= 1)
+        {
+            Debug.Log("Has usado una llave!");
+            GameManager.Instance.keyNumber--;
+            collision.gameObject.SetActive(false);
         }
     }
-
-    public void HealedByTile()
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Vector3Int currentPos = healingTilemap.WorldToCell(transform.position);
-        if (healingTilemap.HasTile(currentPos))
+        if (collision.tag == "DamagingTile")
         {
-            Invoke("HealedByTile", 1);
-            UpdateHealth(-5);
+            UpdateHealth(1);
+        }
+        else if (collision.tag == "HealingTile")
+        {
+            UpdateHealth(2);
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         //This to a manager
