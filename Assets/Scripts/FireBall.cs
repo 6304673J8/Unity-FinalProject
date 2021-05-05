@@ -54,7 +54,7 @@ public class FireBall : MonoBehaviour
 
         if (collision.tag == "Wall")
         {
-            DestroyProjectile();
+            Destroy(gameObject);
         }
 
         if(collision.tag == "Enemy")

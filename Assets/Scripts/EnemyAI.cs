@@ -227,6 +227,11 @@ public class EnemyAI : MonoBehaviour
             getStunned();
         }
 
+        if(collision.CompareTag("Lunge"))
+        {
+            hp -= 10;
+        }
+
     }
 
     void attackPlayer()
