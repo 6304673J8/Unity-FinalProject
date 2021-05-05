@@ -21,6 +21,8 @@ public class keyManager : MonoBehaviour
 
     public int keyNum;
 
+    
+
         // Start is called before the first frame update
         void Start()
     {
@@ -31,5 +33,10 @@ public class keyManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void restartNum()
+    {
+        keyNum = 0;
     }
 }

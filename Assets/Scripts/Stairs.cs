@@ -44,6 +44,7 @@ public class Stairs : MonoBehaviour
         if (Vector3.Distance(transform.position, stairs1a) < 0.5f && keyManager.Instance.keyNum >= 3)
         {
             transform.position = stairs2a;
+            keyManager.Instance.restartNum();
         } else if (Vector3.Distance(transform.position, stairs2a) < 0.5f)
         {
             transform.position = stairs1a;
