@@ -60,6 +60,14 @@
                     "expectedControlType": "Button",
                     "processors": "NormalizeVector2",
                     "interactions": "Press"
+                },
+                {
+                    "name": "Pickup",
+                    "type": "Button",
+                    "id": "d37f1116-edb4-46cd-9814-385008ce8589",
+                    "expectedControlType": "Button",
+                    "processors": "NormalizeVector2",
+                    "interactions": "Press"
                 }
             ],
             "bindings": [
@@ -181,6 +189,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Heal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0619253-477c-44f3-b529-4835f0d2bb96",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

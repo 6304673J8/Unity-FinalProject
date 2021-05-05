@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Stairs : MonoBehaviour
 {
-    private PickupInput stairsControls;
+    private PlayerInput stairsControls;
 
     public Transform susana;
 
     private void Awake()
     {
-        stairsControls = new PickupInput();
+        stairsControls = new PlayerInput();
     }
 
     private void OnEnable()
@@ -41,7 +41,7 @@ public class Stairs : MonoBehaviour
         Vector3 stairs1b = new Vector3(11.5f, 61.5f, 0);
 
         //if (transform.position == new Vector3(-9.5f, -1.5f, 0))
-        if (Vector3.Distance(transform.position, stairs1a) < 0.5f && keyManager.Instance.keyNum >= 3)
+        if (Vector3.Distance(transform.position, stairs1a) < 0.5f /*&& keyManager.Instance.keyNum >= 3*/)
         {
             transform.position = stairs2a;
             keyManager.Instance.restartNum();

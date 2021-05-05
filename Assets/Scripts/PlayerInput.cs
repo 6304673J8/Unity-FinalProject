@@ -73,6 +73,14 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": ""NormalizeVector2"",
                     ""interactions"": ""Press""
+                },
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""d37f1116-edb4-46cd-9814-385008ce8589"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""NormalizeVector2"",
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
@@ -196,6 +204,17 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                     ""action"": ""Heal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0619253-477c-44f3-b529-4835f0d2bb96"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -211,6 +230,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         m_Floor_Shoot = m_Floor.FindAction("Shoot", throwIfNotFound: true);
         m_Floor_MousePosition = m_Floor.FindAction("MousePosition", throwIfNotFound: true);
         m_Floor_Heal = m_Floor.FindAction("Heal", throwIfNotFound: true);
+        m_Floor_Pickup = m_Floor.FindAction("Pickup", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -267,6 +287,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Floor_Shoot;
     private readonly InputAction m_Floor_MousePosition;
     private readonly InputAction m_Floor_Heal;
+    private readonly InputAction m_Floor_Pickup;
     public struct FloorActions
     {
         private @PlayerInput m_Wrapper;
@@ -278,6 +299,7 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Floor_Shoot;
         public InputAction @MousePosition => m_Wrapper.m_Floor_MousePosition;
         public InputAction @Heal => m_Wrapper.m_Floor_Heal;
+        public InputAction @Pickup => m_Wrapper.m_Floor_Pickup;
         public InputActionMap Get() { return m_Wrapper.m_Floor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +330,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Heal.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnHeal;
                 @Heal.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnHeal;
                 @Heal.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnHeal;
+                @Pickup.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
+                @Pickup.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
+                @Pickup.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
             }
             m_Wrapper.m_FloorActionsCallbackInterface = instance;
             if (instance != null)
@@ -333,6 +358,9 @@ public class @PlayerInput : IInputActionCollection, IDisposable
                 @Heal.started += instance.OnHeal;
                 @Heal.performed += instance.OnHeal;
                 @Heal.canceled += instance.OnHeal;
+                @Pickup.started += instance.OnPickup;
+                @Pickup.performed += instance.OnPickup;
+                @Pickup.canceled += instance.OnPickup;
             }
         }
     }
@@ -346,5 +374,6 @@ public class @PlayerInput : IInputActionCollection, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
+        void OnPickup(InputAction.CallbackContext context);
     }
 }

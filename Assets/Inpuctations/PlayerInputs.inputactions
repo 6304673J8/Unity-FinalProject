@@ -160,7 +160,7 @@
                 {
                     "name": "",
                     "id": "644cbf95-916d-4bb2-a4ef-64c2796d9233",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -182,7 +182,7 @@
                 {
                     "name": "",
                     "id": "5b990e74-1392-4592-9499-9096a05d8e10",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -225,6 +225,33 @@
                     "processors": "",
                     "groups": "",
                     "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Floor",
+            "id": "4d69438b-0283-43c0-8fe9-e7be071e2a73",
+            "actions": [
+                {
+                    "name": "Pickup",
+                    "type": "Button",
+                    "id": "0a298377-e007-4ca1-ac26-9a218168167f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ade06ed7-9d22-4c58-aa4a-112c53bd5575",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

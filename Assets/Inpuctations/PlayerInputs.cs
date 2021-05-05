@@ -173,7 +173,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""644cbf95-916d-4bb2-a4ef-64c2796d9233"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -195,7 +195,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""5b990e74-1392-4592-9499-9096a05d8e10"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -242,6 +242,33 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Floor"",
+            ""id"": ""4d69438b-0283-43c0-8fe9-e7be071e2a73"",
+            ""actions"": [
+                {
+                    ""name"": ""Pickup"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a298377-e007-4ca1-ac26-9a218168167f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ade06ed7-9d22-4c58-aa4a-112c53bd5575"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -279,6 +306,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
+        // Floor
+        m_Floor = asset.FindActionMap("Floor", throwIfNotFound: true);
+        m_Floor_Pickup = m_Floor.FindAction("Pickup", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -422,6 +452,39 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Floor
+    private readonly InputActionMap m_Floor;
+    private IFloorActions m_FloorActionsCallbackInterface;
+    private readonly InputAction m_Floor_Pickup;
+    public struct FloorActions
+    {
+        private @PlayerInputs m_Wrapper;
+        public FloorActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Pickup => m_Wrapper.m_Floor_Pickup;
+        public InputActionMap Get() { return m_Wrapper.m_Floor; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(FloorActions set) { return set.Get(); }
+        public void SetCallbacks(IFloorActions instance)
+        {
+            if (m_Wrapper.m_FloorActionsCallbackInterface != null)
+            {
+                @Pickup.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
+                @Pickup.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
+                @Pickup.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
+            }
+            m_Wrapper.m_FloorActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Pickup.started += instance.OnPickup;
+                @Pickup.performed += instance.OnPickup;
+                @Pickup.canceled += instance.OnPickup;
+            }
+        }
+    }
+    public FloorActions @Floor => new FloorActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -451,5 +514,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnNewaction(InputAction.CallbackContext context);
+    }
+    public interface IFloorActions
+    {
+        void OnPickup(InputAction.CallbackContext context);
     }
 }
