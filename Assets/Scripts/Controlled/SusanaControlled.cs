@@ -64,6 +64,14 @@ public class SusanaControlled : MonoBehaviour
     
     //new animations
     private State state;
+    public Animator animator;
+
+    public bool isJumping;
+    private int idleID;
+    private int runID;
+    private int lungeID;
+    private int hurtID;
+
 
     // shows rounded position = tile position
     private enum State
@@ -122,6 +130,10 @@ public class SusanaControlled : MonoBehaviour
     private void Start()
     {
         healthBar.SetMaxHealth(health);
+        animator = GetComponent<Animator>();
+        //lungeID = Animator.StringToHash("Lunge");
+        hurtID = Animator.StringToHash("Hurt");
+        runID = Animator.StringToHash("Movement");
     }
 
     public void UpdateHealth(int mod)
@@ -134,7 +146,7 @@ public class SusanaControlled : MonoBehaviour
             health = maxHealth;
         }else if (health <= 0)
         {
-            //animator.SetTrigger("Dead");
+            animator.SetTrigger("Hurt");
             health = 0;
             //healthBar.SetHealth(health);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -151,7 +163,10 @@ public class SusanaControlled : MonoBehaviour
             LoadPlayer();
         }
 
-
+        if (move.x != 0 || move.y != 0)
+        {
+            animator.SetBool(runID, isMoving);
+        }
         if (health <= 0)
         {
             //animator.SetTrigger("Dead");
@@ -174,14 +189,15 @@ public class SusanaControlled : MonoBehaviour
     void FixedUpdate()
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move);
-        
+        isMoving = false;
+
         if (move.x != 0 || move.y != 0)
         {
+            isMoving = true;
+
             if (facingRight == false && move.x > 0)
             {
-
                 Flip();
-
             }
             else if (facingRight == true && move.x < 0)
             {
@@ -192,6 +208,7 @@ public class SusanaControlled : MonoBehaviour
                 Debug.Log("Moving");
                 transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
             }
+            animator.SetBool(runID, isMoving);
         }
         else
         {
@@ -208,6 +225,7 @@ public class SusanaControlled : MonoBehaviour
         {
             LungeLogic();
             hasLunged = true;
+            animator.SetTrigger("Lunge");
             //transform.position += (Vector3)move * lungeDistance * Time.deltaTime;
             //rb.velocity = new Vector2(lungeDistance, rb.velocity.y);
         }
@@ -314,6 +332,7 @@ public class SusanaControlled : MonoBehaviour
 
         else if(collision.tag == "Fireball")
         {
+            animator.SetTrigger("Hurt");
             health -= 20;
         }
         
@@ -343,6 +362,7 @@ public class SusanaControlled : MonoBehaviour
     {
         if (collision.tag == "DamagingTile")
         {
+            animator.SetTrigger("Hurt");
             UpdateHealth(1);
         }
         else if (collision.tag == "HealingTile")
@@ -361,7 +381,6 @@ public class SusanaControlled : MonoBehaviour
             }
         }
     }
-
 
     public void continueMatch()
     {
