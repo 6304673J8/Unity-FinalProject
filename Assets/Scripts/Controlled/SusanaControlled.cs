@@ -248,7 +248,7 @@ public class SusanaControlled : MonoBehaviour
 
     private void Shield()
     {
-        if (health < 100)
+        /*if (health < 100)
         {
             Debug.Log(health + "JODER");
             state = State.HEALING;
@@ -256,7 +256,8 @@ public class SusanaControlled : MonoBehaviour
             health = health * 10;
             UpdateHealth(health);
         }
-        state = State.IDLE;
+        state = State.IDLE;*/
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     #endregion
@@ -333,7 +334,7 @@ public class SusanaControlled : MonoBehaviour
         }
         else if (collision.tag == "HealingTile")
         {
-            UpdateHealth(2);
+            UpdateHealth(-2);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
