@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Rooms/TutorialRoomv3.unity
     guid: 4651888099a649a49b1ff9c629d0fade
   - enabled: 1
-    path: Assets/Scenes/Rooms/MainRoomv3.unity
+    path: Assets/Scenes/Rooms v3/MainRoomv3.unity
     guid: 30350af1693817c4f8e6e216137bc6ce
   - enabled: 1
     path: Assets/Scenes/Rooms/NextRoomv3.unity
