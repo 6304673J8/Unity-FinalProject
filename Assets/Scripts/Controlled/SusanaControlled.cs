@@ -163,10 +163,6 @@ public class SusanaControlled : MonoBehaviour
             LoadPlayer();
         }
 
-        if (move.x != 0 || move.y != 0)
-        {
-            animator.SetBool(runID, isMoving);
-        }
         if (health <= 0)
         {
             //animator.SetTrigger("Dead");
@@ -189,32 +185,35 @@ public class SusanaControlled : MonoBehaviour
     void FixedUpdate()
     {
         Vector3Int gridPos = floorTilemap.WorldToCell(transform.position + (Vector3)move);
-        isMoving = false;
+        //isMoving = false;
+        bool hasMoved = false;
 
         if (move.x != 0 || move.y != 0)
         {
-            isMoving = true;
-
             if (facingRight == false && move.x > 0)
             {
                 Flip();
+                hasMoved = true;
             }
             else if (facingRight == true && move.x < 0)
             {
                 Flip();
+                hasMoved = true;
             }
             if (floorTilemap.HasTile(gridPos) || !collisionTilemap.HasTile(gridPos))
             {
                 Debug.Log("Moving");
                 transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
+                hasMoved = true;
             }
-            animator.SetBool(runID, isMoving);
+            
         }
         else
         {
             //Debug.Log("PROTECT");
             isMoving = false;
         }
+        animator.SetBool(runID, hasMoved);
     }
     
     #region SKILLS
