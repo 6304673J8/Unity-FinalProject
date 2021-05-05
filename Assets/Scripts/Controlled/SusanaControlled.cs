@@ -357,6 +357,11 @@ public class SusanaControlled : MonoBehaviour
         LoadPlayer();
     }
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+    }
+
     /*public void Earthquake()
     {
         Debug.Log("BROOOM");
