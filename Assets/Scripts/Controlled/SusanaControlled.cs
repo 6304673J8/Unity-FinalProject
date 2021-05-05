@@ -165,6 +165,11 @@ public class SusanaControlled : MonoBehaviour
             transform.position += (Vector3)move * speed * lungeDistance * Time.deltaTime;
             hasLunged = false;
         }
+
+        if(health <= 0)
+        {
+            LoadPlayer();
+        }
     }
     void FixedUpdate()
     {
@@ -368,6 +373,39 @@ public class SusanaControlled : MonoBehaviour
     {
         health -= damage;
     }
+
+
+
+    public void Heal()
+    {
+        state = State.HEALING;
+        const int healAmount = 100;
+
+        if (GameManager.Instance.potionNumber >= 1)
+        {
+            Debug.Log("Has usado una poción!");
+            if (health <= (maxHealth - healAmount))
+            {
+                PotionLogic();
+                health += healAmount;
+                GameManager.Instance.potionNumber--;
+            }
+            else
+            {
+                PotionLogic();
+                health = maxHealth;
+                GameManager.Instance.potionNumber--;
+            }
+        }
+    }
+
+    public void PotionLogic()
+    {
+        Vector2 pos = transform.position;
+
+        GameObject potionFX = Instantiate(potionPrefab, pos, transform.rotation);
+    }
+
 
     /*public void Earthquake()
     {
