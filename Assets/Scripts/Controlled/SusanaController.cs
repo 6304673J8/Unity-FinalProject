@@ -103,7 +103,7 @@ public class SusanaController : MonoBehaviour
                 Debug.Log("Anim IDLE");
                 break;
             case State.ATTACK:
-                //Debug.Log("Anim ATTACK");
+                Debug.Log("Anim ATTACK");
                 break;
             case State.MOVING:
                 Debug.Log("Anim MOVE");

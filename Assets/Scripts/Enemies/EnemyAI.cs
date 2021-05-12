@@ -103,7 +103,7 @@ public class EnemyAI : MonoBehaviour
                 elapsed = 0f;
 
 
-                Debug.Log("Range to player = " + separation);
+                //Debug.Log("Range to player = " + separation);
                 
                 if (separation <= range)
                 {

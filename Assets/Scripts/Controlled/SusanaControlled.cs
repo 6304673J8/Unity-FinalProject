@@ -123,7 +123,7 @@ public class SusanaControlled : MonoBehaviour
 
     void SendMessage(Vector2 coordinates)
     {
-        Debug.Log("Thumb-stick coordinates" + coordinates);
+        //Debug.Log("Thumb-stick coordinates" + coordinates);
     }
     #endregion
 
@@ -202,7 +202,7 @@ public class SusanaControlled : MonoBehaviour
             }
             if (floorTilemap.HasTile(gridPos) || !collisionTilemap.HasTile(gridPos))
             {
-                Debug.Log("Moving");
+                //Debug.Log("Moving");
                 transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
                 hasMoved = true;
             }
