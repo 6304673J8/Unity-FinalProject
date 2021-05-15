@@ -15,6 +15,7 @@ public class SusanaControlled : MonoBehaviour
 
     //Movement
     Vector2 move;
+    Vector2 fakeMove;
     public bool canMove = false;
     bool facingRight = true;
 
@@ -157,7 +158,7 @@ public class SusanaControlled : MonoBehaviour
     private void Update()
     {
         healthBar.SetHealth(health);
-
+        fakeMove = move;
         if (saver == true)
         {
             LoadPlayer();
@@ -169,12 +170,6 @@ public class SusanaControlled : MonoBehaviour
             health = 0;
             //healthBar.SetHealth(health);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-
-        if (hasLunged == true)
-        {
-            transform.position += (Vector3)move * speed * lungeDistance * Time.deltaTime;
-            hasLunged = false;
         }
 
         if(health <= 0)
@@ -211,11 +206,22 @@ public class SusanaControlled : MonoBehaviour
         else
         {
             //Debug.Log("PROTECT");
-            isMoving = false;
+            hasMoved = false;
         }
         animator.SetBool(runID, hasMoved);
+        
+        if (hasLunged == true)
+        {
+            transform.position += (Vector3)move * speed * lungeDistance * Time.fixedDeltaTime;
+            
+            //WiP
+
+            //fakeMove = Vector3.ClampMagnitude(fakeMove, 1);
+            //rb.velocity = new Vector2(lungeDistance, rb.velocity.y);
+            hasLunged = false;
+        }
     }
-    
+
     #region SKILLS
     public void Lunge()
     {
