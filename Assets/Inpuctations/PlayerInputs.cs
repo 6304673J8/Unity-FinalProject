@@ -184,7 +184,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0aaa6f97-3970-47b9-afa2-3652c95a3e36"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -199,17 +199,6 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Shield"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c4e23f70-d62e-4393-8dcf-c47378e91ef6"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
                     ""action"": ""Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
