@@ -19,7 +19,7 @@ public class RangedEnemyAI : MonoBehaviour
     SpriteRenderer sprite;
     private Animator animator;
     public Transform player;
-
+    private Rigidbody2D rb;
     private float timeBtwShots;
     public float startTimeBtwShots;
 
@@ -51,6 +51,8 @@ public class RangedEnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Susana").transform;
 
         timeBtwShots = startTimeBtwShots;
+
+        rb = this.GetComponent<Rigidbody2D>();
 
         dyingb = false;
         facingLeft = true;
@@ -102,6 +104,22 @@ public class RangedEnemyAI : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        float separation = Vector3.Distance(this.transform.position, player.transform.position);
+
+        if (separation <= 0.7)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+
+        if (separation > 0.7)
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Earthquake"))
@@ -111,6 +129,19 @@ public class RangedEnemyAI : MonoBehaviour
         }
 
     }
+
+    /*private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (gameObject.CompareTag("Susana"))
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        rb.constraints = RigidbodyConstraints2D.None;
+    }*/
 
     private void getStunned()
     {

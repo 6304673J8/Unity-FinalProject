@@ -85,6 +85,8 @@ public class EnemyAI : MonoBehaviour
             kill();
         }
         Vector3 direction = player.position - transform.position;
+     
+        
         direction.Normalize();
         movement = direction;
     }
@@ -142,12 +144,26 @@ public class EnemyAI : MonoBehaviour
                 }
 
 
+
+                
+            }
+
+            if(separation <= 0.7)
+            {
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+
+            if(separation > 0.7)
+            {
+                rb.constraints = RigidbodyConstraints2D.None;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             }
 
             if (separation > 1)
             {
                 animator.ResetTrigger("isAttacking");
                 animator.SetTrigger("isWalking");
+
             }
         }
 
@@ -234,6 +250,21 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+
+    /*private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(gameObject.CompareTag("Susana"))
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        rb.constraints = RigidbodyConstraints2D.None;
+    }*/
+
+   
     void attackPlayer()
     {
         animator.ResetTrigger("isAttacking");
