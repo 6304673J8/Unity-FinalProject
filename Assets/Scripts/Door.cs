@@ -33,6 +33,7 @@ public class Door : MonoBehaviour
             if(keyManager.Instance.keyNum >= 1)
             {
                 keyManager.Instance.keyNum--;
+                GameManager.Instance.keyNumber--;
                 destroyDoor();
             }
            
