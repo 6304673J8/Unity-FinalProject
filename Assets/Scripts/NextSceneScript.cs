@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class NextSceneScript : MonoBehaviour
 {
 
-    private float timer = 45f;
+    private float timer = 30f;
 
     private float elapsed;
 
