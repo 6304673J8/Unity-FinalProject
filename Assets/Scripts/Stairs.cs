@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Stairs : MonoBehaviour
 {
-    private PlayerInput stairsControls;
+    private PlayerInputs stairsControls;
 
     public Transform susana;
 
     private void Awake()
     {
-        stairsControls = new PlayerInput();
+        stairsControls = new PlayerInputs();
     }
 
     private void OnEnable()
@@ -27,7 +27,7 @@ public class Stairs : MonoBehaviour
 
     void Start()
     {
-        stairsControls.Floor.Pickup.performed += ctx => StairsOnFloor();
+        stairsControls.Susana.Activate.performed += ctx => StairsOnFloor();
     }
 
     private void StairsOnFloor()
@@ -37,9 +37,10 @@ public class Stairs : MonoBehaviour
 
         Vector3 stairs1a = new Vector3(-18.5f, -4.5f, 0);
         Vector3 stairs2a = new Vector3(-8.5f, 46.5f, 0);
+        Vector3 stairs3a = new Vector3(-3.5f, 46.5f, 0);
 
         Vector3 stairs1b = new Vector3(11.5f, 61.5f, 0);
-
+        Debug.Log("ScaIrs");
         //if (transform.position == new Vector3(-9.5f, -1.5f, 0))
         if (Vector3.Distance(transform.position, stairs1a) < 0.5f /*&& keyManager.Instance.keyNum >= 3*/)
         {
@@ -48,6 +49,9 @@ public class Stairs : MonoBehaviour
         } else if (Vector3.Distance(transform.position, stairs2a) < 0.5f)
         {
             transform.position = stairs1a;
+        } else if (Vector3.Distance(transform.position, stairs3a) < 0.5f)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         } else if (Vector3.Distance(transform.position, stairstut) < 0.5f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

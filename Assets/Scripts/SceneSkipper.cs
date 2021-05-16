@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneSkipper : MonoBehaviour
 {
-    private SceneInput sceneControls;
+    private PlayerInputs sceneControls;
 
     //SusanaController susanaController;
     private void Awake()
     {
-        sceneControls = new SceneInput();
+        sceneControls = new PlayerInputs();
     }
 
     private void OnEnable()
@@ -26,8 +26,8 @@ public class SceneSkipper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneControls.Scene.Previous.performed += ctx => PreviousScene();
-        sceneControls.Scene.Next.performed += ctx => NextScene();
+        sceneControls.Susana.Previous.performed += ctx => PreviousScene();
+        sceneControls.Susana.Next.performed += ctx => NextScene();
     }
 
     private void PreviousScene()

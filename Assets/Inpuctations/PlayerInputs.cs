@@ -57,6 +57,38 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Previous"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c67a23b-7a1c-4f93-a2bc-a84ec9f58910"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Next"",
+                    ""type"": ""Button"",
+                    ""id"": ""8ab9fefd-dbe9-4098-9ef1-9b8b324309a9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Heal"",
+                    ""type"": ""Button"",
+                    ""id"": ""513efc52-8118-471c-bdfa-438049355fb0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Activate"",
+                    ""type"": ""Button"",
+                    ""id"": ""6cfc505c-f95f-4d7c-8b3a-43df0675560c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -184,7 +216,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0aaa6f97-3970-47b9-afa2-3652c95a3e36"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -205,12 +237,89 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c4e23f70-d62e-4393-8dcf-c47378e91ef6"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""id"": ""d2b57317-beec-422d-9c1c-90805646982b"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Previous"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""168bd15d-4d94-4239-b0f0-c0b336043ab6"",
+                    ""path"": ""<XInputController>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Previous"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e068188c-4e0d-42e8-a81d-705b13e15a73"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67c41e0a-d78c-40fe-97eb-01472f5591c5"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Next"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e39fc1b6-3e22-4f7e-95b5-48907e118212"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49e6b927-4441-44cb-bf41-efec8a39abda"",
+                    ""path"": ""<XInputController>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Shield"",
+                    ""action"": ""Heal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""10f1bf82-c33f-4760-8808-75ea841a2753"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Activate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cbe9a39a-fb60-4d6b-a131-ef5264873c5e"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Activate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -267,6 +376,17 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""action"": ""Pickup"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fec4da6d-9f95-4a75-ac0d-60030aef6e2f"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pickup"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -303,6 +423,10 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_Susana_Earthquake = m_Susana.FindAction("Earthquake", throwIfNotFound: true);
         m_Susana_Action = m_Susana.FindAction("Action", throwIfNotFound: true);
         m_Susana_Shield = m_Susana.FindAction("Shield", throwIfNotFound: true);
+        m_Susana_Previous = m_Susana.FindAction("Previous", throwIfNotFound: true);
+        m_Susana_Next = m_Susana.FindAction("Next", throwIfNotFound: true);
+        m_Susana_Heal = m_Susana.FindAction("Heal", throwIfNotFound: true);
+        m_Susana_Activate = m_Susana.FindAction("Activate", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -363,6 +487,10 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Susana_Earthquake;
     private readonly InputAction m_Susana_Action;
     private readonly InputAction m_Susana_Shield;
+    private readonly InputAction m_Susana_Previous;
+    private readonly InputAction m_Susana_Next;
+    private readonly InputAction m_Susana_Heal;
+    private readonly InputAction m_Susana_Activate;
     public struct SusanaActions
     {
         private @PlayerInputs m_Wrapper;
@@ -372,6 +500,10 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         public InputAction @Earthquake => m_Wrapper.m_Susana_Earthquake;
         public InputAction @Action => m_Wrapper.m_Susana_Action;
         public InputAction @Shield => m_Wrapper.m_Susana_Shield;
+        public InputAction @Previous => m_Wrapper.m_Susana_Previous;
+        public InputAction @Next => m_Wrapper.m_Susana_Next;
+        public InputAction @Heal => m_Wrapper.m_Susana_Heal;
+        public InputAction @Activate => m_Wrapper.m_Susana_Activate;
         public InputActionMap Get() { return m_Wrapper.m_Susana; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -396,6 +528,18 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Shield.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnShield;
                 @Shield.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnShield;
                 @Shield.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnShield;
+                @Previous.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnPrevious;
+                @Previous.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnPrevious;
+                @Previous.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnPrevious;
+                @Next.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnNext;
+                @Next.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnNext;
+                @Next.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnNext;
+                @Heal.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnHeal;
+                @Heal.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnHeal;
+                @Heal.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnHeal;
+                @Activate.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnActivate;
+                @Activate.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnActivate;
+                @Activate.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnActivate;
             }
             m_Wrapper.m_SusanaActionsCallbackInterface = instance;
             if (instance != null)
@@ -415,6 +559,18 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Shield.started += instance.OnShield;
                 @Shield.performed += instance.OnShield;
                 @Shield.canceled += instance.OnShield;
+                @Previous.started += instance.OnPrevious;
+                @Previous.performed += instance.OnPrevious;
+                @Previous.canceled += instance.OnPrevious;
+                @Next.started += instance.OnNext;
+                @Next.performed += instance.OnNext;
+                @Next.canceled += instance.OnNext;
+                @Heal.started += instance.OnHeal;
+                @Heal.performed += instance.OnHeal;
+                @Heal.canceled += instance.OnHeal;
+                @Activate.started += instance.OnActivate;
+                @Activate.performed += instance.OnActivate;
+                @Activate.canceled += instance.OnActivate;
             }
         }
     }
@@ -510,6 +666,10 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         void OnEarthquake(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
         void OnShield(InputAction.CallbackContext context);
+        void OnPrevious(InputAction.CallbackContext context);
+        void OnNext(InputAction.CallbackContext context);
+        void OnHeal(InputAction.CallbackContext context);
+        void OnActivate(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
