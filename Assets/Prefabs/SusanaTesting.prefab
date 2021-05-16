@@ -89,6 +89,8 @@ GameObject:
   - component: {fileID: 1113209475963824825}
   - component: {fileID: 1113209476215962970}
   - component: {fileID: 1113209475235669348}
+  - component: {fileID: 1356141430}
+  - component: {fileID: 1356141431}
   m_Layer: 0
   m_Name: SusanaTesting
   m_TagString: Susana
@@ -266,7 +268,7 @@ MonoBehaviour:
   defending: 0
   lunging: 0
   quaking: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1113209475963824820}
   isJumping: 0
 --- !u!114 &1113209475963824825
 MonoBehaviour:
@@ -336,7 +338,32 @@ MonoBehaviour:
   - {x: -1.2537603, y: 0.6829946, z: 0}
   m_ShapePathHash: 708182745
   m_Mesh: {fileID: 0}
-  m_InstanceId: -10976
+  m_InstanceId: -38498
+--- !u!114 &1356141430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312063157491787228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ade90716b7afa4c9825213495bc92d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1356141431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1312063157491787228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3a19a565995da498974c8eab0415a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  susana: {fileID: 1312063157491787230}
 --- !u!1 &5538764200068108417
 GameObject:
   m_ObjectHideFlags: 0
