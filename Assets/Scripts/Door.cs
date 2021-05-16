@@ -34,6 +34,7 @@ public class Door : MonoBehaviour
             {
                 keyManager.Instance.keyNum--;
                 GameManager.Instance.keyNumber--;
+                FindObjectOfType<SoundManager>().Play("OpenDoor");
                 destroyDoor();
             }
            

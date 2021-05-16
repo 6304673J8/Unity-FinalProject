@@ -60,3 +60,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2b14deeff318c60419629a763d8f25d9, type: 3}
     volume: 0.095
     source: {fileID: 0}
+  - name: OpenDoor
+    clip: {fileID: 8300000, guid: eb1ebc62dd1baf04db4fff0026ded166, type: 3}
+    volume: 0.241
+    source: {fileID: 0}
