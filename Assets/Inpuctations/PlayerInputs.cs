@@ -357,7 +357,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
             ""id"": ""4d69438b-0283-43c0-8fe9-e7be071e2a73"",
             ""actions"": [
                 {
-                    ""name"": ""Pickup"",
+                    ""name"": ""Next"",
                     ""type"": ""Button"",
                     ""id"": ""0a298377-e007-4ca1-ac26-9a218168167f"",
                     ""expectedControlType"": ""Button"",
@@ -369,22 +369,22 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ade06ed7-9d22-4c58-aa4a-112c53bd5575"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Pickup"",
+                    ""action"": ""Next"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""fec4da6d-9f95-4a75-ac0d-60030aef6e2f"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pickup"",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Next"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -432,7 +432,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
         // Floor
         m_Floor = asset.FindActionMap("Floor", throwIfNotFound: true);
-        m_Floor_Pickup = m_Floor.FindAction("Pickup", throwIfNotFound: true);
+        m_Floor_Next = m_Floor.FindAction("Next", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -612,12 +612,12 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     // Floor
     private readonly InputActionMap m_Floor;
     private IFloorActions m_FloorActionsCallbackInterface;
-    private readonly InputAction m_Floor_Pickup;
+    private readonly InputAction m_Floor_Next;
     public struct FloorActions
     {
         private @PlayerInputs m_Wrapper;
         public FloorActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Pickup => m_Wrapper.m_Floor_Pickup;
+        public InputAction @Next => m_Wrapper.m_Floor_Next;
         public InputActionMap Get() { return m_Wrapper.m_Floor; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -627,16 +627,16 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_FloorActionsCallbackInterface != null)
             {
-                @Pickup.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
-                @Pickup.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
-                @Pickup.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnPickup;
+                @Next.started -= m_Wrapper.m_FloorActionsCallbackInterface.OnNext;
+                @Next.performed -= m_Wrapper.m_FloorActionsCallbackInterface.OnNext;
+                @Next.canceled -= m_Wrapper.m_FloorActionsCallbackInterface.OnNext;
             }
             m_Wrapper.m_FloorActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Pickup.started += instance.OnPickup;
-                @Pickup.performed += instance.OnPickup;
-                @Pickup.canceled += instance.OnPickup;
+                @Next.started += instance.OnNext;
+                @Next.performed += instance.OnNext;
+                @Next.canceled += instance.OnNext;
             }
         }
     }
@@ -677,6 +677,6 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     }
     public interface IFloorActions
     {
-        void OnPickup(InputAction.CallbackContext context);
+        void OnNext(InputAction.CallbackContext context);
     }
 }

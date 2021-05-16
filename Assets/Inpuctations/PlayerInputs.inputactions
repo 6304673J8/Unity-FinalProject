@@ -344,7 +344,7 @@
             "id": "4d69438b-0283-43c0-8fe9-e7be071e2a73",
             "actions": [
                 {
-                    "name": "Pickup",
+                    "name": "Next",
                     "type": "Button",
                     "id": "0a298377-e007-4ca1-ac26-9a218168167f",
                     "expectedControlType": "Button",
@@ -356,22 +356,22 @@
                 {
                     "name": "",
                     "id": "ade06ed7-9d22-4c58-aa4a-112c53bd5575",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Pickup",
+                    "action": "Next",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "fec4da6d-9f95-4a75-ac0d-60030aef6e2f",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Pickup",
+                    "groups": "Gamepad",
+                    "action": "Next",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
