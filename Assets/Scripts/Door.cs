@@ -24,4 +24,18 @@ public class Door : MonoBehaviour
         Destroy(gameObject);
         GameObject gb = Instantiate(openedDoor, transform.position, transform.rotation);
     }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Susana")
+        {
+            if(keyManager.Instance.keyNum >= 1)
+            {
+                keyManager.Instance.keyNum--;
+                destroyDoor();
+            }
+           
+        }
+    }
 }

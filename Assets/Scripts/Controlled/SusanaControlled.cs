@@ -356,13 +356,14 @@ public class SusanaControlled : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else if (collision.tag == "Door" && GameManager.Instance.keyNumber >= 1)
+        /*else if (collision.tag == "Door" && GameManager.Instance.keyNumber >= 1)
         {
             Debug.Log("Has usado una llave!");
             GameManager.Instance.keyNumber--;
+            //collision.gameObject.SendMessage("destroyDoor");
             collision.gameObject.SetActive(false);
-            collision.SendMessage("destroyDoor");
-        }
+           
+        }*/
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
