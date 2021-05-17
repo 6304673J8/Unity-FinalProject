@@ -89,6 +89,14 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""21c140f5-a533-4767-b34a-1dd062987eeb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -322,6 +330,28 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""action"": ""Activate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f165e0c4-2166-4db6-b643-b6e96a5ef877"",
+                    ""path"": ""<Keyboard>/backspace"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6e122f2-fb95-4625-a1a1-602a5e69423b"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -427,6 +457,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_Susana_Next = m_Susana.FindAction("Next", throwIfNotFound: true);
         m_Susana_Heal = m_Susana.FindAction("Heal", throwIfNotFound: true);
         m_Susana_Activate = m_Susana.FindAction("Activate", throwIfNotFound: true);
+        m_Susana_Pause = m_Susana.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Newaction = m_UI.FindAction("New action", throwIfNotFound: true);
@@ -491,6 +522,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Susana_Next;
     private readonly InputAction m_Susana_Heal;
     private readonly InputAction m_Susana_Activate;
+    private readonly InputAction m_Susana_Pause;
     public struct SusanaActions
     {
         private @PlayerInputs m_Wrapper;
@@ -504,6 +536,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         public InputAction @Next => m_Wrapper.m_Susana_Next;
         public InputAction @Heal => m_Wrapper.m_Susana_Heal;
         public InputAction @Activate => m_Wrapper.m_Susana_Activate;
+        public InputAction @Pause => m_Wrapper.m_Susana_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Susana; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -540,6 +573,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Activate.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnActivate;
                 @Activate.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnActivate;
                 @Activate.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnActivate;
+                @Pause.started -= m_Wrapper.m_SusanaActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_SusanaActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_SusanaActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_SusanaActionsCallbackInterface = instance;
             if (instance != null)
@@ -571,6 +607,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Activate.started += instance.OnActivate;
                 @Activate.performed += instance.OnActivate;
                 @Activate.canceled += instance.OnActivate;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -670,6 +709,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         void OnNext(InputAction.CallbackContext context);
         void OnHeal(InputAction.CallbackContext context);
         void OnActivate(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
