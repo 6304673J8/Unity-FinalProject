@@ -206,7 +206,7 @@ public class SusanaController : MonoBehaviour
 
     public void Heal()
     {
-        state = State.HEALING;
+        //state = State.HEALING;
         const int healAmount = 100;
 
         if (GameManager.Instance.potionNumber >= 1) {

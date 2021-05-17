@@ -106,6 +106,7 @@ public class SusanaControlled : MonoBehaviour
         controls.Susana.Move.canceled += ctx => move = Vector2.zero;
 
         //controls.Susana.Action.performed += ctx => Interact();
+        controls.Susana.Heal.performed += ctx => Heal();
 
         //Test Abilities
         controls.Susana.Lunge.performed += ctx => Lunge();
@@ -158,6 +159,7 @@ public class SusanaControlled : MonoBehaviour
     private void Update()
     {
         healthBar.SetHealth(health);
+        //health += health;
         fakeMove = move;
         if (saver == true)
         {
@@ -400,8 +402,6 @@ public class SusanaControlled : MonoBehaviour
         health -= damage;
     }
 
-
-
     public void Heal()
     {
         state = State.HEALING;
@@ -412,25 +412,27 @@ public class SusanaControlled : MonoBehaviour
             Debug.Log("Has usado una poción!");
             if (health <= (maxHealth - healAmount))
             {
-                PotionLogic();
+                //Heart emission here
+                //PotionLogic();
                 health += healAmount;
                 GameManager.Instance.potionNumber--;
             }
-            else
+            else if (health == maxHealth)
             {
-                PotionLogic();
+                //PotionLogic();
+                //Heart emission here
                 health = maxHealth;
-                GameManager.Instance.potionNumber--;
+                //GameManager.Instance.potionNumber--;
             }
         }
     }
 
-    public void PotionLogic()
+    /*public void PotionLogic()
     {
         Vector2 pos = transform.position;
 
         GameObject potionFX = Instantiate(potionPrefab, pos, transform.rotation);
-    }
+    }*/
 
 
     /*public void Earthquake()
