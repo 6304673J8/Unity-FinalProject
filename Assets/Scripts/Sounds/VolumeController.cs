@@ -10,4 +10,12 @@ public class VolumeController : MonoBehaviour
     {
         mixer.SetFloat("MusicVol", Mathf.Log10(value) * 20); //Hay un bug de Unity donde el slider de volumen no funciona correctamente, haciéndolo de este modo el slider funciona de forma lineal
     }
+
+    private void Update()
+    {
+        if (UnityEngine.InputSystem.Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            // Do something
+        }
+    }
 }
