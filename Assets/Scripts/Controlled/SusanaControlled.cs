@@ -172,7 +172,7 @@ public class SusanaControlled : MonoBehaviour
         {
             //animator.SetTrigger("Dead");
             health = 0;
-            //healthBar.SetHealth(health);
+            healthBar.SetHealth(health);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
