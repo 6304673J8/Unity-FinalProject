@@ -73,6 +73,7 @@ public class SusanaControlled : MonoBehaviour
     private int lungeID;
     private int hurtID;
 
+    private ParticleSystem ps;
 
     // shows rounded position = tile position
     private enum State
@@ -133,6 +134,7 @@ public class SusanaControlled : MonoBehaviour
     {
         healthBar.SetMaxHealth(health);
         animator = GetComponent<Animator>();
+        ps = GetComponent<ParticleSystem>();
         //lungeID = Animator.StringToHash("Lunge");
         hurtID = Animator.StringToHash("Hurt");
         runID = Animator.StringToHash("Movement");
@@ -377,6 +379,7 @@ public class SusanaControlled : MonoBehaviour
         else if (collision.tag == "HealingTile")
         {
             UpdateHealth(-2);
+            ps.Play();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
