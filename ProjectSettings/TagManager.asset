@@ -93,6 +93,9 @@ TagManager:
   - name: Checkpoint
     uniqueID: 3330037129
     locked: 0
+  - name: FrameDoor
+    uniqueID: 629270819
+    locked: 0
   - name: Door
     uniqueID: 4165531331
     locked: 0
