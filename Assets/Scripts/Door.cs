@@ -5,7 +5,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
 
-    public GameObject openedDoor;
+    //public GameObject openedDoor;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
     public void destroyDoor()
     {
         Destroy(gameObject);
-        GameObject gb = Instantiate(openedDoor, transform.position, transform.rotation);
+       // GameObject gb = Instantiate(openedDoor, transform.position, transform.rotation);
     }
 
 

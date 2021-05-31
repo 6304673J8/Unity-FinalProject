@@ -379,7 +379,7 @@ public class SusanaControlled : MonoBehaviour
         else if (collision.tag == "HealingTile")
         {
             UpdateHealth(-2);
-            ps.Play();
+            //ps.Play();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
