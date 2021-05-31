@@ -99,6 +99,9 @@ TagManager:
   - name: Door
     uniqueID: 4165531331
     locked: 0
+  - name: Frame Door 2
+    uniqueID: 3037394397
+    locked: 0
   - name: Skills
     uniqueID: 160941931
     locked: 0
