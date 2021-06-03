@@ -210,14 +210,7 @@ public class ExplosiveEnemy : MonoBehaviour
 
     private void getStunned()
     {
-        if (!dyingb)
-        {
-            stunned = true;
-            sprite.color = new Color(0, 0, 1, 1);
-            hp -= 20;
-            return;
-        }
-
+        explode();
 
     }
 

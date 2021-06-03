@@ -148,7 +148,7 @@ MonoBehaviour:
   moveSpeed: 3
   timerSpeed: 0
   explosionDelay: 1
-  hp: 10
+  hp: 100
   damage: 5
   range: 7
   canBeInvisible: 0
