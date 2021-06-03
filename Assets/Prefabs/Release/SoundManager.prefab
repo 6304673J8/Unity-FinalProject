@@ -72,3 +72,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 00accf66aeefcb24d9384f3cf4010971, type: 3}
     volume: 0.167
     source: {fileID: 0}
+  - name: Checkpoint
+    clip: {fileID: 8300000, guid: 5b894fe1e6c00f24e913409d3757bfac, type: 3}
+    volume: 0.167
+    source: {fileID: 0}

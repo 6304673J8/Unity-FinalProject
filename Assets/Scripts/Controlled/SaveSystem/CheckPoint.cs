@@ -18,6 +18,7 @@ public class CheckPoint : MonoBehaviour
         if (other.CompareTag("Susana")) {
             gm.lastCheckPoint = transform.position;
             Debug.Log("CHECKED");
+            FindObjectOfType<SoundManager>().Play("Checkpoint");
         }
     }
 }
