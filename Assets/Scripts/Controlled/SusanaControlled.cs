@@ -37,6 +37,8 @@ public class SusanaControlled : MonoBehaviour
     //Animation
     Animator anim;
     Rigidbody2D rb;
+    SpriteRenderer sprite;
+    ParticleSystem part;
 
     bool isMoving;
 
@@ -90,6 +92,8 @@ public class SusanaControlled : MonoBehaviour
         saver = false;
         hasLunged = false;
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        part = GetComponent<ParticleSystem>();
         controls = new PlayerInputs();
         health = maxHealth;
 
@@ -373,11 +377,13 @@ public class SusanaControlled : MonoBehaviour
     {
         if (collision.tag == "DamagingTile")
         {
+            sprite.color = Color.red;
             animator.SetTrigger("Hurt");
             UpdateHealth(1);
         }
         else if (collision.tag == "HealingTile")
         {
+            part.Play();
             UpdateHealth(-2);
             //ps.Play();
         }
@@ -391,6 +397,16 @@ public class SusanaControlled : MonoBehaviour
             {
                 LoadPlayer();
             }
+        }
+
+        if(collision.tag == "DamagingTile")
+        {
+            sprite.color = new Color(1, 1, 1, 1);
+        }
+
+        if (collision.tag == "HealingTile")
+        {
+            part.Stop();
         }
     }
 
