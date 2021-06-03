@@ -22,7 +22,6 @@ public class Door : MonoBehaviour
     public void destroyDoor()
     {
         Destroy(gameObject);
-       // GameObject gb = Instantiate(openedDoor, transform.position, transform.rotation);
     }
 
 
@@ -30,9 +29,10 @@ public class Door : MonoBehaviour
     {
         if(collision.tag == "Susana")
         {
-            if(GameManager.Instance.keyNumber >= 1)
+            if(keyManager.Instance.keyNum >= 1)
             {
-                GameManager.Instance.keyNumber--;
+                keyManager.Instance.keyNum = 0;
+                GameManager.Instance.keyNumber = 0;
                 FindObjectOfType<SoundManager>().Play("OpenDoor");
                 destroyDoor();
             }

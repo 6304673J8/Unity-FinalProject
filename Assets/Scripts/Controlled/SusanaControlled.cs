@@ -358,6 +358,7 @@ public class SusanaControlled : MonoBehaviour
         else if (collision.tag == "Key")
         {
             GameManager.Instance.keyNumber = 1;
+            keyManager.Instance.keyNum = 1;
             nKeys++;
         }
         else if (collision.tag == "NPC")
@@ -435,6 +436,7 @@ public class SusanaControlled : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        FindObjectOfType<SoundManager>().Play("Oink");
         animator.SetTrigger("Hurt");
     }
 

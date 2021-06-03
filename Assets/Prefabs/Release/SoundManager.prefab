@@ -80,3 +80,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d6630052067bcfa4188243a9ab4450f9, type: 3}
     volume: 0.212
     source: {fileID: 0}
+  - name: Oink
+    clip: {fileID: 8300000, guid: 7e702291bacb69941ab5ad046a308c4b, type: 3}
+    volume: 0.195
+    source: {fileID: 0}
