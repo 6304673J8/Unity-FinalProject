@@ -76,3 +76,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5b894fe1e6c00f24e913409d3757bfac, type: 3}
     volume: 0.167
     source: {fileID: 0}
+  - name: Bite
+    clip: {fileID: 8300000, guid: d6630052067bcfa4188243a9ab4450f9, type: 3}
+    volume: 0.212
+    source: {fileID: 0}

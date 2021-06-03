@@ -380,7 +380,7 @@ public class SusanaControlled : MonoBehaviour
 
         else if(collision.tag == "Stairs")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1,LoadSceneMode.Single);
         }
 
     }
@@ -446,6 +446,7 @@ public class SusanaControlled : MonoBehaviour
                 //PotionLogic();
                 health += healAmount;
                 GameManager.Instance.potionNumber--;
+                FindObjectOfType<SoundManager>().Play("Bite");
             }
             else if (health == maxHealth)
             {
