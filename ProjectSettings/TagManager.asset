@@ -21,6 +21,7 @@ TagManager:
   - Fireball
   - Potion
   - Stairs
+  - Truffle
   layers:
   - Default
   - TransparentFX
