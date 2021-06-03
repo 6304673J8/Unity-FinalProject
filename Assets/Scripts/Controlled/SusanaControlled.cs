@@ -372,6 +372,17 @@ public class SusanaControlled : MonoBehaviour
             collision.gameObject.SetActive(false);
            
         }*/
+
+        else if(collision.tag == "HealingTile")
+        {
+            part.Play();
+        }
+
+        else if(collision.tag == "Stairs")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
