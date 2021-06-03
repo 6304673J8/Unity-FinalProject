@@ -7,6 +7,8 @@ public class DestroyMe : MonoBehaviour
     private bool isDestroyed = false;
     private Animator animator;
     public GameObject destroyItem;
+    public GameObject drop;
+    public bool canDrop;
 
     private void Awake()
     {
@@ -22,6 +24,10 @@ public class DestroyMe : MonoBehaviour
             isDestroyed = true;
             animator.SetTrigger("Skill");
             GameObject di = Instantiate(destroyItem, transform.position, transform.rotation);
+            if(canDrop)
+            {
+                GameObject drp = Instantiate(drop, transform.position, transform.rotation);
+            }
             Destroy(di, 2);
             Destroy(this.gameObject, 0.8f);
         }
@@ -31,6 +37,10 @@ public class DestroyMe : MonoBehaviour
             isDestroyed = true;
             animator.SetTrigger("Skill");
             GameObject di = Instantiate(destroyItem, transform.position, transform.rotation);
+            if (canDrop)
+            {
+                GameObject drp = Instantiate(drop, transform.position, transform.rotation);
+            }
             Destroy(di, 2);
             Destroy(this.gameObject, 0.8f);
         }

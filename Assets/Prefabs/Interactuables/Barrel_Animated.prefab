@@ -54,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 442065107
-  m_SortingLayer: 2
+  m_SortingLayer: 7
   m_SortingOrder: 3
   m_Sprite: {fileID: -5928456495594718760, guid: ecefc0d46067a6045985abd1c7bb2386,
     type: 3}
@@ -144,9 +144,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -167,6 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyItem: {fileID: 2158285674059862761, guid: b10bf3a1f78a8734f9e21293af7e57c9,
     type: 3}
+  drop: {fileID: 947627880006479839, guid: 311b029095c3fdd49bac68accb7998c2, type: 3}
+  canDrop: 0
 --- !u!82 &3266825257817846325
 AudioSource:
   m_ObjectHideFlags: 0
