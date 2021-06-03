@@ -44,6 +44,11 @@ public class finalSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        elapsed += Time.deltaTime;
+
+        if (elapsed >= timer)
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+        }
     }
 }
