@@ -107,9 +107,9 @@ public class ExplosiveEnemy : MonoBehaviour
         {
             if (isExploding)
             {
+                sprite.color = Color.red;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 elapsedF += Time.deltaTime;
-
                 if (elapsedF >= explosionDelay)
                 {
                     explode();
@@ -156,8 +156,9 @@ public class ExplosiveEnemy : MonoBehaviour
 
             if (separation <= 1)
             {
-
+                FindObjectOfType<SoundManager>().Play("Exploding");
                 isExploding = true;
+                
             }
 
          
@@ -275,22 +276,27 @@ public class ExplosiveEnemy : MonoBehaviour
     {
 
         GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
-        //FindObjectOfType<SoundManager>().Play("Explosion");
+        FindObjectOfType<SoundManager>().Play("Explosion");
         float separation = Vector3.Distance(this.transform.position, player.transform.position);
 
        if(separation < 1)
         {
-            player.SendMessage("TakeDamage", 60);
+            player.SendMessage("TakeDamage", 300);
         }
 
        else if(separation < 2)
         {
-            player.SendMessage("TakeDamage", 50);
+            player.SendMessage("TakeDamage", 170);
         }
 
        else if(separation < 3)
         {
-            player.SendMessage("TakeDamage", 40);
+            player.SendMessage("TakeDamage", 60);
+        }
+
+       else if(separation < 4)
+        {
+            player.SendMessage("TakeDamage", 10);
         }
 
        else
