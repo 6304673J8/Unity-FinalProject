@@ -430,6 +430,7 @@ public class SusanaControlled : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        animator.SetTrigger("Hurt");
     }
 
     public void Heal()
