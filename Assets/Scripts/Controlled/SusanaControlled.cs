@@ -357,7 +357,7 @@ public class SusanaControlled : MonoBehaviour
         
         else if (collision.tag == "Key")
         {
-            GameManager.Instance.keyNumber++;
+            GameManager.Instance.keyNumber = 1;
             nKeys++;
         }
         else if (collision.tag == "NPC")
@@ -385,7 +385,7 @@ public class SusanaControlled : MonoBehaviour
         {
             part.Play();
             UpdateHealth(-2);
-            //ps.Play();
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

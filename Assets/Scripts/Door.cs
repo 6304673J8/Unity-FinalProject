@@ -30,9 +30,8 @@ public class Door : MonoBehaviour
     {
         if(collision.tag == "Susana")
         {
-            if(keyManager.Instance.keyNum >= 1)
+            if(GameManager.Instance.keyNumber >= 1)
             {
-                keyManager.Instance.keyNum--;
                 GameManager.Instance.keyNumber--;
                 FindObjectOfType<SoundManager>().Play("OpenDoor");
                 destroyDoor();
