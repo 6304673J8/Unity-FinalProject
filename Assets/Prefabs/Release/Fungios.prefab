@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 15
   damage: 15
-  speed: 3
+  speed: 2
   stoppingDistance: 4
   retreatDistance: 3
   shotDistance: 8
