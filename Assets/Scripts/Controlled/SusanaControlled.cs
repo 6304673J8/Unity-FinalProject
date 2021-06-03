@@ -383,6 +383,11 @@ public class SusanaControlled : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1,LoadSceneMode.Single);
         }
 
+        else if(collision.tag == "Truffle")
+        {
+            SceneManager.LoadScene("FinalScene", LoadSceneMode.Single);
+        }
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
