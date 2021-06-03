@@ -61,15 +61,15 @@ MonoBehaviour:
     volume: 0.095
     source: {fileID: 0}
   - name: OpenDoor
-    clip: {fileID: 8300000, guid: eb1ebc62dd1baf04db4fff0026ded166, type: 3}
+    clip: {fileID: 8300000, guid: 938c6d631942f5a459940a8c36fdf32f, type: 3}
     volume: 0.241
     source: {fileID: 0}
   - name: Exploding
-    clip: {fileID: 8300000, guid: 92899930177b0b8409256450fd5e48c4, type: 3}
+    clip: {fileID: 8300000, guid: 8c93c43f177b9494f9aa945f5bc14d01, type: 3}
     volume: 0.292
     source: {fileID: 0}
   - name: Explosion
-    clip: {fileID: 8300000, guid: 00accf66aeefcb24d9384f3cf4010971, type: 3}
+    clip: {fileID: 8300000, guid: 7aded1411f3820f4fae459a9808ed5eb, type: 3}
     volume: 0.167
     source: {fileID: 0}
   - name: Checkpoint

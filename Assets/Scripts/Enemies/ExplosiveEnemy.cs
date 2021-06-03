@@ -156,7 +156,7 @@ public class ExplosiveEnemy : MonoBehaviour
 
             if (separation <= 1)
             {
-                FindObjectOfType<SoundManager>().Play("Exploding");
+                //FindObjectOfType<SoundManager>().Play("Exploding");
                 isExploding = true;
                 
             }
@@ -269,7 +269,7 @@ public class ExplosiveEnemy : MonoBehaviour
     {
 
         GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
-        FindObjectOfType<SoundManager>().Play("Explosion");
+        //FindObjectOfType<SoundManager>().Play("Explosion");
         float separation = Vector3.Distance(this.transform.position, player.transform.position);
         
 
