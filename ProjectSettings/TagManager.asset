@@ -20,6 +20,7 @@ TagManager:
   - GameManager
   - Fireball
   - Potion
+  - Stairs
   layers:
   - Default
   - TransparentFX

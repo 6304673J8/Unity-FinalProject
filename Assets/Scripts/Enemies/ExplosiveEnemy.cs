@@ -200,10 +200,10 @@ public class ExplosiveEnemy : MonoBehaviour
         if (dying >= dieDelay)
         {
             Destroy(gameObject);
-            if (canDrop)
+            /*if (canDrop)
             {
                 GameObject k = Instantiate(key, transform.position, transform.rotation);
-            }
+            }*/
         }
     }
 
@@ -271,8 +271,9 @@ public class ExplosiveEnemy : MonoBehaviour
         GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
         FindObjectOfType<SoundManager>().Play("Explosion");
         float separation = Vector3.Distance(this.transform.position, player.transform.position);
+        
 
-       if(separation < 1)
+        if (separation < 1)
         {
             player.SendMessage("TakeDamage", 300);
         }
@@ -297,6 +298,10 @@ public class ExplosiveEnemy : MonoBehaviour
 
         }
 
+        if (canDrop)
+        {
+            GameObject k = Instantiate(key, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
 
     }
