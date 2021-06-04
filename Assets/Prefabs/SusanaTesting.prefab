@@ -283,6 +283,7 @@ MonoBehaviour:
     type: 3}
   potionPrefab: {fileID: 1631369526455959851, guid: dcb83ab84f8c17e449bb9dd0036552d3,
     type: 3}
+  ouch: {fileID: 3146360686668800204, guid: cffd1f3ae08aa94429037736ad3fc596, type: 3}
   abilities: {fileID: 0}
   defending: 0
   lunging: 0
@@ -357,7 +358,7 @@ MonoBehaviour:
   - {x: -1.2537603, y: 0.6829946, z: 0}
   m_ShapePathHash: 708182745
   m_Mesh: {fileID: 0}
-  m_InstanceId: -11366
+  m_InstanceId: -235048
 --- !u!114 &1356141430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1831,7 +1832,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: a3fafc39a8a30454d8d24cec108d2c85, type: 3}
+    - sprite: {fileID: 21300000, guid: 7e2c684b7164553439e9cd4d74b57441, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
