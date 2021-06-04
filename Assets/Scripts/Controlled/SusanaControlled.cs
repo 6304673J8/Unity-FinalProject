@@ -60,6 +60,7 @@ public class SusanaControlled : MonoBehaviour
     public GameObject earthquakePrefab;
     public GameObject lungePrefab;
     public GameObject potionPrefab;
+    public GameObject ouch;
     public AbilitiesControlled abilities;
     public bool defending;
     public bool lunging;
@@ -436,8 +437,8 @@ public class SusanaControlled : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        FindObjectOfType<SoundManager>().Play("Oink");
         animator.SetTrigger("Hurt");
+        GameObject au = Instantiate(ouch, transform.position, transform.rotation);
     }
 
     public void Heal()

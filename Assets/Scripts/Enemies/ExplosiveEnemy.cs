@@ -33,7 +33,7 @@ public class ExplosiveEnemy : MonoBehaviour
 
     private bool isExploding;
 
-    //private Animator animator;
+    private Animator animator;
 
     SpriteRenderer sprite;
 
@@ -67,7 +67,7 @@ public class ExplosiveEnemy : MonoBehaviour
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
     }
 
@@ -129,8 +129,8 @@ public class ExplosiveEnemy : MonoBehaviour
 
                 if (separation <= range)
                 {
-                    //animator.ResetTrigger("isIdle");
-                    //animator.SetTrigger("isWalking");
+                    animator.ResetTrigger("isIdle");
+                    animator.SetTrigger("isWalking");
                     if (canBeInvisible)
                     {
                         gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -142,8 +142,8 @@ public class ExplosiveEnemy : MonoBehaviour
 
                 else if (separation > range)
                 {
-                    //animator.ResetTrigger("isWalking");
-                    //animator.SetTrigger("isIdle");
+                    animator.ResetTrigger("isWalking");
+                    animator.SetTrigger("isIdle");
                     if (canBeInvisible)
                     {
                         gameObject.GetComponent<SpriteRenderer>().enabled = false;

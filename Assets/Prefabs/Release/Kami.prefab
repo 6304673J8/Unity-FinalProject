@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6837023897555937261}
   - component: {fileID: 6493533705318200515}
   - component: {fileID: 7195791766914451237}
+  - component: {fileID: 4248179275449803738}
   m_Layer: 10
   m_Name: Kami
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 900639987
   m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1835703324528775766, guid: 7d2a0b35ee080fb47942030a7a378448,
+  m_Sprite: {fileID: 4140748375165067193, guid: 1e0932dce4e368c4ba5d92fc662e0669,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.013890266, y: 0.032989025}
+  m_Offset: {x: -0.034581184, y: -0.10613966}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -109,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2707653, y: 0.32285404}
+  m_Size: {x: 0.3349781, y: 0.6011114}
   m_EdgeRadius: 0
 --- !u!50 &6493533705318200515
 Rigidbody2D:
@@ -158,3 +159,22 @@ MonoBehaviour:
   explosion: {fileID: 7796829307028300675, guid: 18d3963ac1c3f904ebc628745f4a5a00,
     type: 3}
   enemyTag: 3
+--- !u!95 &4248179275449803738
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707739072200023331}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39293bfba0ae4a547a6509a4fee81fe4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
