@@ -1,22 +1,67 @@
 fileFormatVersion: 2
-guid: aef55d162fa97f34db8bdfda0712fa9f
+guid: c8cc9b1debc377e45b4b11d00845b366
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3757815728084671095
-    second: Door-64px_0
+      213: 2457611998261093506
+    second: Door 64_0
   - first:
-      213: -5969865782400530247
-    second: Door-64px_1
+      213: 13958981619772617
+    second: Door 64_1
   - first:
-      213: 1257252763926392284
-    second: Door-64px_2
+      213: -6640744414984430495
+    second: Door 64_2
   - first:
-      213: 3450761092102818325
-    second: Door-64px_3
+      213: 2878501539826925192
+    second: Door 64_3
   - first:
-      213: -1378471315470220245
-    second: Door-64px_4
+      213: 8199020835265466104
+    second: Door 64_4
+  - first:
+      213: -6214446757583275623
+    second: Door 64_5
+  - first:
+      213: 1119288609784540271
+    second: Door 64_6
+  - first:
+      213: 4139937477034122734
+    second: Door 64_7
+  - first:
+      213: -4800254378760646538
+    second: Door 64_8
+  - first:
+      213: -175674031545710051
+    second: Door 64_9
+  - first:
+      213: -8813866524461981768
+    second: Door 64_10
+  - first:
+      213: -4670212468461240833
+    second: Door 64_11
+  - first:
+      213: -7572589990787805147
+    second: Door 64_12
+  - first:
+      213: -9035119479664261426
+    second: Door 64_13
+  - first:
+      213: 5863816904895788513
+    second: Door 64_14
+  - first:
+      213: 2580043076030695176
+    second: Door 64_15
+  - first:
+      213: -5767143780188275066
+    second: Door 64_16
+  - first:
+      213: 7179614544601934575
+    second: Door 64_17
+  - first:
+      213: 6311652926965102040
+    second: Door 64_18
+  - first:
+      213: -3997963919587360221
+    second: Door 64_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -126,7 +171,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door-64px_0
+      name: Door 64_0
       rect:
         serializedVersion: 2
         x: 0
@@ -140,14 +185,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 985232c418e89dbc0800000000000000
-      internalID: -3757815728084671095
+      spriteID: 284271867113b1220800000000000000
+      internalID: 2457611998261093506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door-64px_1
+      name: Door 64_1
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +206,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b8c14b53b6c62da0800000000000000
-      internalID: -5969865782400530247
+      spriteID: 9cc6fdcae97913000800000000000000
+      internalID: 13958981619772617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door-64px_2
+      name: Door 64_2
       rect:
         serializedVersion: 2
         x: 128
@@ -182,14 +227,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdde5b24ab8a27110800000000000000
-      internalID: 1257252763926392284
+      spriteID: 16c91b4832657d3a0800000000000000
+      internalID: -6640744414984430495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door-64px_3
+      name: Door 64_3
       rect:
         serializedVersion: 2
         x: 0
@@ -203,14 +248,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51a078b2ee093ef20800000000000000
-      internalID: 3450761092102818325
+      spriteID: 88e7cc646ed72f720800000000000000
+      internalID: 2878501539826925192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Door-64px_4
+      name: Door 64_4
       rect:
         serializedVersion: 2
         x: 64
@@ -224,8 +269,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b24055c54afaedce0800000000000000
-      internalID: -1378471315470220245
+      spriteID: 8fe46086206c8c170800000000000000
+      internalID: 8199020835265466104
       vertices: []
       indices: 
       edges: []
