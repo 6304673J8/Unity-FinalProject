@@ -6,7 +6,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    private Item ItemSusana;
     public static GameManager Instance { get; private set; }
     //Text Items;
     public int potionNumber;
