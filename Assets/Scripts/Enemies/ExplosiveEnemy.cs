@@ -13,7 +13,7 @@ public class ExplosiveEnemy : MonoBehaviour
 
     private float stunTimer = 4f; //Temporizador del STUN
 
-    private float timerSpeedAttack = 0.3f; //Temporizador del ataque (ataca a los 0.8 segundos de estar en rango)
+    private float timerSpeedAttack = 0.3f; //Temporizador del ataque (ataca a los x segundos de estar en rango)
 
     public float explosionDelay = 1f;
 
@@ -124,9 +124,6 @@ public class ExplosiveEnemy : MonoBehaviour
             {
                 elapsed = 0f;
 
-
-                //Debug.Log("Range to player = " + separation);
-
                 if (separation <= range)
                 {
                     animator.ResetTrigger("isIdle");
@@ -156,7 +153,7 @@ public class ExplosiveEnemy : MonoBehaviour
 
             if (separation <= 1)
             {
-                //FindObjectOfType<SoundManager>().Play("Exploding");
+                FindObjectOfType<SoundManager>().Play("Exploding");
                 isExploding = true;
                 
             }
@@ -183,28 +180,7 @@ public class ExplosiveEnemy : MonoBehaviour
 
     private void kill()
     {
-        if (enemyTag == 1)
-        {
-            FindObjectOfType<SoundManager>().Play("OnaosDeath");
-        }
-
-        else if (enemyTag == 2)
-        {
-            FindObjectOfType<SoundManager>().Play("PiamondDeath");
-        }
-        dyingb = true;
-        sprite.color = new Color(1, 1, 1, 1);
-        //animator.ResetTrigger("isWalking");
-        //animator.SetTrigger("isDying");
-        dying += Time.deltaTime;
-        if (dying >= dieDelay)
-        {
-            Destroy(gameObject);
-            /*if (canDrop)
-            {
-                GameObject k = Instantiate(key, transform.position, transform.rotation);
-            }*/
-        }
+        Destroy(gameObject);
     }
 
 
@@ -269,7 +245,7 @@ public class ExplosiveEnemy : MonoBehaviour
     {
 
         GameObject exp = Instantiate(explosion, transform.position, transform.rotation);
-        //FindObjectOfType<SoundManager>().Play("Explosion");
+        FindObjectOfType<SoundManager>().Play("Explosion");
         float separation = Vector3.Distance(this.transform.position, player.transform.position);
         
 
