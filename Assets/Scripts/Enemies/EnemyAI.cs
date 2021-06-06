@@ -10,9 +10,9 @@ public class EnemyAI : MonoBehaviour
     public float moveSpeed = 1f;
     public float timerSpeed; //Este valor define los segundos del temporizador
 
-    private float stunTimer = 4f; //Temporizador del STUN
+    private float stunTimer = 4f; //Temporizador del STUN (Los sergundos que pasa stuneado)
 
-    private float timerSpeedAttack = 0.3f; //Temporizador del ataque (ataca a los 0.8 segundos de estar en rango)
+    private float timerSpeedAttack = 0.3f; //Temporizador del ataque (ataca a los x segundos de estar en rango)
 
     public float attackDelay = 0.3f;
 
@@ -54,18 +54,11 @@ public class EnemyAI : MonoBehaviour
 
     public int enemyTag;
 
-   /* public Transform moveSpot;
-
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;*/
 
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        
     }
 
     private void Start()
@@ -103,9 +96,6 @@ public class EnemyAI : MonoBehaviour
             if (elapsed >= timerSpeed)
             {
                 elapsed = 0f;
-
-
-                //Debug.Log("Range to player = " + separation);
                 
                 if (separation <= range)
                 {
@@ -182,7 +172,6 @@ public class EnemyAI : MonoBehaviour
         
 
     }
-
     void chasePlayer(Vector2 direction)
     {
         rb.MovePosition((Vector2)transform.position + (direction * moveSpeed * Time.deltaTime));
@@ -249,21 +238,6 @@ public class EnemyAI : MonoBehaviour
         }
 
     }
-
-
-    /*private void OnCollisionStay2D(Collision2D collision)
-    {
-        if(gameObject.CompareTag("Susana"))
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        rb.constraints = RigidbodyConstraints2D.None;
-    }*/
-
    
     void attackPlayer()
     {
@@ -280,11 +254,6 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void Patrol()
-    {
-        //moveSpot.position = new Vector2(Random.Range(minX,maxX), Random.Range(minY,maxY));
-        //transform.position = Vector2.MoveTowards(transform.position, moveSpot.position, moveSpeed * Time.deltaTime);
-    }
 
     void Flip()
     {

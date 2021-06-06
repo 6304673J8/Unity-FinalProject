@@ -45,7 +45,7 @@ public class RangedEnemyAI : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Susana").transform;
@@ -58,7 +58,7 @@ public class RangedEnemyAI : MonoBehaviour
         facingLeft = true;
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(hp <= 0)
@@ -130,19 +130,6 @@ public class RangedEnemyAI : MonoBehaviour
 
     }
 
-    /*private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (gameObject.CompareTag("Susana"))
-        {
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        rb.constraints = RigidbodyConstraints2D.None;
-    }*/
-
     private void getStunned()
     {
         if (!dyingb)
@@ -183,7 +170,6 @@ public class RangedEnemyAI : MonoBehaviour
             Flip();
         }
     }
-
 
     private void kill()
     {
