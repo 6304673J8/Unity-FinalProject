@@ -43,7 +43,7 @@ public class NextSceneScript : MonoBehaviour
 
         if(elapsed>=timer)
         {
-            //SceneManager.LoadScene("TutorialRoom", LoadSceneMode.Single);
+           
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }

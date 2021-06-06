@@ -36,7 +36,6 @@ public class Door : MonoBehaviour
                 GameManager.Instance.keyNumber = 0;
                 FindObjectOfType<SoundManager>().Play("OpenDoor");
                 GameObject opd = Instantiate(openedDoor, transform.position, transform.rotation);
-                
                 destroyDoor();
             }
            

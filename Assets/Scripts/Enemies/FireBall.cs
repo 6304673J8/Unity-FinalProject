@@ -63,28 +63,13 @@ public class FireBall : MonoBehaviour
         }
     }
 
-
-   /* private void OnCollisionEnter2D(Collision2D collision)
-     {
-         if(collision.gameObject.CompareTag("Susana") || collision.gameObject.CompareTag("Wall"))
-         {
-             Debug.Log("FIREBALL!");
-             DestroyProjectile();
-         }
-     }*/
-
     void DestroyProjectile()
     {
-        
         animator.SetTrigger("Destroyed");
-        //speed = 0;
         beingDestroyed += Time.deltaTime;
         if(beingDestroyed >= destroyTime)
         {
             Destroy(gameObject);
         }
-       
     }
-
-    
 }

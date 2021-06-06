@@ -21,20 +21,6 @@ public class keyManager : MonoBehaviour
 
     public int keyNum;
 
-    
-
-        // Start is called before the first frame update
-        void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void restartNum()
     {
         keyNum = 0;

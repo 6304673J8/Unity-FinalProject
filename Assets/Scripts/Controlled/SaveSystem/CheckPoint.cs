@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    //private float checkPointX, checkPointY;
-    //private SusanaRespawn checkPoint;
     private GameManager gm;
 
     private void Start()
