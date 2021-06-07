@@ -54,11 +54,12 @@ public class EnemyAI : MonoBehaviour
 
     public int enemyTag;
 
-
+    ParticleSystem damagepart;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        damagepart = GetComponent<ParticleSystem>();
     }
 
     private void Start()
@@ -235,6 +236,7 @@ public class EnemyAI : MonoBehaviour
         if(collision.CompareTag("Lunge"))
         {
             hp -= 10;
+            damagepart.Play();
         }
 
     }

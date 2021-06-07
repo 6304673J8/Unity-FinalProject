@@ -43,6 +43,7 @@ public class SusanaControlled : MonoBehaviour
     public ParticleSystem smokePartRight;
     public ParticleSystem smokePartUp;
     public ParticleSystem smokePartDown;
+    public ParticleSystem damagepart;
 
 
 
@@ -475,6 +476,7 @@ public class SusanaControlled : MonoBehaviour
     {
         health -= damage;
         animator.SetTrigger("Hurt");
+        damagepart.Play();
         GameObject au = Instantiate(ouch, transform.position, transform.rotation);
     }
 

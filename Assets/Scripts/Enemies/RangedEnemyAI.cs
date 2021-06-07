@@ -23,6 +23,8 @@ public class RangedEnemyAI : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
 
+    ParticleSystem damagepart;
+
     public GameObject fireBall;
 
     public GameObject key;
@@ -42,6 +44,7 @@ public class RangedEnemyAI : MonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        damagepart = GetComponent<ParticleSystem>();
 
     }
 
@@ -126,6 +129,11 @@ public class RangedEnemyAI : MonoBehaviour
         {
 
             getStunned();
+        }
+
+        if(collision.CompareTag("Lunge"))
+        {
+            damagepart.Play();
         }
 
     }
