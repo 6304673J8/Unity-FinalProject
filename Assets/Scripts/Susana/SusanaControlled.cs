@@ -17,7 +17,7 @@ public class SusanaControlled : MonoBehaviour
     Vector2 move;
     Vector2 fakeMove;
     public bool canMove = false;
-    bool facingRight = true;
+   public bool facingRight = true;
 
     //hp
     public HealthBar healthBar;
@@ -39,6 +39,12 @@ public class SusanaControlled : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer sprite;
     ParticleSystem part;
+    public ParticleSystem smokePartLeft;
+    public ParticleSystem smokePartRight;
+    public ParticleSystem smokePartUp;
+    public ParticleSystem smokePartDown;
+
+
 
     bool isMoving;
 
@@ -119,6 +125,7 @@ public class SusanaControlled : MonoBehaviour
         controls.Susana.Shield.started += ctx => Shield();
         controls.Susana.Shield.canceled += ctx => Shield();
         controls.Susana.Earthquake.started += ctx => Earthquake();
+
     }
     private void OnEnable()
     {
@@ -206,7 +213,6 @@ public class SusanaControlled : MonoBehaviour
             }
             if (floorTilemap.HasTile(gridPos) || !collisionTilemap.HasTile(gridPos))
             {
-                //Debug.Log("Moving");
                 transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
                 hasMoved = true;
             }
@@ -214,20 +220,51 @@ public class SusanaControlled : MonoBehaviour
         }
         else
         {
-            //Debug.Log("PROTECT");
             hasMoved = false;
         }
         animator.SetBool(runID, hasMoved);
         
         if (hasLunged == true)
         {
+            if(facingRight)
+            {
+                if(move.y == 0)
+                {
+                    smokePartRight.Play();
+                }
+                
+                if(move.y > 0)
+                {
+                    smokePartUp.Play();
+                }
+
+                if(move.y < 0)
+                {
+                    smokePartDown.Play();
+                }
+            }
+
+            if(!facingRight)
+            {
+                if (move.y == 0)
+                {
+                    smokePartLeft.Play();
+                }
+
+                if (move.y > 0)
+                {
+                    smokePartUp.Play();
+                }
+
+                if (move.y < 0)
+                {
+                    smokePartDown.Play();
+                }
+            }
             transform.position += (Vector3)move * speed * lungeDistance * Time.fixedDeltaTime;
             
-            //WiP
-
-            //fakeMove = Vector3.ClampMagnitude(fakeMove, 1);
-            //rb.velocity = new Vector2(lungeDistance, rb.velocity.y);
             hasLunged = false;
+            
         }
     }
 
