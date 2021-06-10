@@ -10,10 +10,6 @@ public class ItemBehaviour : MonoBehaviour
     {
         if (collision.CompareTag("Susana"))
         {
-            if(isKey)
-            {
-                keyManager.Instance.keyNum++;
-            }
             GetComponent<SpriteRenderer>().enabled = false;
             Destroy(gameObject, 0.5f);
             FindObjectOfType<SoundManager>().Play("itemPick");

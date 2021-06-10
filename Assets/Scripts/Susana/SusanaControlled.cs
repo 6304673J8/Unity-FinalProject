@@ -85,7 +85,6 @@ public class SusanaControlled : MonoBehaviour
 
     private ParticleSystem ps;
 
-    // shows rounded position = tile position
     private enum State
     {
         IDLE,
@@ -148,7 +147,6 @@ public class SusanaControlled : MonoBehaviour
         healthBar.SetMaxHealth(health);
         animator = GetComponent<Animator>();
         ps = GetComponent<ParticleSystem>();
-        //lungeID = Animator.StringToHash("Lunge");
         hurtID = Animator.StringToHash("Hurt");
         runID = Animator.StringToHash("Movement");
     }
@@ -180,7 +178,6 @@ public class SusanaControlled : MonoBehaviour
         {
             LoadPlayer();
         }
-
         if (health <= 0)
         {
             //animator.SetTrigger("Dead");
@@ -188,7 +185,6 @@ public class SusanaControlled : MonoBehaviour
             healthBar.SetHealth(health);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
         if(health <= 0)
         {
             LoadPlayer();
@@ -217,14 +213,12 @@ public class SusanaControlled : MonoBehaviour
                 transform.position += (Vector3)move * speed * Time.fixedDeltaTime;
                 hasMoved = true;
             }
-            
         }
         else
         {
             hasMoved = false;
         }
         animator.SetBool(runID, hasMoved);
-        
         if (hasLunged == true)
         {
             if(facingRight)
@@ -233,12 +227,10 @@ public class SusanaControlled : MonoBehaviour
                 {
                     smokePartRight.Play();
                 }
-                
                 if(move.y > 0)
                 {
                     smokePartUp.Play();
                 }
-
                 if(move.y < 0)
                 {
                     smokePartDown.Play();
@@ -251,12 +243,10 @@ public class SusanaControlled : MonoBehaviour
                 {
                     smokePartLeft.Play();
                 }
-
                 if (move.y > 0)
                 {
                     smokePartUp.Play();
                 }
-
                 if (move.y < 0)
                 {
                     smokePartDown.Play();
@@ -265,7 +255,6 @@ public class SusanaControlled : MonoBehaviour
             transform.position += (Vector3)move * speed * lungeDistance * Time.fixedDeltaTime;
             
             hasLunged = false;
-            
         }
     }
 
@@ -314,6 +303,7 @@ public class SusanaControlled : MonoBehaviour
             quaking = true;
             //sprite.color = new Color(0, 0, 1, 1);
             EarthquakeLogic();
+            animator.SetTrigger("Quake");
             Camera.main.GetComponent<CameraFollow>().shakeDuration = 0.2f;
         }
         //sprite.color = new Color(1, 1, 1, 1);
@@ -376,48 +366,33 @@ public class SusanaControlled : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //This to a manager
         if (collision.tag == "SavePoint")
         {
             SavePlayer();
         }
-
         else if(collision.tag == "Fireball")
         {
             animator.SetTrigger("Hurt");
             health -= 20;
         }
-        
         else if (collision.tag == "Potion")
         {
             GameManager.Instance.potionNumber++;
             nPotions++;
         }
-        
         else if (collision.tag == "Key")
         {
             GameManager.Instance.keyNumber = 1;
-            keyManager.Instance.keyNum = 1;
             nKeys++;
         }
         else if (collision.tag == "NPC")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        /*else if (collision.tag == "Door" && GameManager.Instance.keyNumber >= 1)
-        {
-            Debug.Log("Has usado una llave!");
-            GameManager.Instance.keyNumber--;
-            //collision.gameObject.SendMessage("destroyDoor");
-            collision.gameObject.SetActive(false);
-           
-        }*/
-
         else if(collision.tag == "HealingTile")
         {
             part.Play();
         }
-
         else if(collision.tag == "Stairs")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1,LoadSceneMode.Single);
@@ -427,7 +402,6 @@ public class SusanaControlled : MonoBehaviour
         {
             SceneManager.LoadScene("FinalScene", LoadSceneMode.Single);
         }
-
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -441,7 +415,6 @@ public class SusanaControlled : MonoBehaviour
         {
             part.Play();
             UpdateHealth(-2);
-            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -466,11 +439,12 @@ public class SusanaControlled : MonoBehaviour
         }
     }
 
-    public void continueMatch()
+    /*Save System Test Example
+     * public void continueMatch()
     {
         SceneManager.LoadScene("MainRoomv3", LoadSceneMode.Single);
         LoadPlayer();
-    }
+    }*/
 
     public void TakeDamage(int damage)
     {
@@ -501,122 +475,7 @@ public class SusanaControlled : MonoBehaviour
                 //PotionLogic();
                 //Heart emission here
                 health = maxHealth;
-                //GameManager.Instance.potionNumber--;
             }
         }
     }
-
-    /*public void PotionLogic()
-    {
-        Vector2 pos = transform.position;
-
-        GameObject potionFX = Instantiate(potionPrefab, pos, transform.rotation);
-    }*/
-
-
-    /*public void Earthquake()
-    {
-        Debug.Log("BROOOM");
-    }
-
-    public void Lunge()
-    {
-        Debug.Log("Lunging");
-        //transform.position += (Vector3)axis * 2;
-    }
-
-    private void CheckFlip()
-    {
-        if (facingRight == false && axis.x > 0)
-        {
-
-            Flip();
-
-        }
-        else if (facingRight == true && axis.x < 0)
-        {
-            Flip();
-        }
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
-    }
-
-    public void SetAxis(Vector2 _axis)
-    {
-        print(axis);
-        axis = _axis;
-    }
-    public bool IsMoving()
-    {
-        return isMoving;
-    }*/
-    /*
-     *
-     *https://www.youtube.com/watch?v=oBvWOHHbzJ0&list=PLzDRvYVwl53vXmpctKrMQTxA3cQwGcAk2&index=5
-     private void Move(Vector2 dir)
-    {
-        bool isIdle = dir.x == 0 && dir.y == 0;
-        if (isIdle)
-        {
-            Debug.Log("Animación IDLE");
-        }
-        else
-        {
-            //si falla quitar normalized
-            Vector3 movementDir = new Vector3(dir.x, dir.y);
-
-            bool canMove = CanMove(movementDir, speed * Time.deltaTime);
-            if (TestMove(movementDir,speed * Time.deltaTime))
-            {
-                Debug.Log("SIIIIIII" + dir);
-                //transform.position += movementDir;
-                //dir = new Vector2Int(Mathf.FloorToInt(dir.x), Mathf.FloorToInt(dir.y));
-                //transform.position += (Vector3)dir;
-            }
-            else
-            {
-                Debug.Log("NOOOOOOOO" + dir);
-                //transform.position += lastMoveDir;
-            }
-        }
-    }
-    private bool CanMove(Vector3 dir, float distance)
-    {
-        return Physics2D.Raycast(transform.position, dir, distance).collider == null;
-    }
-
-    private bool TestMove(Vector3 baseMoveDir, float distance)
-    {
-        Vector3 moveDir = baseMoveDir;
-        bool canMove = CanMove(moveDir, distance);
-        if (!canMove)
-        {
-            //cannot move diagonal
-            moveDir = new Vector3(baseMoveDir.x, 0f);
-            canMove = moveDir.x != 0f && CanMove(moveDir, distance);
-            if (!canMove)
-            {
-                //cannot move horizontal
-                moveDir = new Vector3(0, baseMoveDir.y);
-                canMove = moveDir.y != 0f && CanMove(moveDir, distance);
-            }
-        }
-        if (canMove)
-        {
-            lastMoveDir = moveDir;
-            transform.position += moveDir * distance;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-     */
 }

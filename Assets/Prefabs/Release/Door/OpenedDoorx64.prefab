@@ -90,8 +90,9 @@ GameObject:
   - component: {fileID: 8107368334298296713}
   - component: {fileID: 8107368334298296714}
   - component: {fileID: 8107368334298296712}
+  - component: {fileID: 8048637872532986198}
   m_Layer: 0
-  m_Name: OpenedDoor
+  m_Name: OpenedDoorx64
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,8 +150,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -129435965
-  m_SortingLayer: 14
+  m_SortingLayerID: 900639987
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 8199020835265466104, guid: c8cc9b1debc377e45b4b11d00845b366,
     type: 3}
@@ -190,6 +191,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!95 &8048637872532986198
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107368334298296715}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1527456fcddc86d419c0f9b5039f6eb4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8107368335122140134
 GameObject:
   m_ObjectHideFlags: 0
