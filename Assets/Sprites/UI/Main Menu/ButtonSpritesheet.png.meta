@@ -48,7 +48,7 @@ TextureImporter:
       213: 3012000943189790423
     second: ButtonSpritesheet_14
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -68,6 +68,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -77,8 +79,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -99,10 +101,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -142,6 +148,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -480,6 +498,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      ButtonSpritesheet_0: 6760107248644050821
+      ButtonSpritesheet_1: -4432381401437561306
+      ButtonSpritesheet_10: 571242712734758456
+      ButtonSpritesheet_11: 8970481153992229375
+      ButtonSpritesheet_12: -809750175208561926
+      ButtonSpritesheet_13: 3659438792599517058
+      ButtonSpritesheet_14: 3012000943189790423
+      ButtonSpritesheet_2: 7201608658670401265
+      ButtonSpritesheet_3: 5421756506098656364
+      ButtonSpritesheet_4: -4978114819664226736
+      ButtonSpritesheet_5: 8877628464692445355
+      ButtonSpritesheet_6: -4448392347012121402
+      ButtonSpritesheet_7: 8479199011819725569
+      ButtonSpritesheet_8: -5068185989885513789
+      ButtonSpritesheet_9: 5673830618411378574
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

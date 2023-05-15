@@ -102,7 +102,7 @@ TextureImporter:
       213: -5435249853420840818
     second: SusanaSpritesheet_32
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -122,6 +122,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -131,8 +133,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -153,10 +155,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -184,6 +190,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -900,6 +930,40 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SusanaSpritesheet_0: 2254861457954037919
+      SusanaSpritesheet_1: -1721331292843120786
+      SusanaSpritesheet_10: -117507060971131617
+      SusanaSpritesheet_11: -5732797598897427648
+      SusanaSpritesheet_12: -2429813604308440994
+      SusanaSpritesheet_13: 1216074618727005852
+      SusanaSpritesheet_14: 5634450274935140542
+      SusanaSpritesheet_15: -6866593737604487652
+      SusanaSpritesheet_16: 8965473260035364536
+      SusanaSpritesheet_17: 5068243540037803164
+      SusanaSpritesheet_18: 4162352286758676075
+      SusanaSpritesheet_19: 4932795395015183455
+      SusanaSpritesheet_2: -5149231384822336199
+      SusanaSpritesheet_20: 7848310460274477739
+      SusanaSpritesheet_21: 2194440703164927071
+      SusanaSpritesheet_22: -657840375417540675
+      SusanaSpritesheet_23: -5195955072266375815
+      SusanaSpritesheet_24: 5183036978929295778
+      SusanaSpritesheet_25: -9179341086226718638
+      SusanaSpritesheet_26: -4199903048904904119
+      SusanaSpritesheet_27: 4645572893652542491
+      SusanaSpritesheet_28: -5509147845283204397
+      SusanaSpritesheet_29: 6945542220013598983
+      SusanaSpritesheet_3: -553671583065875903
+      SusanaSpritesheet_30: 2913091520173448477
+      SusanaSpritesheet_31: 8929593775446936882
+      SusanaSpritesheet_32: -5435249853420840818
+      SusanaSpritesheet_4: 2608699031448236383
+      SusanaSpritesheet_5: 8441151990919963004
+      SusanaSpritesheet_6: -8688071020947340824
+      SusanaSpritesheet_7: 2100281578632791961
+      SusanaSpritesheet_8: 4842787398640159002
+      SusanaSpritesheet_9: -5856453066046220908
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
