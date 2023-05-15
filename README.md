@@ -1,3 +1,4 @@
 First Year Final Project, Top-Down Game with Rogue-Like Vibes. Download The CleanUp Repository.
 
-![alt text]([[http://url/to/img.png](https://img.itch.zone/aW1hZ2UvMTAyOTI1NC81ODcxNDk4LnBuZw==/original/UqWTW9.png)])
+!['Game screenshot'](https://github.com/6304673J8/Unity_FinalProject/blob/main/Captures/InGameCapture.png) 
+!['MainMenu screenshot'](https://github.com/6304673J8/Unity_FinalProject/blob/main/Captures/MenuInGame.png) 
