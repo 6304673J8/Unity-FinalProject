@@ -11,7 +11,8 @@
                     "id": "b37cd4ac-1e08-41a3-a452-37de917dcd79",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Lunge",
@@ -19,7 +20,8 @@
                     "id": "754657a2-8b3a-4427-b34f-89ffe0cd20f5",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Earthquake",
@@ -27,7 +29,8 @@
                     "id": "8690ae30-0382-4e22-9c67-9bc4d280fe11",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Action",
@@ -35,7 +38,8 @@
                     "id": "16ac4f06-e0f4-45c5-9088-3736b926e01d",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Shield",
@@ -43,7 +47,8 @@
                     "id": "84289052-d486-4654-8c4d-8cbf82b59511",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Previous",
@@ -51,7 +56,8 @@
                     "id": "4c67a23b-7a1c-4f93-a2bc-a84ec9f58910",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Next",
@@ -59,7 +65,8 @@
                     "id": "8ab9fefd-dbe9-4098-9ef1-9b8b324309a9",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Heal",
@@ -67,7 +74,8 @@
                     "id": "513efc52-8118-471c-bdfa-438049355fb0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Activate",
@@ -75,7 +83,8 @@
                     "id": "6cfc505c-f95f-4d7c-8b3a-43df0675560c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Pause",
@@ -83,7 +92,8 @@
                     "id": "21c140f5-a533-4767-b34a-1dd062987eeb",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -135,6 +145,61 @@
                     "name": "right",
                     "id": "189b5fda-3b13-45a3-ba2c-7d011f7bf218",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "ArrowKeys",
+                    "id": "fe61c1c4-9b53-4dcb-8541-9f8b4b28aa15",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "efb67578-9209-4fce-b1f1-32d88abe9384",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "b6cc8fb7-0823-4397-8ebf-48ebe2be42b6",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "97478971-46fc-4e1c-9ccc-f0804d0f8f2d",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "c0eeb13e-70d5-42c6-b8cd-3bb33e4d1eb5",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -352,7 +417,8 @@
                     "id": "09ece67f-c3b2-4039-997e-004f6ae61c40",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -379,7 +445,8 @@
                     "id": "0a298377-e007-4ca1-ac26-9a218168167f",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
